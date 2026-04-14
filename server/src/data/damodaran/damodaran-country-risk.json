@@ -1,0 +1,1272 @@
+{
+  "lastUpdated": "2026-01-05",
+  "source": "Aswath Damodaran, NYU Stern",
+  "sourceUrl": "https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.html",
+  "matureMarketERP": 0.0423,
+  "countries": [
+    {
+      "name": "Abu Dhabi",
+      "region": "Middle East",
+      "moodysRating": "Aa2",
+      "countryDefaultSpread": 0.0042,
+      "equityRiskPremium": 0.0487,
+      "countryRiskPremium": 0.0064
+    },
+    {
+      "name": "Albania",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Ba3",
+      "countryDefaultSpread": 0.0306,
+      "equityRiskPremium": 0.0889,
+      "countryRiskPremium": 0.0466
+    },
+    {
+      "name": "Andorra (Principality of)",
+      "region": "Western Europe",
+      "moodysRating": "Baa1",
+      "countryDefaultSpread": 0.0136,
+      "equityRiskPremium": 0.063,
+      "countryRiskPremium": 0.0207
+    },
+    {
+      "name": "Angola",
+      "region": "Africa",
+      "moodysRating": "B3",
+      "countryDefaultSpread": 0.0552,
+      "equityRiskPremium": 0.1264,
+      "countryRiskPremium": 0.0841
+    },
+    {
+      "name": "Argentina",
+      "region": "Central and South America",
+      "moodysRating": "Caa1",
+      "countryDefaultSpread": 0.0637,
+      "equityRiskPremium": 0.1394,
+      "countryRiskPremium": 0.0971
+    },
+    {
+      "name": "Armenia",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Ba3",
+      "countryDefaultSpread": 0.0306,
+      "equityRiskPremium": 0.0889,
+      "countryRiskPremium": 0.0466
+    },
+    {
+      "name": "Aruba",
+      "region": "Caribbean",
+      "moodysRating": "Baa3",
+      "countryDefaultSpread": 0.0187,
+      "equityRiskPremium": 0.0708,
+      "countryRiskPremium": 0.0285
+    },
+    {
+      "name": "Australia",
+      "region": "Australia & New Zealand",
+      "moodysRating": "Aaa",
+      "countryDefaultSpread": 0,
+      "equityRiskPremium": 0.0423,
+      "countryRiskPremium": 0
+    },
+    {
+      "name": "Austria",
+      "region": "Western Europe",
+      "moodysRating": "Aa1",
+      "countryDefaultSpread": 0.0023,
+      "equityRiskPremium": 0.0459,
+      "countryRiskPremium": 0.0036
+    },
+    {
+      "name": "Azerbaijan",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Baa3",
+      "countryDefaultSpread": 0.0187,
+      "equityRiskPremium": 0.0708,
+      "countryRiskPremium": 0.0285
+    },
+    {
+      "name": "Bahamas",
+      "region": "Caribbean",
+      "moodysRating": "B1",
+      "countryDefaultSpread": 0.0383,
+      "equityRiskPremium": 0.1006,
+      "countryRiskPremium": 0.0583
+    },
+    {
+      "name": "Bahrain",
+      "region": "Middle East",
+      "moodysRating": "B2",
+      "countryDefaultSpread": 0.0467,
+      "equityRiskPremium": 0.1135,
+      "countryRiskPremium": 0.0712
+    },
+    {
+      "name": "Bangladesh",
+      "region": "Asia",
+      "moodysRating": "B2",
+      "countryDefaultSpread": 0.0467,
+      "equityRiskPremium": 0.1135,
+      "countryRiskPremium": 0.0712
+    },
+    {
+      "name": "Barbados",
+      "region": "Caribbean",
+      "moodysRating": "B2",
+      "countryDefaultSpread": 0.0467,
+      "equityRiskPremium": 0.1135,
+      "countryRiskPremium": 0.0712
+    },
+    {
+      "name": "Belarus",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "C",
+      "countryDefaultSpread": 0.175,
+      "equityRiskPremium": 0.3089,
+      "countryRiskPremium": 0.2666
+    },
+    {
+      "name": "Belgium",
+      "region": "Western Europe",
+      "moodysRating": "Aa3",
+      "countryDefaultSpread": 0.0051,
+      "equityRiskPremium": 0.0501,
+      "countryRiskPremium": 0.0078
+    },
+    {
+      "name": "Belize",
+      "region": "Central and South America",
+      "moodysRating": "Caa1",
+      "countryDefaultSpread": 0.0637,
+      "equityRiskPremium": 0.1394,
+      "countryRiskPremium": 0.0971
+    },
+    {
+      "name": "Benin",
+      "region": "Africa",
+      "moodysRating": "B1",
+      "countryDefaultSpread": 0.0383,
+      "equityRiskPremium": 0.1006,
+      "countryRiskPremium": 0.0583
+    },
+    {
+      "name": "Bermuda",
+      "region": "Caribbean",
+      "moodysRating": "A2",
+      "countryDefaultSpread": 0.0072,
+      "equityRiskPremium": 0.0533,
+      "countryRiskPremium": 0.011
+    },
+    {
+      "name": "Bolivia",
+      "region": "Central and South America",
+      "moodysRating": "Ca",
+      "countryDefaultSpread": 0.102,
+      "equityRiskPremium": 0.1977,
+      "countryRiskPremium": 0.1554
+    },
+    {
+      "name": "Bosnia and Herzegovina",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "B3",
+      "countryDefaultSpread": 0.0552,
+      "equityRiskPremium": 0.1264,
+      "countryRiskPremium": 0.0841
+    },
+    {
+      "name": "Botswana",
+      "region": "Africa",
+      "moodysRating": "Baa1",
+      "countryDefaultSpread": 0.0136,
+      "equityRiskPremium": 0.063,
+      "countryRiskPremium": 0.0207
+    },
+    {
+      "name": "Brazil",
+      "region": "Central and South America",
+      "moodysRating": "Ba1",
+      "countryDefaultSpread": 0.0213,
+      "equityRiskPremium": 0.0747,
+      "countryRiskPremium": 0.0324
+    },
+    {
+      "name": "Bulgaria",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Baa1",
+      "countryDefaultSpread": 0.0136,
+      "equityRiskPremium": 0.063,
+      "countryRiskPremium": 0.0207
+    },
+    {
+      "name": "Burkina Faso",
+      "region": "Africa",
+      "moodysRating": "Caa1",
+      "countryDefaultSpread": 0.0637,
+      "equityRiskPremium": 0.1394,
+      "countryRiskPremium": 0.0971
+    },
+    {
+      "name": "Cambodia",
+      "region": "Asia",
+      "moodysRating": "B2",
+      "countryDefaultSpread": 0.0467,
+      "equityRiskPremium": 0.1135,
+      "countryRiskPremium": 0.0712
+    },
+    {
+      "name": "Cameroon",
+      "region": "Africa",
+      "moodysRating": "Caa1",
+      "countryDefaultSpread": 0.0637,
+      "equityRiskPremium": 0.1394,
+      "countryRiskPremium": 0.0971
+    },
+    {
+      "name": "Canada",
+      "region": "North America",
+      "moodysRating": "Aaa",
+      "countryDefaultSpread": 0,
+      "equityRiskPremium": 0.0423,
+      "countryRiskPremium": 0
+    },
+    {
+      "name": "Cape Verde",
+      "region": "Africa",
+      "moodysRating": "B2",
+      "countryDefaultSpread": 0.0467,
+      "equityRiskPremium": 0.1135,
+      "countryRiskPremium": 0.0712
+    },
+    {
+      "name": "Cayman Islands",
+      "region": "Caribbean",
+      "moodysRating": "Aa3",
+      "countryDefaultSpread": 0.0051,
+      "equityRiskPremium": 0.0501,
+      "countryRiskPremium": 0.0078
+    },
+    {
+      "name": "Chile",
+      "region": "Central and South America",
+      "moodysRating": "A2",
+      "countryDefaultSpread": 0.0072,
+      "equityRiskPremium": 0.0533,
+      "countryRiskPremium": 0.011
+    },
+    {
+      "name": "China",
+      "region": "Asia",
+      "moodysRating": "A1",
+      "countryDefaultSpread": 0.006,
+      "equityRiskPremium": 0.0514,
+      "countryRiskPremium": 0.0091
+    },
+    {
+      "name": "Colombia",
+      "region": "Central and South America",
+      "moodysRating": "Baa3",
+      "countryDefaultSpread": 0.0187,
+      "equityRiskPremium": 0.0708,
+      "countryRiskPremium": 0.0285
+    },
+    {
+      "name": "Congo (Democratic Republic of)",
+      "region": "Africa",
+      "moodysRating": "B3",
+      "countryDefaultSpread": 0.0552,
+      "equityRiskPremium": 0.1264,
+      "countryRiskPremium": 0.0841
+    },
+    {
+      "name": "Congo (Republic of)",
+      "region": "Africa",
+      "moodysRating": "Caa2",
+      "countryDefaultSpread": 0.0765,
+      "equityRiskPremium": 0.1589,
+      "countryRiskPremium": 0.1166
+    },
+    {
+      "name": "Cook Islands",
+      "region": "Australia & New Zealand",
+      "moodysRating": "B1",
+      "countryDefaultSpread": 0.0383,
+      "equityRiskPremium": 0.1006,
+      "countryRiskPremium": 0.0583
+    },
+    {
+      "name": "Costa Rica",
+      "region": "Central and South America",
+      "moodysRating": "Ba2",
+      "countryDefaultSpread": 0.0256,
+      "equityRiskPremium": 0.0813,
+      "countryRiskPremium": 0.039
+    },
+    {
+      "name": "Côte d'Ivoire",
+      "region": "Africa",
+      "moodysRating": "Ba2",
+      "countryDefaultSpread": 0.0256,
+      "equityRiskPremium": 0.0813,
+      "countryRiskPremium": 0.039
+    },
+    {
+      "name": "Croatia",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "A3",
+      "countryDefaultSpread": 0.0102,
+      "equityRiskPremium": 0.0578,
+      "countryRiskPremium": 0.0155
+    },
+    {
+      "name": "Cuba",
+      "region": "Caribbean",
+      "moodysRating": "Ca",
+      "countryDefaultSpread": 0.102,
+      "equityRiskPremium": 0.1977,
+      "countryRiskPremium": 0.1554
+    },
+    {
+      "name": "Curacao",
+      "region": "Caribbean",
+      "moodysRating": "Baa3",
+      "countryDefaultSpread": 0.0187,
+      "equityRiskPremium": 0.0708,
+      "countryRiskPremium": 0.0285
+    },
+    {
+      "name": "Cyprus",
+      "region": "Western Europe",
+      "moodysRating": "A3",
+      "countryDefaultSpread": 0.0102,
+      "equityRiskPremium": 0.0578,
+      "countryRiskPremium": 0.0155
+    },
+    {
+      "name": "Czech Republic",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Aa3",
+      "countryDefaultSpread": 0.0051,
+      "equityRiskPremium": 0.0501,
+      "countryRiskPremium": 0.0078
+    },
+    {
+      "name": "Denmark",
+      "region": "Western Europe",
+      "moodysRating": "Aaa",
+      "countryDefaultSpread": 0,
+      "equityRiskPremium": 0.0423,
+      "countryRiskPremium": 0
+    },
+    {
+      "name": "Dominican Republic",
+      "region": "Caribbean",
+      "moodysRating": "Ba2",
+      "countryDefaultSpread": 0.0256,
+      "equityRiskPremium": 0.0813,
+      "countryRiskPremium": 0.039
+    },
+    {
+      "name": "Ecuador",
+      "region": "Central and South America",
+      "moodysRating": "Caa3",
+      "countryDefaultSpread": 0.085,
+      "equityRiskPremium": 0.1718,
+      "countryRiskPremium": 0.1295
+    },
+    {
+      "name": "Egypt",
+      "region": "Africa",
+      "moodysRating": "Caa1",
+      "countryDefaultSpread": 0.0637,
+      "equityRiskPremium": 0.1394,
+      "countryRiskPremium": 0.0971
+    },
+    {
+      "name": "El Salvador",
+      "region": "Central and South America",
+      "moodysRating": "B3",
+      "countryDefaultSpread": 0.0552,
+      "equityRiskPremium": 0.1264,
+      "countryRiskPremium": 0.0841
+    },
+    {
+      "name": "Estonia",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "A1",
+      "countryDefaultSpread": 0.006,
+      "equityRiskPremium": 0.0514,
+      "countryRiskPremium": 0.0091
+    },
+    {
+      "name": "Ethiopia",
+      "region": "Africa",
+      "moodysRating": "Caa2",
+      "countryDefaultSpread": 0.0765,
+      "equityRiskPremium": 0.1589,
+      "countryRiskPremium": 0.1166
+    },
+    {
+      "name": "Fiji",
+      "region": "Asia",
+      "moodysRating": "B1",
+      "countryDefaultSpread": 0.0383,
+      "equityRiskPremium": 0.1006,
+      "countryRiskPremium": 0.0583
+    },
+    {
+      "name": "Finland",
+      "region": "Western Europe",
+      "moodysRating": "Aa1",
+      "countryDefaultSpread": 0.0023,
+      "equityRiskPremium": 0.0459,
+      "countryRiskPremium": 0.0036
+    },
+    {
+      "name": "France",
+      "region": "Western Europe",
+      "moodysRating": "Aa3",
+      "countryDefaultSpread": 0.0051,
+      "equityRiskPremium": 0.0501,
+      "countryRiskPremium": 0.0078
+    },
+    {
+      "name": "Gabon",
+      "region": "Africa",
+      "moodysRating": "Caa2",
+      "countryDefaultSpread": 0.0765,
+      "equityRiskPremium": 0.1589,
+      "countryRiskPremium": 0.1166
+    },
+    {
+      "name": "Georgia",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Ba2",
+      "countryDefaultSpread": 0.0256,
+      "equityRiskPremium": 0.0813,
+      "countryRiskPremium": 0.039
+    },
+    {
+      "name": "Germany",
+      "region": "Western Europe",
+      "moodysRating": "Aaa",
+      "countryDefaultSpread": 0,
+      "equityRiskPremium": 0.0423,
+      "countryRiskPremium": 0
+    },
+    {
+      "name": "Ghana",
+      "region": "Africa",
+      "moodysRating": "Caa1",
+      "countryDefaultSpread": 0.0637,
+      "equityRiskPremium": 0.1394,
+      "countryRiskPremium": 0.0971
+    },
+    {
+      "name": "Greece",
+      "region": "Western Europe",
+      "moodysRating": "Baa3",
+      "countryDefaultSpread": 0.0187,
+      "equityRiskPremium": 0.0708,
+      "countryRiskPremium": 0.0285
+    },
+    {
+      "name": "Guatemala",
+      "region": "Central and South America",
+      "moodysRating": "Ba1",
+      "countryDefaultSpread": 0.0213,
+      "equityRiskPremium": 0.0747,
+      "countryRiskPremium": 0.0324
+    },
+    {
+      "name": "Guernsey (States of)",
+      "region": "Western Europe",
+      "moodysRating": "A1",
+      "countryDefaultSpread": 0.006,
+      "equityRiskPremium": 0.0514,
+      "countryRiskPremium": 0.0091
+    },
+    {
+      "name": "Honduras",
+      "region": "Central and South America",
+      "moodysRating": "B1",
+      "countryDefaultSpread": 0.0383,
+      "equityRiskPremium": 0.1006,
+      "countryRiskPremium": 0.0583
+    },
+    {
+      "name": "Hong Kong",
+      "region": "Asia",
+      "moodysRating": "Aa3",
+      "countryDefaultSpread": 0.0051,
+      "equityRiskPremium": 0.0501,
+      "countryRiskPremium": 0.0078
+    },
+    {
+      "name": "Hungary",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Baa2",
+      "countryDefaultSpread": 0.0162,
+      "equityRiskPremium": 0.0669,
+      "countryRiskPremium": 0.0246
+    },
+    {
+      "name": "Iceland",
+      "region": "Western Europe",
+      "moodysRating": "A1",
+      "countryDefaultSpread": 0.006,
+      "equityRiskPremium": 0.0514,
+      "countryRiskPremium": 0.0091
+    },
+    {
+      "name": "India",
+      "region": "Asia",
+      "moodysRating": "Baa3",
+      "countryDefaultSpread": 0.0187,
+      "equityRiskPremium": 0.0708,
+      "countryRiskPremium": 0.0285
+    },
+    {
+      "name": "Indonesia",
+      "region": "Asia",
+      "moodysRating": "Baa2",
+      "countryDefaultSpread": 0.0162,
+      "equityRiskPremium": 0.0669,
+      "countryRiskPremium": 0.0246
+    },
+    {
+      "name": "Iraq",
+      "region": "Middle East",
+      "moodysRating": "Caa1",
+      "countryDefaultSpread": 0.0637,
+      "equityRiskPremium": 0.1394,
+      "countryRiskPremium": 0.0971
+    },
+    {
+      "name": "Ireland",
+      "region": "Western Europe",
+      "moodysRating": "Aa3",
+      "countryDefaultSpread": 0.0051,
+      "equityRiskPremium": 0.0501,
+      "countryRiskPremium": 0.0078
+    },
+    {
+      "name": "Isle of Man",
+      "region": "Western Europe",
+      "moodysRating": "Aa3",
+      "countryDefaultSpread": 0.0051,
+      "equityRiskPremium": 0.0501,
+      "countryRiskPremium": 0.0078
+    },
+    {
+      "name": "Israel",
+      "region": "Middle East",
+      "moodysRating": "Baa1",
+      "countryDefaultSpread": 0.0136,
+      "equityRiskPremium": 0.063,
+      "countryRiskPremium": 0.0207
+    },
+    {
+      "name": "Italy",
+      "region": "Western Europe",
+      "moodysRating": "Baa2",
+      "countryDefaultSpread": 0.0162,
+      "equityRiskPremium": 0.0669,
+      "countryRiskPremium": 0.0246
+    },
+    {
+      "name": "Jamaica",
+      "region": "Caribbean",
+      "moodysRating": "Ba3",
+      "countryDefaultSpread": 0.0306,
+      "equityRiskPremium": 0.0889,
+      "countryRiskPremium": 0.0466
+    },
+    {
+      "name": "Japan",
+      "region": "Asia",
+      "moodysRating": "A1",
+      "countryDefaultSpread": 0.006,
+      "equityRiskPremium": 0.0514,
+      "countryRiskPremium": 0.0091
+    },
+    {
+      "name": "Jersey (States of)",
+      "region": "Western Europe",
+      "moodysRating": "Aa3",
+      "countryDefaultSpread": 0.0051,
+      "equityRiskPremium": 0.0501,
+      "countryRiskPremium": 0.0078
+    },
+    {
+      "name": "Jordan",
+      "region": "Middle East",
+      "moodysRating": "Ba3",
+      "countryDefaultSpread": 0.0306,
+      "equityRiskPremium": 0.0889,
+      "countryRiskPremium": 0.0466
+    },
+    {
+      "name": "Kazakhstan",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Baa1",
+      "countryDefaultSpread": 0.0136,
+      "equityRiskPremium": 0.063,
+      "countryRiskPremium": 0.0207
+    },
+    {
+      "name": "Kenya",
+      "region": "Africa",
+      "moodysRating": "B3",
+      "countryDefaultSpread": 0.0552,
+      "equityRiskPremium": 0.1264,
+      "countryRiskPremium": 0.0841
+    },
+    {
+      "name": "Korea",
+      "region": "Asia",
+      "moodysRating": "Aa2",
+      "countryDefaultSpread": 0.0042,
+      "equityRiskPremium": 0.0487,
+      "countryRiskPremium": 0.0064
+    },
+    {
+      "name": "Kuwait",
+      "region": "Middle East",
+      "moodysRating": "A1",
+      "countryDefaultSpread": 0.006,
+      "equityRiskPremium": 0.0514,
+      "countryRiskPremium": 0.0091
+    },
+    {
+      "name": "Kyrgyzstan",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "B3",
+      "countryDefaultSpread": 0.0552,
+      "equityRiskPremium": 0.1264,
+      "countryRiskPremium": 0.0841
+    },
+    {
+      "name": "Laos",
+      "region": "Asia",
+      "moodysRating": "Caa2",
+      "countryDefaultSpread": 0.0765,
+      "equityRiskPremium": 0.1589,
+      "countryRiskPremium": 0.1166
+    },
+    {
+      "name": "Latvia",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "A3",
+      "countryDefaultSpread": 0.0102,
+      "equityRiskPremium": 0.0578,
+      "countryRiskPremium": 0.0155
+    },
+    {
+      "name": "Lebanon",
+      "region": "Middle East",
+      "moodysRating": "C",
+      "countryDefaultSpread": 0.175,
+      "equityRiskPremium": 0.3089,
+      "countryRiskPremium": 0.2666
+    },
+    {
+      "name": "Liechtenstein",
+      "region": "Western Europe",
+      "moodysRating": "Aaa",
+      "countryDefaultSpread": 0,
+      "equityRiskPremium": 0.0423,
+      "countryRiskPremium": 0
+    },
+    {
+      "name": "Lithuania",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "A2",
+      "countryDefaultSpread": 0.0072,
+      "equityRiskPremium": 0.0533,
+      "countryRiskPremium": 0.011
+    },
+    {
+      "name": "Luxembourg",
+      "region": "Western Europe",
+      "moodysRating": "Aaa",
+      "countryDefaultSpread": 0,
+      "equityRiskPremium": 0.0423,
+      "countryRiskPremium": 0
+    },
+    {
+      "name": "Macao",
+      "region": "Asia",
+      "moodysRating": "Aa3",
+      "countryDefaultSpread": 0.0051,
+      "equityRiskPremium": 0.0501,
+      "countryRiskPremium": 0.0078
+    },
+    {
+      "name": "Macedonia",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Ba3",
+      "countryDefaultSpread": 0.0306,
+      "equityRiskPremium": 0.0889,
+      "countryRiskPremium": 0.0466
+    },
+    {
+      "name": "Malaysia",
+      "region": "Asia",
+      "moodysRating": "A3",
+      "countryDefaultSpread": 0.0102,
+      "equityRiskPremium": 0.0578,
+      "countryRiskPremium": 0.0155
+    },
+    {
+      "name": "Maldives",
+      "region": "Asia",
+      "moodysRating": "Caa2",
+      "countryDefaultSpread": 0.0765,
+      "equityRiskPremium": 0.1589,
+      "countryRiskPremium": 0.1166
+    },
+    {
+      "name": "Mali",
+      "region": "Africa",
+      "moodysRating": "Caa2",
+      "countryDefaultSpread": 0.0765,
+      "equityRiskPremium": 0.1589,
+      "countryRiskPremium": 0.1166
+    },
+    {
+      "name": "Malta",
+      "region": "Western Europe",
+      "moodysRating": "A2",
+      "countryDefaultSpread": 0.0072,
+      "equityRiskPremium": 0.0533,
+      "countryRiskPremium": 0.011
+    },
+    {
+      "name": "Mauritius",
+      "region": "Africa",
+      "moodysRating": "Baa3",
+      "countryDefaultSpread": 0.0187,
+      "equityRiskPremium": 0.0708,
+      "countryRiskPremium": 0.0285
+    },
+    {
+      "name": "Mexico",
+      "region": "Central and South America",
+      "moodysRating": "Baa2",
+      "countryDefaultSpread": 0.0162,
+      "equityRiskPremium": 0.0669,
+      "countryRiskPremium": 0.0246
+    },
+    {
+      "name": "Moldova",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "B3",
+      "countryDefaultSpread": 0.0552,
+      "equityRiskPremium": 0.1264,
+      "countryRiskPremium": 0.0841
+    },
+    {
+      "name": "Mongolia",
+      "region": "Asia",
+      "moodysRating": "B1",
+      "countryDefaultSpread": 0.0383,
+      "equityRiskPremium": 0.1006,
+      "countryRiskPremium": 0.0583
+    },
+    {
+      "name": "Montenegro",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "B1",
+      "countryDefaultSpread": 0.0383,
+      "equityRiskPremium": 0.1006,
+      "countryRiskPremium": 0.0583
+    },
+    {
+      "name": "Montserrat",
+      "region": "Caribbean",
+      "moodysRating": "Baa3",
+      "countryDefaultSpread": 0.0187,
+      "equityRiskPremium": 0.0708,
+      "countryRiskPremium": 0.0285
+    },
+    {
+      "name": "Morocco",
+      "region": "Africa",
+      "moodysRating": "Ba1",
+      "countryDefaultSpread": 0.0213,
+      "equityRiskPremium": 0.0747,
+      "countryRiskPremium": 0.0324
+    },
+    {
+      "name": "Mozambique",
+      "region": "Africa",
+      "moodysRating": "Caa3",
+      "countryDefaultSpread": 0.085,
+      "equityRiskPremium": 0.1718,
+      "countryRiskPremium": 0.1295
+    },
+    {
+      "name": "Namibia",
+      "region": "Africa",
+      "moodysRating": "B1",
+      "countryDefaultSpread": 0.0383,
+      "equityRiskPremium": 0.1006,
+      "countryRiskPremium": 0.0583
+    },
+    {
+      "name": "Nepal",
+      "region": "Asia",
+      "moodysRating": "Ba3",
+      "countryDefaultSpread": 0.0306,
+      "equityRiskPremium": 0.0889,
+      "countryRiskPremium": 0.0466
+    },
+    {
+      "name": "Netherlands",
+      "region": "Western Europe",
+      "moodysRating": "Aaa",
+      "countryDefaultSpread": 0,
+      "equityRiskPremium": 0.0423,
+      "countryRiskPremium": 0
+    },
+    {
+      "name": "New Zealand",
+      "region": "Australia & New Zealand",
+      "moodysRating": "Aaa",
+      "countryDefaultSpread": 0,
+      "equityRiskPremium": 0.0423,
+      "countryRiskPremium": 0
+    },
+    {
+      "name": "Nicaragua",
+      "region": "Central and South America",
+      "moodysRating": "B2",
+      "countryDefaultSpread": 0.0467,
+      "equityRiskPremium": 0.1135,
+      "countryRiskPremium": 0.0712
+    },
+    {
+      "name": "Niger",
+      "region": "Africa",
+      "moodysRating": "Caa3",
+      "countryDefaultSpread": 0.085,
+      "equityRiskPremium": 0.1718,
+      "countryRiskPremium": 0.1295
+    },
+    {
+      "name": "Nigeria",
+      "region": "Africa",
+      "moodysRating": "B3",
+      "countryDefaultSpread": 0.0552,
+      "equityRiskPremium": 0.1264,
+      "countryRiskPremium": 0.0841
+    },
+    {
+      "name": "Norway",
+      "region": "Western Europe",
+      "moodysRating": "Aaa",
+      "countryDefaultSpread": 0,
+      "equityRiskPremium": 0.0423,
+      "countryRiskPremium": 0
+    },
+    {
+      "name": "Oman",
+      "region": "Middle East",
+      "moodysRating": "Baa3",
+      "countryDefaultSpread": 0.0187,
+      "equityRiskPremium": 0.0708,
+      "countryRiskPremium": 0.0285
+    },
+    {
+      "name": "Pakistan",
+      "region": "Asia",
+      "moodysRating": "Caa1",
+      "countryDefaultSpread": 0.0637,
+      "equityRiskPremium": 0.1394,
+      "countryRiskPremium": 0.0971
+    },
+    {
+      "name": "Panama",
+      "region": "Central and South America",
+      "moodysRating": "Baa3",
+      "countryDefaultSpread": 0.0187,
+      "equityRiskPremium": 0.0708,
+      "countryRiskPremium": 0.0285
+    },
+    {
+      "name": "Papua New Guinea",
+      "region": "Asia",
+      "moodysRating": "B2",
+      "countryDefaultSpread": 0.0467,
+      "equityRiskPremium": 0.1135,
+      "countryRiskPremium": 0.0712
+    },
+    {
+      "name": "Paraguay",
+      "region": "Central and South America",
+      "moodysRating": "Baa3",
+      "countryDefaultSpread": 0.0187,
+      "equityRiskPremium": 0.0708,
+      "countryRiskPremium": 0.0285
+    },
+    {
+      "name": "Peru",
+      "region": "Central and South America",
+      "moodysRating": "Baa1",
+      "countryDefaultSpread": 0.0136,
+      "equityRiskPremium": 0.063,
+      "countryRiskPremium": 0.0207
+    },
+    {
+      "name": "Philippines",
+      "region": "Asia",
+      "moodysRating": "Baa2",
+      "countryDefaultSpread": 0.0162,
+      "equityRiskPremium": 0.0669,
+      "countryRiskPremium": 0.0246
+    },
+    {
+      "name": "Poland",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "A2",
+      "countryDefaultSpread": 0.0072,
+      "equityRiskPremium": 0.0533,
+      "countryRiskPremium": 0.011
+    },
+    {
+      "name": "Portugal",
+      "region": "Western Europe",
+      "moodysRating": "A3",
+      "countryDefaultSpread": 0.0102,
+      "equityRiskPremium": 0.0578,
+      "countryRiskPremium": 0.0155
+    },
+    {
+      "name": "Qatar",
+      "region": "Middle East",
+      "moodysRating": "Aa2",
+      "countryDefaultSpread": 0.0042,
+      "equityRiskPremium": 0.0487,
+      "countryRiskPremium": 0.0064
+    },
+    {
+      "name": "Ras Al Khaimah (Emirate of)",
+      "region": "Middle East",
+      "moodysRating": "A3",
+      "countryDefaultSpread": 0.0102,
+      "equityRiskPremium": 0.0578,
+      "countryRiskPremium": 0.0155
+    },
+    {
+      "name": "Romania",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Baa3",
+      "countryDefaultSpread": 0.0187,
+      "equityRiskPremium": 0.0708,
+      "countryRiskPremium": 0.0285
+    },
+    {
+      "name": "Rwanda",
+      "region": "Africa",
+      "moodysRating": "B2",
+      "countryDefaultSpread": 0.0467,
+      "equityRiskPremium": 0.1135,
+      "countryRiskPremium": 0.0712
+    },
+    {
+      "name": "Saudi Arabia",
+      "region": "Middle East",
+      "moodysRating": "Aa3",
+      "countryDefaultSpread": 0.0051,
+      "equityRiskPremium": 0.0501,
+      "countryRiskPremium": 0.0078
+    },
+    {
+      "name": "Senegal",
+      "region": "Africa",
+      "moodysRating": "Caa1",
+      "countryDefaultSpread": 0.0637,
+      "equityRiskPremium": 0.1394,
+      "countryRiskPremium": 0.0971
+    },
+    {
+      "name": "Serbia",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Ba2",
+      "countryDefaultSpread": 0.0256,
+      "equityRiskPremium": 0.0813,
+      "countryRiskPremium": 0.039
+    },
+    {
+      "name": "Sharjah",
+      "region": "Middle East",
+      "moodysRating": "Ba1",
+      "countryDefaultSpread": 0.0213,
+      "equityRiskPremium": 0.0747,
+      "countryRiskPremium": 0.0324
+    },
+    {
+      "name": "Singapore",
+      "region": "Asia",
+      "moodysRating": "Aaa",
+      "countryDefaultSpread": 0,
+      "equityRiskPremium": 0.0423,
+      "countryRiskPremium": 0
+    },
+    {
+      "name": "Slovakia",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "A3",
+      "countryDefaultSpread": 0.0102,
+      "equityRiskPremium": 0.0578,
+      "countryRiskPremium": 0.0155
+    },
+    {
+      "name": "Slovenia",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "A3",
+      "countryDefaultSpread": 0.0102,
+      "equityRiskPremium": 0.0578,
+      "countryRiskPremium": 0.0155
+    },
+    {
+      "name": "Solomon Islands",
+      "region": "Asia",
+      "moodysRating": "Caa1",
+      "countryDefaultSpread": 0.0637,
+      "equityRiskPremium": 0.1394,
+      "countryRiskPremium": 0.0971
+    },
+    {
+      "name": "South Africa",
+      "region": "Africa",
+      "moodysRating": "Ba2",
+      "countryDefaultSpread": 0.0256,
+      "equityRiskPremium": 0.0813,
+      "countryRiskPremium": 0.039
+    },
+    {
+      "name": "Spain",
+      "region": "Western Europe",
+      "moodysRating": "A3",
+      "countryDefaultSpread": 0.0102,
+      "equityRiskPremium": 0.0578,
+      "countryRiskPremium": 0.0155
+    },
+    {
+      "name": "Sri Lanka",
+      "region": "Asia",
+      "moodysRating": "Ca",
+      "countryDefaultSpread": 0.102,
+      "equityRiskPremium": 0.1977,
+      "countryRiskPremium": 0.1554
+    },
+    {
+      "name": "St. Maarten",
+      "region": "Caribbean",
+      "moodysRating": "Ba2",
+      "countryDefaultSpread": 0.0256,
+      "equityRiskPremium": 0.0813,
+      "countryRiskPremium": 0.039
+    },
+    {
+      "name": "St. Vincent & the Grenadines",
+      "region": "Caribbean",
+      "moodysRating": "B3",
+      "countryDefaultSpread": 0.0552,
+      "equityRiskPremium": 0.1264,
+      "countryRiskPremium": 0.0841
+    },
+    {
+      "name": "Suriname",
+      "region": "Central and South America",
+      "moodysRating": "Caa1",
+      "countryDefaultSpread": 0.0637,
+      "equityRiskPremium": 0.1394,
+      "countryRiskPremium": 0.0971
+    },
+    {
+      "name": "Swaziland",
+      "region": "Africa",
+      "moodysRating": "B2",
+      "countryDefaultSpread": 0.0467,
+      "equityRiskPremium": 0.1135,
+      "countryRiskPremium": 0.0712
+    },
+    {
+      "name": "Sweden",
+      "region": "Western Europe",
+      "moodysRating": "Aaa",
+      "countryDefaultSpread": 0,
+      "equityRiskPremium": 0.0423,
+      "countryRiskPremium": 0
+    },
+    {
+      "name": "Switzerland",
+      "region": "Western Europe",
+      "moodysRating": "Aaa",
+      "countryDefaultSpread": 0,
+      "equityRiskPremium": 0.0423,
+      "countryRiskPremium": 0
+    },
+    {
+      "name": "Taiwan",
+      "region": "Asia",
+      "moodysRating": "Aa3",
+      "countryDefaultSpread": 0.0051,
+      "equityRiskPremium": 0.0501,
+      "countryRiskPremium": 0.0078
+    },
+    {
+      "name": "Tajikistan",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "B3",
+      "countryDefaultSpread": 0.0552,
+      "equityRiskPremium": 0.1264,
+      "countryRiskPremium": 0.0841
+    },
+    {
+      "name": "Tanzania",
+      "region": "Africa",
+      "moodysRating": "B1",
+      "countryDefaultSpread": 0.0383,
+      "equityRiskPremium": 0.1006,
+      "countryRiskPremium": 0.0583
+    },
+    {
+      "name": "Thailand",
+      "region": "Asia",
+      "moodysRating": "Baa1",
+      "countryDefaultSpread": 0.0136,
+      "equityRiskPremium": 0.063,
+      "countryRiskPremium": 0.0207
+    },
+    {
+      "name": "Togo",
+      "region": "Africa",
+      "moodysRating": "B3",
+      "countryDefaultSpread": 0.0552,
+      "equityRiskPremium": 0.1264,
+      "countryRiskPremium": 0.0841
+    },
+    {
+      "name": "Trinidad and Tobago",
+      "region": "Caribbean",
+      "moodysRating": "Ba2",
+      "countryDefaultSpread": 0.0256,
+      "equityRiskPremium": 0.0813,
+      "countryRiskPremium": 0.039
+    },
+    {
+      "name": "Tunisia",
+      "region": "Africa",
+      "moodysRating": "Caa1",
+      "countryDefaultSpread": 0.0637,
+      "equityRiskPremium": 0.1394,
+      "countryRiskPremium": 0.0971
+    },
+    {
+      "name": "Turkey",
+      "region": "Western Europe",
+      "moodysRating": "Ba3",
+      "countryDefaultSpread": 0.0306,
+      "equityRiskPremium": 0.0889,
+      "countryRiskPremium": 0.0466
+    },
+    {
+      "name": "Turks and Caicos Islands",
+      "region": "Caribbean",
+      "moodysRating": "Baa1",
+      "countryDefaultSpread": 0.0136,
+      "equityRiskPremium": 0.063,
+      "countryRiskPremium": 0.0207
+    },
+    {
+      "name": "Uganda",
+      "region": "Africa",
+      "moodysRating": "B3",
+      "countryDefaultSpread": 0.0552,
+      "equityRiskPremium": 0.1264,
+      "countryRiskPremium": 0.0841
+    },
+    {
+      "name": "Ukraine",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Ca",
+      "countryDefaultSpread": 0.102,
+      "equityRiskPremium": 0.1977,
+      "countryRiskPremium": 0.1554
+    },
+    {
+      "name": "United Arab Emirates",
+      "region": "Middle East",
+      "moodysRating": "Aa2",
+      "countryDefaultSpread": 0.0042,
+      "equityRiskPremium": 0.0487,
+      "countryRiskPremium": 0.0064
+    },
+    {
+      "name": "United Kingdom",
+      "region": "Western Europe",
+      "moodysRating": "Aa3",
+      "countryDefaultSpread": 0.0051,
+      "equityRiskPremium": 0.0501,
+      "countryRiskPremium": 0.0078
+    },
+    {
+      "name": "United States",
+      "region": "North America",
+      "moodysRating": "Aa1",
+      "countryDefaultSpread": 0.0023,
+      "equityRiskPremium": 0.0446,
+      "countryRiskPremium": 0.0023
+    },
+    {
+      "name": "Uruguay",
+      "region": "Central and South America",
+      "moodysRating": "Baa1",
+      "countryDefaultSpread": 0.0136,
+      "equityRiskPremium": 0.063,
+      "countryRiskPremium": 0.0207
+    },
+    {
+      "name": "Uzbekistan",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Ba3",
+      "countryDefaultSpread": 0.0306,
+      "equityRiskPremium": 0.0889,
+      "countryRiskPremium": 0.0466
+    },
+    {
+      "name": "Venezuela",
+      "region": "Central and South America",
+      "moodysRating": "C",
+      "countryDefaultSpread": 0.175,
+      "equityRiskPremium": 0.3089,
+      "countryRiskPremium": 0.2666
+    },
+    {
+      "name": "Vietnam",
+      "region": "Asia",
+      "moodysRating": "Ba2",
+      "countryDefaultSpread": 0.0256,
+      "equityRiskPremium": 0.0813,
+      "countryRiskPremium": 0.039
+    },
+    {
+      "name": "Zambia",
+      "region": "Africa",
+      "moodysRating": "Caa2",
+      "countryDefaultSpread": 0.0765,
+      "equityRiskPremium": 0.1589,
+      "countryRiskPremium": 0.1166
+    },
+    {
+      "name": "Russia",
+      "region": "Eastern Europe & Russia",
+      "moodysRating": "Ca",
+      "countryDefaultSpread": 0.1019,
+      "equityRiskPremium": 0.1442,
+      "countryRiskPremium": 0.1019
+    }
+  ]
+}

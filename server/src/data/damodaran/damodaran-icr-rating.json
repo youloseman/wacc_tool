@@ -1,0 +1,40 @@
+{
+  "lastUpdated": "2026-01-05",
+  "source": "Aswath Damodaran, NYU Stern (Jan 2026 update; spreads sourced from bondsonline.com)",
+  "sourceUrl": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/ratings.html",
+  "notes": "'large' = large non-financial service firms. 'small' = financial service firms (different ICR thresholds; lower long-term interest-coverage cutoffs).",
+  "large": [
+    { "icrMin": 8.5, "icrMax": 100000, "rating": "AAA", "spread": 0.004 },
+    { "icrMin": 6.5, "icrMax": 8.499999, "rating": "AA", "spread": 0.0055 },
+    { "icrMin": 5.5, "icrMax": 6.499999, "rating": "A+", "spread": 0.007 },
+    { "icrMin": 4.25, "icrMax": 5.499999, "rating": "A", "spread": 0.0078 },
+    { "icrMin": 3.0, "icrMax": 4.249999, "rating": "A-", "spread": 0.0089 },
+    { "icrMin": 2.5, "icrMax": 2.999999, "rating": "BBB", "spread": 0.0111 },
+    { "icrMin": 2.25, "icrMax": 2.49999, "rating": "BB+", "spread": 0.0138 },
+    { "icrMin": 2.0, "icrMax": 2.2499999, "rating": "BB", "spread": 0.0184 },
+    { "icrMin": 1.75, "icrMax": 1.999999, "rating": "B+", "spread": 0.0275 },
+    { "icrMin": 1.5, "icrMax": 1.749999, "rating": "B", "spread": 0.0321 },
+    { "icrMin": 1.25, "icrMax": 1.499999, "rating": "B-", "spread": 0.0509 },
+    { "icrMin": 0.8, "icrMax": 1.249999, "rating": "CCC", "spread": 0.0885 },
+    { "icrMin": 0.65, "icrMax": 0.799999, "rating": "CC", "spread": 0.1261 },
+    { "icrMin": 0.2, "icrMax": 0.649999, "rating": "C", "spread": 0.16 },
+    { "icrMin": -100000, "icrMax": 0.199999, "rating": "D", "spread": 0.19 }
+  ],
+  "small": [
+    { "icrMin": 3.0, "icrMax": 100000, "rating": "AAA", "spread": 0.004 },
+    { "icrMin": 2.5, "icrMax": 2.99999, "rating": "AA", "spread": 0.0055 },
+    { "icrMin": 2.0, "icrMax": 2.49999, "rating": "A+", "spread": 0.007 },
+    { "icrMin": 1.5, "icrMax": 1.99999, "rating": "A", "spread": 0.0078 },
+    { "icrMin": 1.2, "icrMax": 1.49999, "rating": "A-", "spread": 0.0089 },
+    { "icrMin": 0.9, "icrMax": 1.199999, "rating": "BBB", "spread": 0.0111 },
+    { "icrMin": 0.75, "icrMax": 0.899999, "rating": "BB+", "spread": 0.0138 },
+    { "icrMin": 0.6, "icrMax": 0.749999, "rating": "BB", "spread": 0.0184 },
+    { "icrMin": 0.5, "icrMax": 0.599999, "rating": "B+", "spread": 0.0275 },
+    { "icrMin": 0.4, "icrMax": 0.499999, "rating": "B", "spread": 0.0321 },
+    { "icrMin": 0.3, "icrMax": 0.399999, "rating": "B-", "spread": 0.0509 },
+    { "icrMin": 0.2, "icrMax": 0.299999, "rating": "CCC", "spread": 0.0885 },
+    { "icrMin": 0.1, "icrMax": 0.199999, "rating": "CC", "spread": 0.1261 },
+    { "icrMin": 0.05, "icrMax": 0.099999, "rating": "C", "spread": 0.16 },
+    { "icrMin": -100000, "icrMax": 0.049999, "rating": "D", "spread": 0.19 }
+  ]
+}

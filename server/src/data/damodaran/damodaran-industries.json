@@ -1,0 +1,1869 @@
+{
+  "lastUpdated": "2026-01-05",
+  "source": "Aswath Damodaran, NYU Stern",
+  "sourceUrl": "https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.html",
+  "industries": [
+    {
+      "name": "Advertising",
+      "aliases": [
+        "Advertising"
+      ],
+      "region": "US",
+      "numberOfFirms": 52,
+      "unleveredBeta": 0.9301,
+      "leveredBeta": 1.2105,
+      "deRatio": 0.402,
+      "effectiveTaxRate": 0.0502,
+      "cashFirmValue": 0.0773,
+      "unleveredBetaCorrected": 1.008,
+      "europe": {
+        "numberOfFirms": 83,
+        "unleveredBeta": 0.6559,
+        "leveredBeta": 0.9171,
+        "deRatio": 0.529,
+        "effectiveTaxRate": 0.1446
+      }
+    },
+    {
+      "name": "Aerospace/Defense",
+      "aliases": [
+        "Defense"
+      ],
+      "region": "US",
+      "numberOfFirms": 79,
+      "unleveredBeta": 0.8467,
+      "leveredBeta": 0.9455,
+      "deRatio": 0.1556,
+      "effectiveTaxRate": 0.1158,
+      "cashFirmValue": 0.0261,
+      "unleveredBetaCorrected": 0.8694,
+      "europe": {
+        "numberOfFirms": 67,
+        "unleveredBeta": 1.1834,
+        "leveredBeta": 1.2584,
+        "deRatio": 0.0841,
+        "effectiveTaxRate": 0.1274
+      }
+    },
+    {
+      "name": "Air Transport",
+      "aliases": [
+        "Airlines"
+      ],
+      "region": "US",
+      "numberOfFirms": 23,
+      "unleveredBeta": 0.7041,
+      "leveredBeta": 1.1855,
+      "deRatio": 0.9117,
+      "effectiveTaxRate": 0.0829,
+      "cashFirmValue": 0.0711,
+      "unleveredBetaCorrected": 0.7579,
+      "europe": {
+        "numberOfFirms": 33,
+        "unleveredBeta": 0.7493,
+        "leveredBeta": 1.1316,
+        "deRatio": 0.6776,
+        "effectiveTaxRate": 0.2036
+      }
+    },
+    {
+      "name": "Apparel",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 35,
+      "unleveredBeta": 0.758,
+      "leveredBeta": 0.9359,
+      "deRatio": 0.3129,
+      "effectiveTaxRate": 0.0961,
+      "cashFirmValue": 0.046,
+      "unleveredBetaCorrected": 0.7946,
+      "europe": {
+        "numberOfFirms": 109,
+        "unleveredBeta": 0.7427,
+        "leveredBeta": 0.8316,
+        "deRatio": 0.159,
+        "effectiveTaxRate": 0.1763
+      }
+    },
+    {
+      "name": "Auto & Truck",
+      "aliases": [
+        "Automotive"
+      ],
+      "region": "US",
+      "numberOfFirms": 33,
+      "unleveredBeta": 1.269,
+      "leveredBeta": 1.4565,
+      "deRatio": 0.197,
+      "effectiveTaxRate": 0.0374,
+      "cashFirmValue": 0.0299,
+      "unleveredBetaCorrected": 1.3082,
+      "europe": {
+        "numberOfFirms": 31,
+        "unleveredBeta": 0.7274,
+        "leveredBeta": 1.521,
+        "deRatio": 1.449,
+        "effectiveTaxRate": 0.0922
+      }
+    },
+    {
+      "name": "Auto Parts",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 35,
+      "unleveredBeta": 1.0217,
+      "leveredBeta": 1.3394,
+      "deRatio": 0.4146,
+      "effectiveTaxRate": 0.15,
+      "cashFirmValue": 0.0945,
+      "unleveredBetaCorrected": 1.1283,
+      "europe": {
+        "numberOfFirms": 58,
+        "unleveredBeta": 0.6839,
+        "leveredBeta": 1.0942,
+        "deRatio": 0.7968,
+        "effectiveTaxRate": 0.1436
+      }
+    },
+    {
+      "name": "Bank (Money Center)",
+      "aliases": [
+        "Banks"
+      ],
+      "region": "US",
+      "numberOfFirms": 15,
+      "unleveredBeta": 0.3411,
+      "leveredBeta": 0.761,
+      "deRatio": 1.6419,
+      "effectiveTaxRate": 0.1843,
+      "cashFirmValue": 0.2317,
+      "unleveredBetaCorrected": 0.4439,
+      "europe": {
+        "numberOfFirms": 113,
+        "unleveredBeta": 0.3389,
+        "leveredBeta": 1.0761,
+        "deRatio": 2.8889,
+        "effectiveTaxRate": 0.217
+      }
+    },
+    {
+      "name": "Banks (Regional)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 568,
+      "unleveredBeta": 0.2865,
+      "leveredBeta": 0.3985,
+      "deRatio": 0.521,
+      "effectiveTaxRate": 0.1761,
+      "cashFirmValue": 0.2348,
+      "unleveredBetaCorrected": 0.3744,
+      "europe": {
+        "numberOfFirms": 69,
+        "unleveredBeta": 0.1261,
+        "leveredBeta": 0.3865,
+        "deRatio": 2.7427,
+        "effectiveTaxRate": 0.1775
+      }
+    },
+    {
+      "name": "Beverage (Alcoholic)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 14,
+      "unleveredBeta": 0.6132,
+      "leveredBeta": 0.8125,
+      "deRatio": 0.4334,
+      "effectiveTaxRate": 0.1235,
+      "cashFirmValue": 0.0237,
+      "unleveredBetaCorrected": 0.628,
+      "europe": {
+        "numberOfFirms": 52,
+        "unleveredBeta": 0.4207,
+        "leveredBeta": 0.6087,
+        "deRatio": 0.5937,
+        "effectiveTaxRate": 0.1468
+      }
+    },
+    {
+      "name": "Beverage (Soft)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 27,
+      "unleveredBeta": 0.5557,
+      "leveredBeta": 0.6415,
+      "deRatio": 0.2059,
+      "effectiveTaxRate": 0.0685,
+      "cashFirmValue": 0.0344,
+      "unleveredBetaCorrected": 0.5755,
+      "europe": {
+        "numberOfFirms": 14,
+        "unleveredBeta": 0.3392,
+        "leveredBeta": 0.4184,
+        "deRatio": 0.3101,
+        "effectiveTaxRate": 0.1729
+      }
+    },
+    {
+      "name": "Broadcasting",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 24,
+      "unleveredBeta": 0.2864,
+      "leveredBeta": 0.4708,
+      "deRatio": 0.8585,
+      "effectiveTaxRate": 0.0773,
+      "cashFirmValue": 0.0918,
+      "unleveredBetaCorrected": 0.3153,
+      "europe": {
+        "numberOfFirms": 18,
+        "unleveredBeta": 0.7587,
+        "leveredBeta": 0.9654,
+        "deRatio": 0.362,
+        "effectiveTaxRate": 0.223
+      }
+    },
+    {
+      "name": "Brokerage & Investment Banking",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 32,
+      "unleveredBeta": 0.5808,
+      "leveredBeta": 1.1715,
+      "deRatio": 1.3557,
+      "effectiveTaxRate": 0.1527,
+      "cashFirmValue": 0.1451,
+      "unleveredBetaCorrected": 0.6794,
+      "europe": {
+        "numberOfFirms": 69,
+        "unleveredBeta": 0.4668,
+        "leveredBeta": 0.7302,
+        "deRatio": 0.7492,
+        "effectiveTaxRate": 0.1904
+      }
+    },
+    {
+      "name": "Building Materials",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 41,
+      "unleveredBeta": 0.9302,
+      "leveredBeta": 1.1115,
+      "deRatio": 0.26,
+      "effectiveTaxRate": 0.1802,
+      "cashFirmValue": 0.0316,
+      "unleveredBetaCorrected": 0.9605,
+      "europe": {
+        "numberOfFirms": 84,
+        "unleveredBeta": 0.9066,
+        "leveredBeta": 1.029,
+        "deRatio": 0.1793,
+        "effectiveTaxRate": 0.1538
+      }
+    },
+    {
+      "name": "Business & Consumer Services",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 155,
+      "unleveredBeta": 0.7736,
+      "leveredBeta": 0.888,
+      "deRatio": 0.1972,
+      "effectiveTaxRate": 0.1038,
+      "cashFirmValue": 0.0402,
+      "unleveredBetaCorrected": 0.806,
+      "europe": {
+        "numberOfFirms": 176,
+        "unleveredBeta": 0.6848,
+        "leveredBeta": 0.8442,
+        "deRatio": 0.3091,
+        "effectiveTaxRate": 0.1721
+      }
+    },
+    {
+      "name": "Cable TV",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 9,
+      "unleveredBeta": 0.3524,
+      "leveredBeta": 0.7407,
+      "deRatio": 1.4694,
+      "effectiveTaxRate": 0.1064,
+      "cashFirmValue": 0.0289,
+      "unleveredBetaCorrected": 0.3629,
+      "europe": {
+        "numberOfFirms": 2,
+        "unleveredBeta": 0.6827,
+        "leveredBeta": 2.6434,
+        "deRatio": 3.8142,
+        "effectiveTaxRate": 0
+      }
+    },
+    {
+      "name": "Chemical (Basic)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 29,
+      "unleveredBeta": 0.58,
+      "leveredBeta": 1.0122,
+      "deRatio": 0.9935,
+      "effectiveTaxRate": 0.0768,
+      "cashFirmValue": 0.0891,
+      "unleveredBetaCorrected": 0.6368,
+      "europe": {
+        "numberOfFirms": 58,
+        "unleveredBeta": 0.4609,
+        "leveredBeta": 0.7433,
+        "deRatio": 0.8138,
+        "effectiveTaxRate": 0.0914
+      }
+    },
+    {
+      "name": "Chemical (Diversified)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 4,
+      "unleveredBeta": 0.3666,
+      "leveredBeta": 0.8507,
+      "deRatio": 1.7611,
+      "effectiveTaxRate": 0,
+      "cashFirmValue": 0.0975,
+      "unleveredBetaCorrected": 0.4061,
+      "europe": {
+        "numberOfFirms": 7,
+        "unleveredBeta": 0.9975,
+        "leveredBeta": 1.4715,
+        "deRatio": 0.6311,
+        "effectiveTaxRate": 0.1355
+      }
+    },
+    {
+      "name": "Chemical (Specialty)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 59,
+      "unleveredBeta": 0.7922,
+      "leveredBeta": 0.9698,
+      "deRatio": 0.2988,
+      "effectiveTaxRate": 0.1368,
+      "cashFirmValue": 0.0391,
+      "unleveredBetaCorrected": 0.8245,
+      "europe": {
+        "numberOfFirms": 92,
+        "unleveredBeta": 0.9715,
+        "leveredBeta": 1.1296,
+        "deRatio": 0.2161,
+        "effectiveTaxRate": 0.1295
+      }
+    },
+    {
+      "name": "Coal & Related Energy",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 16,
+      "unleveredBeta": 1.0165,
+      "leveredBeta": 1.071,
+      "deRatio": 0.0714,
+      "effectiveTaxRate": 0.0313,
+      "cashFirmValue": 0.1403,
+      "unleveredBetaCorrected": 1.1824,
+      "europe": {
+        "numberOfFirms": 15,
+        "unleveredBeta": 0.6095,
+        "leveredBeta": 0.6636,
+        "deRatio": 0.118,
+        "effectiveTaxRate": 0.0746
+      }
+    },
+    {
+      "name": "Computer Services",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 64,
+      "unleveredBeta": 0.9155,
+      "leveredBeta": 1.0879,
+      "deRatio": 0.251,
+      "effectiveTaxRate": 0.1053,
+      "cashFirmValue": 0.048,
+      "unleveredBetaCorrected": 0.9617,
+      "europe": {
+        "numberOfFirms": 210,
+        "unleveredBeta": 0.8403,
+        "leveredBeta": 0.9383,
+        "deRatio": 0.155,
+        "effectiveTaxRate": 0.1588
+      }
+    },
+    {
+      "name": "Computers/Peripherals",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 36,
+      "unleveredBeta": 1.3051,
+      "leveredBeta": 1.3503,
+      "deRatio": 0.0462,
+      "effectiveTaxRate": 0.0591,
+      "cashFirmValue": 0.0147,
+      "unleveredBetaCorrected": 1.3246,
+      "europe": {
+        "numberOfFirms": 38,
+        "unleveredBeta": 1.0513,
+        "leveredBeta": 1.1153,
+        "deRatio": 0.0809,
+        "effectiveTaxRate": 0.105
+      }
+    },
+    {
+      "name": "Construction Supplies",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 40,
+      "unleveredBeta": 1.0161,
+      "leveredBeta": 1.1504,
+      "deRatio": 0.1762,
+      "effectiveTaxRate": 0.1604,
+      "cashFirmValue": 0.0294,
+      "unleveredBetaCorrected": 1.0468,
+      "europe": {
+        "numberOfFirms": 119,
+        "unleveredBeta": 0.8023,
+        "leveredBeta": 1.0332,
+        "deRatio": 0.3822,
+        "effectiveTaxRate": 0.1934
+      }
+    },
+    {
+      "name": "Diversified",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 20,
+      "unleveredBeta": 0.7889,
+      "leveredBeta": 0.881,
+      "deRatio": 0.1555,
+      "effectiveTaxRate": 0.0276,
+      "cashFirmValue": 0.0642,
+      "unleveredBetaCorrected": 0.8431,
+      "europe": {
+        "numberOfFirms": 72,
+        "unleveredBeta": 0.7918,
+        "leveredBeta": 0.9909,
+        "deRatio": 0.334,
+        "effectiveTaxRate": 0.1617
+      }
+    },
+    {
+      "name": "Drugs (Biotechnology)",
+      "aliases": [
+        "Biotech"
+      ],
+      "region": "US",
+      "numberOfFirms": 496,
+      "unleveredBeta": 1.0341,
+      "leveredBeta": 1.1353,
+      "deRatio": 0.1304,
+      "effectiveTaxRate": 0.0108,
+      "cashFirmValue": 0.042,
+      "unleveredBetaCorrected": 1.0795,
+      "europe": {
+        "numberOfFirms": 199,
+        "unleveredBeta": 1.0732,
+        "leveredBeta": 1.1782,
+        "deRatio": 0.1301,
+        "effectiveTaxRate": 0.0268
+      }
+    },
+    {
+      "name": "Drugs (Pharmaceutical)",
+      "aliases": [
+        "Pharmaceutical"
+      ],
+      "region": "US",
+      "numberOfFirms": 228,
+      "unleveredBeta": 0.8862,
+      "leveredBeta": 0.9828,
+      "deRatio": 0.1454,
+      "effectiveTaxRate": 0.0299,
+      "cashFirmValue": 0.0316,
+      "unleveredBetaCorrected": 0.9151,
+      "europe": {
+        "numberOfFirms": 115,
+        "unleveredBeta": 1.0488,
+        "leveredBeta": 1.1742,
+        "deRatio": 0.1587,
+        "effectiveTaxRate": 0.0784
+      }
+    },
+    {
+      "name": "Education",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 32,
+      "unleveredBeta": 0.6602,
+      "leveredBeta": 0.7809,
+      "deRatio": 0.2438,
+      "effectiveTaxRate": 0.1554,
+      "cashFirmValue": 0.0826,
+      "unleveredBetaCorrected": 0.7196,
+      "europe": {
+        "numberOfFirms": 18,
+        "unleveredBeta": 0.4616,
+        "leveredBeta": 0.5332,
+        "deRatio": 0.2062,
+        "effectiveTaxRate": 0.1585
+      }
+    },
+    {
+      "name": "Electrical Equipment",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 112,
+      "unleveredBeta": 1.1478,
+      "leveredBeta": 1.2511,
+      "deRatio": 0.12,
+      "effectiveTaxRate": 0.0482,
+      "cashFirmValue": 0.0353,
+      "unleveredBetaCorrected": 1.1898,
+      "europe": {
+        "numberOfFirms": 146,
+        "unleveredBeta": 1.0055,
+        "leveredBeta": 1.09,
+        "deRatio": 0.1116,
+        "effectiveTaxRate": 0.1055
+      }
+    },
+    {
+      "name": "Electronics (Consumer & Office)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 8,
+      "unleveredBeta": 0.8299,
+      "leveredBeta": 0.866,
+      "deRatio": 0.058,
+      "effectiveTaxRate": 0,
+      "cashFirmValue": 0.1052,
+      "unleveredBetaCorrected": 0.9274,
+      "europe": {
+        "numberOfFirms": 17,
+        "unleveredBeta": 1.2136,
+        "leveredBeta": 1.2691,
+        "deRatio": 0.0607,
+        "effectiveTaxRate": 0.173
+      }
+    },
+    {
+      "name": "Electronics (General)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 114,
+      "unleveredBeta": 0.8974,
+      "leveredBeta": 0.9715,
+      "deRatio": 0.1101,
+      "effectiveTaxRate": 0.0804,
+      "cashFirmValue": 0.0428,
+      "unleveredBetaCorrected": 0.9375,
+      "europe": {
+        "numberOfFirms": 142,
+        "unleveredBeta": 1.0005,
+        "leveredBeta": 1.0982,
+        "deRatio": 0.1298,
+        "effectiveTaxRate": 0.1037
+      }
+    },
+    {
+      "name": "Engineering/Construction",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 48,
+      "unleveredBeta": 1.0949,
+      "leveredBeta": 1.21,
+      "deRatio": 0.1401,
+      "effectiveTaxRate": 0.1364,
+      "cashFirmValue": 0.0374,
+      "unleveredBetaCorrected": 1.1374,
+      "europe": {
+        "numberOfFirms": 160,
+        "unleveredBeta": 0.6784,
+        "leveredBeta": 0.9291,
+        "deRatio": 0.4907,
+        "effectiveTaxRate": 0.1679
+      }
+    },
+    {
+      "name": "Entertainment",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 92,
+      "unleveredBeta": 0.7372,
+      "leveredBeta": 0.8252,
+      "deRatio": 0.1591,
+      "effectiveTaxRate": 0.033,
+      "cashFirmValue": 0.0336,
+      "unleveredBetaCorrected": 0.7628,
+      "europe": {
+        "numberOfFirms": 199,
+        "unleveredBeta": 0.6712,
+        "leveredBeta": 0.7295,
+        "deRatio": 0.1154,
+        "effectiveTaxRate": 0.0501
+      }
+    },
+    {
+      "name": "Environmental & Waste Services",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 53,
+      "unleveredBeta": 0.8145,
+      "leveredBeta": 0.9455,
+      "deRatio": 0.2145,
+      "effectiveTaxRate": 0.0427,
+      "cashFirmValue": 0.0125,
+      "unleveredBetaCorrected": 0.8248,
+      "europe": {
+        "numberOfFirms": 48,
+        "unleveredBeta": 0.7187,
+        "leveredBeta": 1.0574,
+        "deRatio": 0.6258,
+        "effectiveTaxRate": 0.149
+      }
+    },
+    {
+      "name": "Farming/Agriculture",
+      "aliases": [
+        "Agriculture"
+      ],
+      "region": "US",
+      "numberOfFirms": 35,
+      "unleveredBeta": 0.813,
+      "leveredBeta": 1.1292,
+      "deRatio": 0.5185,
+      "effectiveTaxRate": 0.0629,
+      "cashFirmValue": 0.0387,
+      "unleveredBetaCorrected": 0.8458,
+      "europe": {
+        "numberOfFirms": 46,
+        "unleveredBeta": 0.2817,
+        "leveredBeta": 0.487,
+        "deRatio": 0.968,
+        "effectiveTaxRate": 0.1742
+      }
+    },
+    {
+      "name": "Financial Svcs. (Non-bank & Insurance)",
+      "aliases": [
+        "Financials"
+      ],
+      "region": "US",
+      "numberOfFirms": 176,
+      "unleveredBeta": 0.3189,
+      "leveredBeta": 0.9697,
+      "deRatio": 2.7213,
+      "effectiveTaxRate": 0.1206,
+      "cashFirmValue": 0.0269,
+      "unleveredBetaCorrected": 0.3277,
+      "europe": {
+        "numberOfFirms": 146,
+        "unleveredBeta": 0.3115,
+        "leveredBeta": 1.0187,
+        "deRatio": 3.0158,
+        "effectiveTaxRate": 0.1453
+      }
+    },
+    {
+      "name": "Food Processing",
+      "aliases": [
+        "Food Products"
+      ],
+      "region": "US",
+      "numberOfFirms": 78,
+      "unleveredBeta": 0.4574,
+      "leveredBeta": 0.6075,
+      "deRatio": 0.4373,
+      "effectiveTaxRate": 0.1037,
+      "cashFirmValue": 0.0256,
+      "unleveredBetaCorrected": 0.4694,
+      "europe": {
+        "numberOfFirms": 173,
+        "unleveredBeta": 0.3674,
+        "leveredBeta": 0.4646,
+        "deRatio": 0.3513,
+        "effectiveTaxRate": 0.1349
+      }
+    },
+    {
+      "name": "Food Wholesalers",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 13,
+      "unleveredBeta": 0.6409,
+      "leveredBeta": 0.8666,
+      "deRatio": 0.4697,
+      "effectiveTaxRate": 0.0915,
+      "cashFirmValue": 0.0106,
+      "unleveredBetaCorrected": 0.6478,
+      "europe": {
+        "numberOfFirms": 11,
+        "unleveredBeta": 0.335,
+        "leveredBeta": 0.6137,
+        "deRatio": 1.1052,
+        "effectiveTaxRate": 0.159
+      }
+    },
+    {
+      "name": "Furn/Home Furnishings",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 27,
+      "unleveredBeta": 0.6248,
+      "leveredBeta": 0.8232,
+      "deRatio": 0.4233,
+      "effectiveTaxRate": 0.1138,
+      "cashFirmValue": 0.0419,
+      "unleveredBetaCorrected": 0.6521,
+      "europe": {
+        "numberOfFirms": 53,
+        "unleveredBeta": 0.3449,
+        "leveredBeta": 0.6813,
+        "deRatio": 1.2957,
+        "effectiveTaxRate": 0.1784
+      }
+    },
+    {
+      "name": "Green & Renewable Energy",
+      "aliases": [
+        "Renewables"
+      ],
+      "region": "US",
+      "numberOfFirms": 15,
+      "unleveredBeta": 0.4633,
+      "leveredBeta": 0.8563,
+      "deRatio": 1.1311,
+      "effectiveTaxRate": 0,
+      "cashFirmValue": 0.019,
+      "unleveredBetaCorrected": 0.4723,
+      "europe": {
+        "numberOfFirms": 60,
+        "unleveredBeta": 0.4356,
+        "leveredBeta": 0.7185,
+        "deRatio": 0.8626,
+        "effectiveTaxRate": 0.0982
+      }
+    },
+    {
+      "name": "Healthcare Products",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 204,
+      "unleveredBeta": 0.8291,
+      "leveredBeta": 0.9086,
+      "deRatio": 0.1279,
+      "effectiveTaxRate": 0.0485,
+      "cashFirmValue": 0.0325,
+      "unleveredBetaCorrected": 0.8569,
+      "europe": {
+        "numberOfFirms": 163,
+        "unleveredBeta": 1.0991,
+        "leveredBeta": 1.256,
+        "deRatio": 0.1896,
+        "effectiveTaxRate": 0.0924
+      }
+    },
+    {
+      "name": "Healthcare Support Services",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 104,
+      "unleveredBeta": 0.6889,
+      "leveredBeta": 0.872,
+      "deRatio": 0.3543,
+      "effectiveTaxRate": 0.098,
+      "cashFirmValue": 0.0751,
+      "unleveredBetaCorrected": 0.7449,
+      "europe": {
+        "numberOfFirms": 47,
+        "unleveredBeta": 0.6059,
+        "leveredBeta": 0.843,
+        "deRatio": 0.5197,
+        "effectiveTaxRate": 0.1395
+      }
+    },
+    {
+      "name": "Heathcare Information and Technology",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 115,
+      "unleveredBeta": 0.9913,
+      "leveredBeta": 1.1083,
+      "deRatio": 0.1574,
+      "effectiveTaxRate": 0.0638,
+      "cashFirmValue": 0.0246,
+      "unleveredBetaCorrected": 1.0163,
+      "europe": {
+        "numberOfFirms": 89,
+        "unleveredBeta": 1.0402,
+        "leveredBeta": 1.1858,
+        "deRatio": 0.186,
+        "effectiveTaxRate": 0.0826
+      }
+    },
+    {
+      "name": "Homebuilding",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 30,
+      "unleveredBeta": 0.785,
+      "leveredBeta": 0.9106,
+      "deRatio": 0.2134,
+      "effectiveTaxRate": 0.1699,
+      "cashFirmValue": 0.08,
+      "unleveredBetaCorrected": 0.8532,
+      "europe": {
+        "numberOfFirms": 36,
+        "unleveredBeta": 1.2527,
+        "leveredBeta": 1.4672,
+        "deRatio": 0.2275,
+        "effectiveTaxRate": 0.1757
+      }
+    },
+    {
+      "name": "Hospitals/Healthcare Facilities",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 31,
+      "unleveredBeta": 0.5517,
+      "leveredBeta": 0.7997,
+      "deRatio": 0.5992,
+      "effectiveTaxRate": 0.1135,
+      "cashFirmValue": 0.0232,
+      "unleveredBetaCorrected": 0.5649,
+      "europe": {
+        "numberOfFirms": 29,
+        "unleveredBeta": 0.287,
+        "leveredBeta": 0.7055,
+        "deRatio": 1.9364,
+        "effectiveTaxRate": 0.2243
+      }
+    },
+    {
+      "name": "Hotel/Gaming",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 63,
+      "unleveredBeta": 0.8323,
+      "leveredBeta": 1.0804,
+      "deRatio": 0.3975,
+      "effectiveTaxRate": 0.0831,
+      "cashFirmValue": 0.0496,
+      "unleveredBetaCorrected": 0.8757,
+      "europe": {
+        "numberOfFirms": 103,
+        "unleveredBeta": 0.7136,
+        "leveredBeta": 0.9225,
+        "deRatio": 0.3888,
+        "effectiveTaxRate": 0.1606
+      }
+    },
+    {
+      "name": "Household Products",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 110,
+      "unleveredBeta": 0.7178,
+      "leveredBeta": 0.8155,
+      "deRatio": 0.1815,
+      "effectiveTaxRate": 0.065,
+      "cashFirmValue": 0.0314,
+      "unleveredBetaCorrected": 0.7411,
+      "europe": {
+        "numberOfFirms": 65,
+        "unleveredBeta": 0.6918,
+        "leveredBeta": 0.7669,
+        "deRatio": 0.1442,
+        "effectiveTaxRate": 0.147
+      }
+    },
+    {
+      "name": "Information Services",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 15,
+      "unleveredBeta": 0.7372,
+      "leveredBeta": 0.9206,
+      "deRatio": 0.3317,
+      "effectiveTaxRate": 0.1816,
+      "cashFirmValue": 0.0254,
+      "unleveredBetaCorrected": 0.7564,
+      "europe": {
+        "numberOfFirms": 6,
+        "unleveredBeta": 0.3769,
+        "leveredBeta": 0.825,
+        "deRatio": 1.5793,
+        "effectiveTaxRate": 0.1953
+      }
+    },
+    {
+      "name": "Insurance (General)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 21,
+      "unleveredBeta": 0.5636,
+      "leveredBeta": 0.672,
+      "deRatio": 0.2563,
+      "effectiveTaxRate": 0.1277,
+      "cashFirmValue": 0.025,
+      "unleveredBetaCorrected": 0.5781,
+      "europe": {
+        "numberOfFirms": 34,
+        "unleveredBeta": 0.6263,
+        "leveredBeta": 0.773,
+        "deRatio": 0.3111,
+        "effectiveTaxRate": 0.2055
+      }
+    },
+    {
+      "name": "Insurance (Life)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 20,
+      "unleveredBeta": 0.4272,
+      "leveredBeta": 0.6445,
+      "deRatio": 0.6784,
+      "effectiveTaxRate": 0.1519,
+      "cashFirmValue": 0.1967,
+      "unleveredBetaCorrected": 0.5317,
+      "europe": {
+        "numberOfFirms": 15,
+        "unleveredBeta": 0.4758,
+        "leveredBeta": 0.8019,
+        "deRatio": 0.9101,
+        "effectiveTaxRate": 0.1878
+      }
+    },
+    {
+      "name": "Insurance (Prop/Cas.)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 57,
+      "unleveredBeta": 0.4357,
+      "leveredBeta": 0.4841,
+      "deRatio": 0.1483,
+      "effectiveTaxRate": 0.1837,
+      "cashFirmValue": 0.0468,
+      "unleveredBetaCorrected": 0.457,
+      "europe": {
+        "numberOfFirms": 19,
+        "unleveredBeta": 0.4977,
+        "leveredBeta": 0.5644,
+        "deRatio": 0.1781,
+        "effectiveTaxRate": 0.2004
+      }
+    },
+    {
+      "name": "Investments & Asset Management",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 283,
+      "unleveredBeta": 0.5297,
+      "leveredBeta": 0.6596,
+      "deRatio": 0.3269,
+      "effectiveTaxRate": 0.0353,
+      "cashFirmValue": 0.0992,
+      "unleveredBetaCorrected": 0.5881,
+      "europe": {
+        "numberOfFirms": 338,
+        "unleveredBeta": 0.5139,
+        "leveredBeta": 0.783,
+        "deRatio": 0.6953,
+        "effectiveTaxRate": 0.0749
+      }
+    },
+    {
+      "name": "Machinery",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 105,
+      "unleveredBeta": 0.868,
+      "leveredBeta": 0.9636,
+      "deRatio": 0.1469,
+      "effectiveTaxRate": 0.1337,
+      "cashFirmValue": 0.0291,
+      "unleveredBetaCorrected": 0.894,
+      "europe": {
+        "numberOfFirms": 210,
+        "unleveredBeta": 1.0287,
+        "leveredBeta": 1.1166,
+        "deRatio": 0.1136,
+        "effectiveTaxRate": 0.155
+      }
+    },
+    {
+      "name": "Metals & Mining",
+      "aliases": [
+        "Mining"
+      ],
+      "region": "US",
+      "numberOfFirms": 73,
+      "unleveredBeta": 0.9636,
+      "leveredBeta": 1.043,
+      "deRatio": 0.1098,
+      "effectiveTaxRate": 0.0252,
+      "cashFirmValue": 0.0463,
+      "unleveredBetaCorrected": 1.0104,
+      "europe": {
+        "numberOfFirms": 118,
+        "unleveredBeta": 0.9083,
+        "leveredBeta": 1.1176,
+        "deRatio": 0.3062,
+        "effectiveTaxRate": 0.0699
+      }
+    },
+    {
+      "name": "Office Equipment & Services",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 14,
+      "unleveredBeta": 0.9806,
+      "leveredBeta": 1.3344,
+      "deRatio": 0.481,
+      "effectiveTaxRate": 0.123,
+      "cashFirmValue": 0.0555,
+      "unleveredBetaCorrected": 1.0382,
+      "europe": {
+        "numberOfFirms": 20,
+        "unleveredBeta": 0.4937,
+        "leveredBeta": 0.6079,
+        "deRatio": 0.3072,
+        "effectiveTaxRate": 0.1232
+      }
+    },
+    {
+      "name": "Oil/Gas (Integrated)",
+      "aliases": [
+        "Integrated Oil"
+      ],
+      "region": "US",
+      "numberOfFirms": 4,
+      "unleveredBeta": 0.2712,
+      "leveredBeta": 0.2994,
+      "deRatio": 0.1385,
+      "effectiveTaxRate": 0.2824,
+      "cashFirmValue": 0.0244,
+      "unleveredBetaCorrected": 0.278,
+      "europe": {
+        "numberOfFirms": 12,
+        "unleveredBeta": 0.3781,
+        "leveredBeta": 0.4332,
+        "deRatio": 0.1936,
+        "effectiveTaxRate": 0.4026
+      }
+    },
+    {
+      "name": "Oil/Gas (Production and Exploration)",
+      "aliases": [
+        "Oil/Gas",
+        "Oil/Gas E&P",
+        "E&P"
+      ],
+      "region": "US",
+      "numberOfFirms": 142,
+      "unleveredBeta": 0.5628,
+      "leveredBeta": 0.7214,
+      "deRatio": 0.3759,
+      "effectiveTaxRate": 0.0666,
+      "cashFirmValue": 0.0273,
+      "unleveredBetaCorrected": 0.5785,
+      "europe": {
+        "numberOfFirms": 83,
+        "unleveredBeta": 0.5761,
+        "leveredBeta": 0.9512,
+        "deRatio": 0.8647,
+        "effectiveTaxRate": 0.1057
+      }
+    },
+    {
+      "name": "Oil/Gas Distribution",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 23,
+      "unleveredBeta": 0.4651,
+      "leveredBeta": 0.6692,
+      "deRatio": 0.5853,
+      "effectiveTaxRate": 0.0917,
+      "cashFirmValue": 0.0089,
+      "unleveredBetaCorrected": 0.4693,
+      "europe": {
+        "numberOfFirms": 30,
+        "unleveredBeta": 0.4425,
+        "leveredBeta": 0.67,
+        "deRatio": 0.683,
+        "effectiveTaxRate": 0.0837
+      }
+    },
+    {
+      "name": "Oilfield Svcs/Equip.",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 97,
+      "unleveredBeta": 0.743,
+      "leveredBeta": 0.9512,
+      "deRatio": 0.3736,
+      "effectiveTaxRate": 0.0875,
+      "cashFirmValue": 0.0559,
+      "unleveredBetaCorrected": 0.7871,
+      "europe": {
+        "numberOfFirms": 58,
+        "unleveredBeta": 0.6931,
+        "leveredBeta": 0.9019,
+        "deRatio": 0.4003,
+        "effectiveTaxRate": 0.1171
+      }
+    },
+    {
+      "name": "Packaging & Container",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 19,
+      "unleveredBeta": 0.7231,
+      "leveredBeta": 1.0219,
+      "deRatio": 0.5511,
+      "effectiveTaxRate": 0.1557,
+      "cashFirmValue": 0.0346,
+      "unleveredBetaCorrected": 0.749,
+      "europe": {
+        "numberOfFirms": 42,
+        "unleveredBeta": 0.5213,
+        "leveredBeta": 0.7692,
+        "deRatio": 0.6316,
+        "effectiveTaxRate": 0.1473
+      }
+    },
+    {
+      "name": "Paper/Forest Products",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 6,
+      "unleveredBeta": 0.7216,
+      "leveredBeta": 0.958,
+      "deRatio": 0.4369,
+      "effectiveTaxRate": 0.086,
+      "cashFirmValue": 0.0625,
+      "unleveredBetaCorrected": 0.7697,
+      "europe": {
+        "numberOfFirms": 36,
+        "unleveredBeta": 0.5177,
+        "leveredBeta": 0.6716,
+        "deRatio": 0.395,
+        "effectiveTaxRate": 0.1041
+      }
+    },
+    {
+      "name": "Power",
+      "aliases": [
+        "Utilities"
+      ],
+      "region": "US",
+      "numberOfFirms": 46,
+      "unleveredBeta": 0.31,
+      "leveredBeta": 0.4824,
+      "deRatio": 0.7415,
+      "effectiveTaxRate": 0.1275,
+      "cashFirmValue": 0.0145,
+      "unleveredBetaCorrected": 0.3146,
+      "europe": {
+        "numberOfFirms": 69,
+        "unleveredBeta": 0.4241,
+        "leveredBeta": 0.6169,
+        "deRatio": 0.6038,
+        "effectiveTaxRate": 0.2228
+      }
+    },
+    {
+      "name": "Precious Metals",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 56,
+      "unleveredBeta": 0.7932,
+      "leveredBeta": 0.8366,
+      "deRatio": 0.0728,
+      "effectiveTaxRate": 0.0597,
+      "cashFirmValue": 0.0453,
+      "unleveredBetaCorrected": 0.8309,
+      "europe": {
+        "numberOfFirms": 39,
+        "unleveredBeta": 0.9163,
+        "leveredBeta": 0.9743,
+        "deRatio": 0.084,
+        "effectiveTaxRate": 0.0674
+      }
+    },
+    {
+      "name": "Publishing & Newspapers",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 19,
+      "unleveredBeta": 0.4773,
+      "leveredBeta": 0.563,
+      "deRatio": 0.2394,
+      "effectiveTaxRate": 0.1021,
+      "cashFirmValue": 0.0675,
+      "unleveredBetaCorrected": 0.5119,
+      "europe": {
+        "numberOfFirms": 59,
+        "unleveredBeta": 0.4772,
+        "leveredBeta": 0.7559,
+        "deRatio": 0.7758,
+        "effectiveTaxRate": 0.1337
+      }
+    },
+    {
+      "name": "R.E.I.T.",
+      "aliases": [
+        "REIT"
+      ],
+      "region": "US",
+      "numberOfFirms": 190,
+      "unleveredBeta": 0.3929,
+      "leveredBeta": 0.6418,
+      "deRatio": 0.8446,
+      "effectiveTaxRate": 0.0158,
+      "cashFirmValue": 0.0191,
+      "unleveredBetaCorrected": 0.4005,
+      "europe": {
+        "numberOfFirms": 138,
+        "unleveredBeta": 0.3807,
+        "leveredBeta": 0.5965,
+        "deRatio": 0.7529,
+        "effectiveTaxRate": 0.1172
+      }
+    },
+    {
+      "name": "Real Estate (Development)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 14,
+      "unleveredBeta": 0.4783,
+      "leveredBeta": 0.8436,
+      "deRatio": 1.0183,
+      "effectiveTaxRate": 0.0491,
+      "cashFirmValue": 0.1521,
+      "unleveredBetaCorrected": 0.5641,
+      "europe": {
+        "numberOfFirms": 61,
+        "unleveredBeta": 0.3399,
+        "leveredBeta": 0.5441,
+        "deRatio": 0.7976,
+        "effectiveTaxRate": 0.1469
+      }
+    },
+    {
+      "name": "Real Estate (General/Diversified)",
+      "aliases": [
+        "Real Estate"
+      ],
+      "region": "US",
+      "numberOfFirms": 12,
+      "unleveredBeta": 0.5779,
+      "leveredBeta": 0.81,
+      "deRatio": 0.5356,
+      "effectiveTaxRate": 0.0465,
+      "cashFirmValue": 0.0783,
+      "unleveredBetaCorrected": 0.627,
+      "europe": {
+        "numberOfFirms": 45,
+        "unleveredBeta": 0.3407,
+        "leveredBeta": 0.5782,
+        "deRatio": 0.9258,
+        "effectiveTaxRate": 0.124
+      }
+    },
+    {
+      "name": "Real Estate (Operations & Services)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 54,
+      "unleveredBeta": 0.8149,
+      "leveredBeta": 0.9655,
+      "deRatio": 0.2464,
+      "effectiveTaxRate": 0.087,
+      "cashFirmValue": 0.0498,
+      "unleveredBetaCorrected": 0.8576,
+      "europe": {
+        "numberOfFirms": 219,
+        "unleveredBeta": 0.3209,
+        "leveredBeta": 0.6632,
+        "deRatio": 1.4165,
+        "effectiveTaxRate": 0.1337
+      }
+    },
+    {
+      "name": "Recreation",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 49,
+      "unleveredBeta": 0.6951,
+      "leveredBeta": 1.0235,
+      "deRatio": 0.6299,
+      "effectiveTaxRate": 0.1145,
+      "cashFirmValue": 0.0562,
+      "unleveredBetaCorrected": 0.7365,
+      "europe": {
+        "numberOfFirms": 59,
+        "unleveredBeta": 0.8498,
+        "leveredBeta": 1.0167,
+        "deRatio": 0.2609,
+        "effectiveTaxRate": 0.156
+      }
+    },
+    {
+      "name": "Reinsurance",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 1,
+      "unleveredBeta": 0.4384,
+      "leveredBeta": 0.5813,
+      "deRatio": 0.4347,
+      "effectiveTaxRate": 0.3036,
+      "cashFirmValue": 0.2411,
+      "unleveredBetaCorrected": 0.5777,
+      "europe": {
+        "numberOfFirms": 4,
+        "unleveredBeta": 1.0558,
+        "leveredBeta": 1.1742,
+        "deRatio": 0.1489,
+        "effectiveTaxRate": 0.2376
+      }
+    },
+    {
+      "name": "Restaurant/Dining",
+      "aliases": [
+        "Restaurant"
+      ],
+      "region": "US",
+      "numberOfFirms": 64,
+      "unleveredBeta": 0.7674,
+      "leveredBeta": 0.9241,
+      "deRatio": 0.2722,
+      "effectiveTaxRate": 0.0992,
+      "cashFirmValue": 0.0199,
+      "unleveredBetaCorrected": 0.783,
+      "europe": {
+        "numberOfFirms": 38,
+        "unleveredBeta": 0.5495,
+        "leveredBeta": 0.7109,
+        "deRatio": 0.3903,
+        "effectiveTaxRate": 0.1274
+      }
+    },
+    {
+      "name": "Retail (Automotive)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 34,
+      "unleveredBeta": 0.6984,
+      "leveredBeta": 0.936,
+      "deRatio": 0.4536,
+      "effectiveTaxRate": 0.1077,
+      "cashFirmValue": 0.0208,
+      "unleveredBetaCorrected": 0.7132,
+      "europe": {
+        "numberOfFirms": 22,
+        "unleveredBeta": 0.8064,
+        "leveredBeta": 1.0429,
+        "deRatio": 0.3896,
+        "effectiveTaxRate": 0.1242
+      }
+    },
+    {
+      "name": "Retail (Building Supply)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 14,
+      "unleveredBeta": 1.307,
+      "leveredBeta": 1.5353,
+      "deRatio": 0.2329,
+      "effectiveTaxRate": 0.1184,
+      "cashFirmValue": 0.0081,
+      "unleveredBetaCorrected": 1.3177,
+      "europe": {
+        "numberOfFirms": 26,
+        "unleveredBeta": 0.8209,
+        "leveredBeta": 1.2059,
+        "deRatio": 0.6229,
+        "effectiveTaxRate": 0.2047
+      }
+    },
+    {
+      "name": "Retail (Distributors)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 62,
+      "unleveredBeta": 0.7827,
+      "leveredBeta": 0.9484,
+      "deRatio": 0.2824,
+      "effectiveTaxRate": 0.1459,
+      "cashFirmValue": 0.0236,
+      "unleveredBetaCorrected": 0.8016,
+      "europe": {
+        "numberOfFirms": 117,
+        "unleveredBeta": 0.6197,
+        "leveredBeta": 0.8873,
+        "deRatio": 0.5735,
+        "effectiveTaxRate": 0.1637
+      }
+    },
+    {
+      "name": "Retail (General)",
+      "aliases": [
+        "Retail"
+      ],
+      "region": "US",
+      "numberOfFirms": 23,
+      "unleveredBeta": 0.76,
+      "leveredBeta": 0.8052,
+      "deRatio": 0.0794,
+      "effectiveTaxRate": 0.191,
+      "cashFirmValue": 0.0268,
+      "unleveredBetaCorrected": 0.7809,
+      "europe": {
+        "numberOfFirms": 31,
+        "unleveredBeta": 0.7933,
+        "leveredBeta": 0.9758,
+        "deRatio": 0.3056,
+        "effectiveTaxRate": 0.1346
+      }
+    },
+    {
+      "name": "Retail (Grocery and Food)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 15,
+      "unleveredBeta": 0.8048,
+      "leveredBeta": 1.1183,
+      "deRatio": 0.5195,
+      "effectiveTaxRate": 0.1222,
+      "cashFirmValue": 0.0514,
+      "unleveredBetaCorrected": 0.8484,
+      "europe": {
+        "numberOfFirms": 34,
+        "unleveredBeta": 0.6999,
+        "leveredBeta": 0.9801,
+        "deRatio": 0.5317,
+        "effectiveTaxRate": 0.2346
+      }
+    },
+    {
+      "name": "Retail (REITs)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 26,
+      "unleveredBeta": 0.4362,
+      "leveredBeta": 0.6207,
+      "deRatio": 0.5642,
+      "effectiveTaxRate": 0.016,
+      "cashFirmValue": 0.0148,
+      "unleveredBetaCorrected": 0.4427,
+      "europe": {
+        "numberOfFirms": 28,
+        "unleveredBeta": 0.3307,
+        "leveredBeta": 0.6172,
+        "deRatio": 1.1503,
+        "effectiveTaxRate": 0.144
+      }
+    },
+    {
+      "name": "Retail (Special Lines)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 94,
+      "unleveredBeta": 0.9488,
+      "leveredBeta": 1.0894,
+      "deRatio": 0.1976,
+      "effectiveTaxRate": 0.1007,
+      "cashFirmValue": 0.053,
+      "unleveredBetaCorrected": 1.0019,
+      "europe": {
+        "numberOfFirms": 105,
+        "unleveredBeta": 1.0075,
+        "leveredBeta": 1.1554,
+        "deRatio": 0.1949,
+        "effectiveTaxRate": 0.143
+      }
+    },
+    {
+      "name": "Rubber& Tires",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 3,
+      "unleveredBeta": 0.1435,
+      "leveredBeta": 0.5294,
+      "deRatio": 3.5847,
+      "effectiveTaxRate": 0,
+      "cashFirmValue": 0.0701,
+      "unleveredBetaCorrected": 0.1544,
+      "europe": {
+        "numberOfFirms": 10,
+        "unleveredBeta": 0.5849,
+        "leveredBeta": 0.8071,
+        "deRatio": 0.5046,
+        "effectiveTaxRate": 0.2188
+      }
+    },
+    {
+      "name": "Semiconductor",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 66,
+      "unleveredBeta": 1.4893,
+      "leveredBeta": 1.5182,
+      "deRatio": 0.0259,
+      "effectiveTaxRate": 0.0511,
+      "cashFirmValue": 0.0102,
+      "unleveredBetaCorrected": 1.5046,
+      "europe": {
+        "numberOfFirms": 36,
+        "unleveredBeta": 1.1525,
+        "leveredBeta": 1.3221,
+        "deRatio": 0.1955,
+        "effectiveTaxRate": 0.0644
+      }
+    },
+    {
+      "name": "Semiconductor Equip",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 31,
+      "unleveredBeta": 1.3481,
+      "leveredBeta": 1.3972,
+      "deRatio": 0.0486,
+      "effectiveTaxRate": 0.0996,
+      "cashFirmValue": 0.0313,
+      "unleveredBetaCorrected": 1.3917,
+      "europe": {
+        "numberOfFirms": 21,
+        "unleveredBeta": 1.6579,
+        "leveredBeta": 1.6773,
+        "deRatio": 0.0155,
+        "effectiveTaxRate": 0.1381
+      }
+    },
+    {
+      "name": "Shipbuilding & Marine",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 8,
+      "unleveredBeta": 0.644,
+      "leveredBeta": 0.7529,
+      "deRatio": 0.2255,
+      "effectiveTaxRate": 0.0526,
+      "cashFirmValue": 0.0254,
+      "unleveredBetaCorrected": 0.6608,
+      "europe": {
+        "numberOfFirms": 65,
+        "unleveredBeta": 0.6548,
+        "leveredBeta": 0.8843,
+        "deRatio": 0.4655,
+        "effectiveTaxRate": 0.0783
+      }
+    },
+    {
+      "name": "Shoe",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 11,
+      "unleveredBeta": 0.9337,
+      "leveredBeta": 1.0173,
+      "deRatio": 0.1194,
+      "effectiveTaxRate": 0.1186,
+      "cashFirmValue": 0.0665,
+      "unleveredBetaCorrected": 1.0002,
+      "europe": {
+        "numberOfFirms": 9,
+        "unleveredBeta": 1.0351,
+        "leveredBeta": 1.2118,
+        "deRatio": 0.2267,
+        "effectiveTaxRate": 0.0996
+      }
+    },
+    {
+      "name": "Software (Entertainment)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 77,
+      "unleveredBeta": 1.0128,
+      "leveredBeta": 1.0283,
+      "deRatio": 0.0204,
+      "effectiveTaxRate": 0.0529,
+      "cashFirmValue": 0.0078,
+      "unleveredBetaCorrected": 1.0207,
+      "europe": {
+        "numberOfFirms": 51,
+        "unleveredBeta": 0.9972,
+        "leveredBeta": 1.07,
+        "deRatio": 0.097,
+        "effectiveTaxRate": 0.0832
+      }
+    },
+    {
+      "name": "Software (Internet)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 29,
+      "unleveredBeta": 1.5461,
+      "leveredBeta": 1.6887,
+      "deRatio": 0.123,
+      "effectiveTaxRate": 0.0305,
+      "cashFirmValue": 0.028,
+      "unleveredBetaCorrected": 1.5905,
+      "europe": {
+        "numberOfFirms": 23,
+        "unleveredBeta": 0.6176,
+        "leveredBeta": 0.8385,
+        "deRatio": 0.4751,
+        "effectiveTaxRate": 0.1337
+      }
+    },
+    {
+      "name": "Software (System & Application)",
+      "aliases": [
+        "Software",
+        "Technology"
+      ],
+      "region": "US",
+      "numberOfFirms": 309,
+      "unleveredBeta": 1.2254,
+      "leveredBeta": 1.2766,
+      "deRatio": 0.0558,
+      "effectiveTaxRate": 0.0551,
+      "cashFirmValue": 0.0183,
+      "unleveredBetaCorrected": 1.2482,
+      "europe": {
+        "numberOfFirms": 290,
+        "unleveredBeta": 0.911,
+        "leveredBeta": 0.9573,
+        "deRatio": 0.0674,
+        "effectiveTaxRate": 0.094
+      }
+    },
+    {
+      "name": "Steel",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 19,
+      "unleveredBeta": 0.9035,
+      "leveredBeta": 1.0628,
+      "deRatio": 0.2351,
+      "effectiveTaxRate": 0.0928,
+      "cashFirmValue": 0.0438,
+      "unleveredBetaCorrected": 0.9449,
+      "europe": {
+        "numberOfFirms": 57,
+        "unleveredBeta": 0.6924,
+        "leveredBeta": 0.906,
+        "deRatio": 0.4097,
+        "effectiveTaxRate": 0.1395
+      }
+    },
+    {
+      "name": "Telecom (Wireless)",
+      "aliases": [
+        "Telecom"
+      ],
+      "region": "US",
+      "numberOfFirms": 12,
+      "unleveredBeta": 0.3873,
+      "leveredBeta": 0.5381,
+      "deRatio": 0.5195,
+      "effectiveTaxRate": 0.0402,
+      "cashFirmValue": 0.0132,
+      "unleveredBetaCorrected": 0.3924,
+      "europe": {
+        "numberOfFirms": 11,
+        "unleveredBeta": 0.3426,
+        "leveredBeta": 0.6112,
+        "deRatio": 1.0412,
+        "effectiveTaxRate": 0.1819
+      }
+    },
+    {
+      "name": "Telecom. Equipment",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 57,
+      "unleveredBeta": 0.8635,
+      "leveredBeta": 0.9232,
+      "deRatio": 0.0922,
+      "effectiveTaxRate": 0.0706,
+      "cashFirmValue": 0.0268,
+      "unleveredBetaCorrected": 0.8873,
+      "europe": {
+        "numberOfFirms": 50,
+        "unleveredBeta": 0.6677,
+        "leveredBeta": 0.7386,
+        "deRatio": 0.141,
+        "effectiveTaxRate": 0.0898
+      }
+    },
+    {
+      "name": "Telecom. Services",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 39,
+      "unleveredBeta": 0.3654,
+      "leveredBeta": 0.6287,
+      "deRatio": 0.9606,
+      "effectiveTaxRate": 0.034,
+      "cashFirmValue": 0.0421,
+      "unleveredBetaCorrected": 0.3815,
+      "europe": {
+        "numberOfFirms": 62,
+        "unleveredBeta": 0.4311,
+        "leveredBeta": 0.729,
+        "deRatio": 0.9175,
+        "effectiveTaxRate": 0.1824
+      }
+    },
+    {
+      "name": "Tobacco",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 10,
+      "unleveredBeta": 0.6776,
+      "leveredBeta": 0.7943,
+      "deRatio": 0.2297,
+      "effectiveTaxRate": 0.1477,
+      "cashFirmValue": 0.0184,
+      "unleveredBetaCorrected": 0.6903,
+      "europe": {
+        "numberOfFirms": 5,
+        "unleveredBeta": 0.1471,
+        "leveredBeta": 0.1904,
+        "deRatio": 0.391,
+        "effectiveTaxRate": 0.2106
+      }
+    },
+    {
+      "name": "Transportation",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 19,
+      "unleveredBeta": 0.6753,
+      "leveredBeta": 0.8599,
+      "deRatio": 0.3645,
+      "effectiveTaxRate": 0.0854,
+      "cashFirmValue": 0.0509,
+      "unleveredBetaCorrected": 0.7115,
+      "europe": {
+        "numberOfFirms": 56,
+        "unleveredBeta": 0.4923,
+        "leveredBeta": 0.7782,
+        "deRatio": 0.7713,
+        "effectiveTaxRate": 0.1817
+      }
+    },
+    {
+      "name": "Transportation (Railroads)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 4,
+      "unleveredBeta": 0.8069,
+      "leveredBeta": 0.9751,
+      "deRatio": 0.2779,
+      "effectiveTaxRate": 0.1698,
+      "cashFirmValue": 0.0083,
+      "unleveredBetaCorrected": 0.8137,
+      "europe": {
+        "numberOfFirms": 8,
+        "unleveredBeta": 0.5062,
+        "leveredBeta": 0.6631,
+        "deRatio": 0.4117,
+        "effectiveTaxRate": 0.1274
+      }
+    },
+    {
+      "name": "Trucking",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 26,
+      "unleveredBeta": 0.8504,
+      "leveredBeta": 1.0113,
+      "deRatio": 0.2523,
+      "effectiveTaxRate": 0.126,
+      "cashFirmValue": 0.0212,
+      "unleveredBetaCorrected": 0.8689,
+      "europe": {
+        "numberOfFirms": 7,
+        "unleveredBeta": 0.6095,
+        "leveredBeta": 0.9595,
+        "deRatio": 0.7626,
+        "effectiveTaxRate": 0.1856
+      }
+    },
+    {
+      "name": "Utility (General)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 14,
+      "unleveredBeta": 0.1486,
+      "leveredBeta": 0.2394,
+      "deRatio": 0.8148,
+      "effectiveTaxRate": 0.1277,
+      "cashFirmValue": 0.0033,
+      "unleveredBetaCorrected": 0.1491,
+      "europe": {
+        "numberOfFirms": 18,
+        "unleveredBeta": 0.3765,
+        "leveredBeta": 0.6367,
+        "deRatio": 0.9179,
+        "effectiveTaxRate": 0.2086
+      }
+    },
+    {
+      "name": "Utility (Water)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 14,
+      "unleveredBeta": 0.2812,
+      "leveredBeta": 0.4127,
+      "deRatio": 0.6236,
+      "effectiveTaxRate": 0.1119,
+      "cashFirmValue": 0.0046,
+      "unleveredBetaCorrected": 0.2825,
+      "europe": {
+        "numberOfFirms": 12,
+        "unleveredBeta": 0.4275,
+        "leveredBeta": 0.8626,
+        "deRatio": 1.3518,
+        "effectiveTaxRate": 0.1817
+      }
+    },
+    {
+      "name": "Total Market",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 5994,
+      "unleveredBeta": 0.7217,
+      "leveredBeta": 0.9121,
+      "deRatio": 0.3517,
+      "effectiveTaxRate": 0.083,
+      "cashFirmValue": 0.045,
+      "unleveredBetaCorrected": 0.7557
+    },
+    {
+      "name": "Total Market (without financials)",
+      "aliases": [],
+      "region": "US",
+      "numberOfFirms": 4822,
+      "unleveredBeta": 0.8775,
+      "leveredBeta": 0.9913,
+      "deRatio": 0.1729,
+      "effectiveTaxRate": 0.071,
+      "cashFirmValue": 0.026,
+      "unleveredBetaCorrected": 0.901,
+      "europe": {
+        "numberOfFirms": 5757,
+        "unleveredBeta": 0.7388,
+        "leveredBeta": 0.9222,
+        "deRatio": 0.3297,
+        "effectiveTaxRate": 0.1297
+      }
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "lastUpdated": "2026-04-01",
+  "source": "Central banks, Trading Economics snapshots",
+  "rates": {
+    "Russia": {
+      "currency": "RUB",
+      "rate10Y": 0.145,
+      "rateSource": "Bank of Russia OFZ zero-coupon 10Y yield",
+      "sourceUrl": "https://www.cbr.ru/eng/hd_base/zcyc_params/",
+      "asOfDate": "2026-03-27",
+      "centralBankRate": 0.15
+    },
+    "Brazil": {
+      "currency": "BRL",
+      "rate10Y": 0.145,
+      "rateSource": "Brazil NTN-B 10Y government bond yield",
+      "sourceUrl": "https://www.tesourodireto.com.br",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.1375
+    },
+    "India": {
+      "currency": "INR",
+      "rate10Y": 0.068,
+      "rateSource": "India 10Y Government Bond yield",
+      "sourceUrl": "https://www.rbi.org.in",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.065
+    },
+    "China": {
+      "currency": "CNY",
+      "rate10Y": 0.017,
+      "rateSource": "China 10Y Government Bond yield",
+      "sourceUrl": "https://www.chinabond.com.cn",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.031
+    },
+    "Turkey": {
+      "currency": "TRY",
+      "rate10Y": 0.3,
+      "rateSource": "Turkey 10Y Government Bond yield",
+      "sourceUrl": "https://www.tcmb.gov.tr",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.425
+    },
+    "Mexico": {
+      "currency": "MXN",
+      "rate10Y": 0.098,
+      "rateSource": "Mexico 10Y M-Bono yield",
+      "sourceUrl": "https://www.banxico.org.mx",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.095
+    },
+    "South Africa": {
+      "currency": "ZAR",
+      "rate10Y": 0.105,
+      "rateSource": "South Africa 10Y Government Bond yield",
+      "sourceUrl": "https://www.resbank.co.za",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.075
+    },
+    "Indonesia": {
+      "currency": "IDR",
+      "rate10Y": 0.07,
+      "rateSource": "Indonesia 10Y Government Bond yield",
+      "sourceUrl": "https://www.bi.go.id",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.0575
+    },
+    "Argentina": {
+      "currency": "ARS",
+      "rate10Y": 0.55,
+      "rateSource": "Argentina government bond yield estimate",
+      "sourceUrl": "https://www.bcra.gob.ar",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.29
+    },
+    "Kazakhstan": {
+      "currency": "KZT",
+      "rate10Y": 0.11,
+      "rateSource": "Kazakhstan government bond yield",
+      "sourceUrl": "https://nationalbank.kz",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.1425
+    },
+    "Colombia": {
+      "currency": "COP",
+      "rate10Y": 0.1075,
+      "rateSource": "Colombia 10Y government bond yield",
+      "sourceUrl": "https://www.banrep.gov.co",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.095
+    },
+    "Chile": {
+      "currency": "CLP",
+      "rate10Y": 0.058,
+      "rateSource": "Chile 10Y BTP government bond yield",
+      "sourceUrl": "https://www.bcentral.cl",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.05
+    },
+    "Peru": {
+      "currency": "PEN",
+      "rate10Y": 0.068,
+      "rateSource": "Peru 10Y government bond yield",
+      "sourceUrl": "https://www.bcrp.gob.pe",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.045
+    },
+    "Philippines": {
+      "currency": "PHP",
+      "rate10Y": 0.062,
+      "rateSource": "Philippines 10Y government bond yield",
+      "sourceUrl": "https://www.bsp.gov.ph",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.055
+    },
+    "Vietnam": {
+      "currency": "VND",
+      "rate10Y": 0.035,
+      "rateSource": "Vietnam 10Y government bond yield",
+      "sourceUrl": "https://www.sbv.gov.vn",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.045
+    },
+    "Thailand": {
+      "currency": "THB",
+      "rate10Y": 0.025,
+      "rateSource": "Thailand 10Y government bond yield",
+      "sourceUrl": "https://www.bot.or.th",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.02
+    },
+    "Malaysia": {
+      "currency": "MYR",
+      "rate10Y": 0.038,
+      "rateSource": "Malaysia 10Y MGS yield",
+      "sourceUrl": "https://www.bnm.gov.my",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.03
+    },
+    "Nigeria": {
+      "currency": "NGN",
+      "rate10Y": 0.17,
+      "rateSource": "Nigeria 10Y government bond yield",
+      "sourceUrl": "https://www.cbn.gov.ng",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.195
+    },
+    "Egypt": {
+      "currency": "EGP",
+      "rate10Y": 0.225,
+      "rateSource": "Egypt 10Y government bond yield",
+      "sourceUrl": "https://www.cbe.org.eg",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.225
+    },
+    "Ukraine": {
+      "currency": "UAH",
+      "rate10Y": 0.19,
+      "rateSource": "Ukraine 10Y OVDP yield",
+      "sourceUrl": "https://bank.gov.ua",
+      "asOfDate": "2026-03-01",
+      "centralBankRate": 0.145
+    }
+  }
+}

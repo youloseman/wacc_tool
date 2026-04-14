@@ -1,0 +1,1262 @@
+{
+  "lastUpdated": "2026-01-05",
+  "source": "Aswath Damodaran, NYU Stern (countrytaxrates.xls + Tax Foundation)",
+  "sourceUrl": "https://pages.stern.nyu.edu/~adamodar/pc/datasets/countrytaxrates.html",
+  "countries": [
+    {
+      "name": "Abu Dhabi",
+      "marginalTaxRate": 0.09,
+      "effectiveTaxRate": 0.09
+    },
+    {
+      "name": "Afghanistan",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Aland Islands",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Albania",
+      "marginalTaxRate": 0.15,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Algeria",
+      "marginalTaxRate": 0.26,
+      "effectiveTaxRate": 0.26
+    },
+    {
+      "name": "American Samoa",
+      "marginalTaxRate": 0.34,
+      "effectiveTaxRate": 0.34
+    },
+    {
+      "name": "Andorra",
+      "marginalTaxRate": 0.1,
+      "effectiveTaxRate": 0.1
+    },
+    {
+      "name": "Andorra (Principality of)",
+      "marginalTaxRate": 0.1,
+      "effectiveTaxRate": 0.1
+    },
+    {
+      "name": "Angola",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Anguilla",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Antigua and Barbuda",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Argentina",
+      "marginalTaxRate": 0.35,
+      "effectiveTaxRate": 0.35
+    },
+    {
+      "name": "Armenia",
+      "marginalTaxRate": 0.18,
+      "effectiveTaxRate": 0.18
+    },
+    {
+      "name": "Aruba",
+      "marginalTaxRate": 0.22,
+      "effectiveTaxRate": 0.22
+    },
+    {
+      "name": "Australia",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Austria",
+      "marginalTaxRate": 0.23,
+      "effectiveTaxRate": 0.23
+    },
+    {
+      "name": "Azerbaijan",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Bahamas",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Bahrain",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Bangladesh",
+      "marginalTaxRate": 0.275,
+      "effectiveTaxRate": 0.275
+    },
+    {
+      "name": "Barbados",
+      "marginalTaxRate": 0.09,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Belarus",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Belgium",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Belize",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Benin",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Bermuda",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Bhutan",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Bolivarian Republic of Venezuela",
+      "marginalTaxRate": 0.34,
+      "effectiveTaxRate": 0.34
+    },
+    {
+      "name": "Bolivia",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Bonaire, Sint Eustatius and Saba",
+      "marginalTaxRate": 0.258,
+      "effectiveTaxRate": 0.258
+    },
+    {
+      "name": "Bosnia and Herzegovina",
+      "marginalTaxRate": 0.1,
+      "effectiveTaxRate": 0.1
+    },
+    {
+      "name": "Botswana",
+      "marginalTaxRate": 0.22,
+      "effectiveTaxRate": 0.22
+    },
+    {
+      "name": "Brazil",
+      "marginalTaxRate": 0.34,
+      "effectiveTaxRate": 0.34
+    },
+    {
+      "name": "British Virgin Islands",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Bulgaria",
+      "marginalTaxRate": 0.1,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Burkina Faso",
+      "marginalTaxRate": 0.275,
+      "effectiveTaxRate": 0.275
+    },
+    {
+      "name": "Burundi",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Cabo Verde",
+      "marginalTaxRate": 0.2142,
+      "effectiveTaxRate": 0.2142
+    },
+    {
+      "name": "Cambodia",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Cameroon",
+      "marginalTaxRate": 0.33,
+      "effectiveTaxRate": 0.33
+    },
+    {
+      "name": "Canada",
+      "marginalTaxRate": 0.2614,
+      "effectiveTaxRate": 0.2614
+    },
+    {
+      "name": "Cape Verde",
+      "marginalTaxRate": 0.2686,
+      "effectiveTaxRate": 0.2686
+    },
+    {
+      "name": "Cayman Islands",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Central African Republic",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Chad",
+      "marginalTaxRate": 0.35,
+      "effectiveTaxRate": 0.35
+    },
+    {
+      "name": "Chile",
+      "marginalTaxRate": 0.27,
+      "effectiveTaxRate": 0.27
+    },
+    {
+      "name": "China",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "China, Hong Kong Special Administrative Region",
+      "marginalTaxRate": 0.165,
+      "effectiveTaxRate": 0.165
+    },
+    {
+      "name": "China, Macao Special Administrative Region",
+      "marginalTaxRate": 0.12,
+      "effectiveTaxRate": 0.12
+    },
+    {
+      "name": "Colombia",
+      "marginalTaxRate": 0.35,
+      "effectiveTaxRate": 0.35
+    },
+    {
+      "name": "Comoros",
+      "marginalTaxRate": 0.5,
+      "effectiveTaxRate": 0.5
+    },
+    {
+      "name": "Congo",
+      "marginalTaxRate": 0.28,
+      "effectiveTaxRate": 0.28
+    },
+    {
+      "name": "Congo (Democratic Republic of)",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Congo (Republic of)",
+      "marginalTaxRate": 0.2686,
+      "effectiveTaxRate": 0.2686
+    },
+    {
+      "name": "Cook Islands",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Costa Rica",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Cote d'Ivoire",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Côte d'Ivoire",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Croatia",
+      "marginalTaxRate": 0.18,
+      "effectiveTaxRate": 0.18
+    },
+    {
+      "name": "Cuba",
+      "marginalTaxRate": 0.35,
+      "effectiveTaxRate": 0.35
+    },
+    {
+      "name": "Curacao",
+      "marginalTaxRate": 0.22,
+      "effectiveTaxRate": 0.22
+    },
+    {
+      "name": "Cyprus",
+      "marginalTaxRate": 0.125,
+      "effectiveTaxRate": 0.125
+    },
+    {
+      "name": "Czech Republic",
+      "marginalTaxRate": 0.21,
+      "effectiveTaxRate": 0.21
+    },
+    {
+      "name": "Czechia",
+      "marginalTaxRate": 0.21,
+      "effectiveTaxRate": 0.21
+    },
+    {
+      "name": "Democratic Republic of the Congo",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Denmark",
+      "marginalTaxRate": 0.22,
+      "effectiveTaxRate": 0.22
+    },
+    {
+      "name": "Djibouti",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Dominica",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Dominican Republic",
+      "marginalTaxRate": 0.27,
+      "effectiveTaxRate": 0.27
+    },
+    {
+      "name": "Ecuador",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Egypt",
+      "marginalTaxRate": 0.225,
+      "effectiveTaxRate": 0.225
+    },
+    {
+      "name": "El Salvador",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Equatorial Guinea",
+      "marginalTaxRate": 0.35,
+      "effectiveTaxRate": 0.35
+    },
+    {
+      "name": "Eritrea",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Estonia",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Ethiopia",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Falkland Islands (Malvinas)",
+      "marginalTaxRate": 0.26,
+      "effectiveTaxRate": 0.26
+    },
+    {
+      "name": "Faroe Islands",
+      "marginalTaxRate": 0.18,
+      "effectiveTaxRate": 0.18
+    },
+    {
+      "name": "Federated States of Micronesia",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Fiji",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Finland",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "France",
+      "marginalTaxRate": 0.2583,
+      "effectiveTaxRate": 0.2583
+    },
+    {
+      "name": "French Polynesia",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Gabon",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Gambia",
+      "marginalTaxRate": 0.27,
+      "effectiveTaxRate": 0.27
+    },
+    {
+      "name": "Georgia",
+      "marginalTaxRate": 0.15,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Germany",
+      "marginalTaxRate": 0.2993,
+      "effectiveTaxRate": 0.2993
+    },
+    {
+      "name": "Ghana",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Gibraltar",
+      "marginalTaxRate": 0.15,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Greece",
+      "marginalTaxRate": 0.22,
+      "effectiveTaxRate": 0.22
+    },
+    {
+      "name": "Greenland",
+      "marginalTaxRate": 0.265,
+      "effectiveTaxRate": 0.265
+    },
+    {
+      "name": "Grenada",
+      "marginalTaxRate": 0.28,
+      "effectiveTaxRate": 0.28
+    },
+    {
+      "name": "Guam",
+      "marginalTaxRate": 0.21,
+      "effectiveTaxRate": 0.21
+    },
+    {
+      "name": "Guatemala",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Guernsey",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Guernsey (States of)",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Guinea",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Guinea-Bissau",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Guyana",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Haiti",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Honduras",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Hong Kong",
+      "marginalTaxRate": 0.165,
+      "effectiveTaxRate": 0.165
+    },
+    {
+      "name": "Hungary",
+      "marginalTaxRate": 0.09,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Iceland",
+      "marginalTaxRate": 0.21,
+      "effectiveTaxRate": 0.21
+    },
+    {
+      "name": "India",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Indonesia",
+      "marginalTaxRate": 0.22,
+      "effectiveTaxRate": 0.22
+    },
+    {
+      "name": "Iraq",
+      "marginalTaxRate": 0.15,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Ireland",
+      "marginalTaxRate": 0.125,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Islamic Republic of Iran",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Isle of Man",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Israel",
+      "marginalTaxRate": 0.23,
+      "effectiveTaxRate": 0.23
+    },
+    {
+      "name": "Italy",
+      "marginalTaxRate": 0.2781,
+      "effectiveTaxRate": 0.2781
+    },
+    {
+      "name": "Jamaica",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Japan",
+      "marginalTaxRate": 0.2974,
+      "effectiveTaxRate": 0.2974
+    },
+    {
+      "name": "Jersey",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Jersey (States of)",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Jordan",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Kazakhstan",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Kenya",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Kiribati",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Korea",
+      "marginalTaxRate": 0.264,
+      "effectiveTaxRate": 0.264
+    },
+    {
+      "name": "Kosovo",
+      "marginalTaxRate": 0.1,
+      "effectiveTaxRate": 0.1
+    },
+    {
+      "name": "Kuwait",
+      "marginalTaxRate": 0.15,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Kyrgyzstan",
+      "marginalTaxRate": 0.1,
+      "effectiveTaxRate": 0.1
+    },
+    {
+      "name": "Lao People's Democratic Republic",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Laos",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Latvia",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Lebanon",
+      "marginalTaxRate": 0.17,
+      "effectiveTaxRate": 0.17
+    },
+    {
+      "name": "Lesotho",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Liberia",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Libya",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Liechtenstein",
+      "marginalTaxRate": 0.125,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Lithuania",
+      "marginalTaxRate": 0.15,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Luxembourg",
+      "marginalTaxRate": 0.2494,
+      "effectiveTaxRate": 0.2494
+    },
+    {
+      "name": "Macao",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Macedonia",
+      "marginalTaxRate": 0.1,
+      "effectiveTaxRate": 0.1
+    },
+    {
+      "name": "Madagascar",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Malawi",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Malaysia",
+      "marginalTaxRate": 0.24,
+      "effectiveTaxRate": 0.24
+    },
+    {
+      "name": "Maldives",
+      "marginalTaxRate": 0.15,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Mali",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Malta",
+      "marginalTaxRate": 0.35,
+      "effectiveTaxRate": 0.35
+    },
+    {
+      "name": "Mauritania",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Mauritius",
+      "marginalTaxRate": 0.15,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Mexico",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Moldova",
+      "marginalTaxRate": 0.12,
+      "effectiveTaxRate": 0.12
+    },
+    {
+      "name": "Monaco",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Mongolia",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Montenegro",
+      "marginalTaxRate": 0.15,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Montserrat",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Morocco",
+      "marginalTaxRate": 0.33,
+      "effectiveTaxRate": 0.33
+    },
+    {
+      "name": "Mozambique",
+      "marginalTaxRate": 0.32,
+      "effectiveTaxRate": 0.32
+    },
+    {
+      "name": "Myanmar",
+      "marginalTaxRate": 0.22,
+      "effectiveTaxRate": 0.22
+    },
+    {
+      "name": "Namibia",
+      "marginalTaxRate": 0.32,
+      "effectiveTaxRate": 0.32
+    },
+    {
+      "name": "Nauru",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Nepal",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Netherlands",
+      "marginalTaxRate": 0.258,
+      "effectiveTaxRate": 0.258
+    },
+    {
+      "name": "New Caledonia",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "New Zealand",
+      "marginalTaxRate": 0.28,
+      "effectiveTaxRate": 0.28
+    },
+    {
+      "name": "Nicaragua",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Niger",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Nigeria",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Niue",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Northern Mariana Islands",
+      "marginalTaxRate": 0.21,
+      "effectiveTaxRate": 0.21
+    },
+    {
+      "name": "Norway",
+      "marginalTaxRate": 0.22,
+      "effectiveTaxRate": 0.22
+    },
+    {
+      "name": "Oman",
+      "marginalTaxRate": 0.15,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Pakistan",
+      "marginalTaxRate": 0.29,
+      "effectiveTaxRate": 0.29
+    },
+    {
+      "name": "Panama",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Papua New Guinea",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Paraguay",
+      "marginalTaxRate": 0.1,
+      "effectiveTaxRate": 0.1
+    },
+    {
+      "name": "Peru",
+      "marginalTaxRate": 0.295,
+      "effectiveTaxRate": 0.295
+    },
+    {
+      "name": "Philippines",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Plurinational State of Bolivia",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Poland",
+      "marginalTaxRate": 0.19,
+      "effectiveTaxRate": 0.19
+    },
+    {
+      "name": "Portugal",
+      "marginalTaxRate": 0.315,
+      "effectiveTaxRate": 0.315
+    },
+    {
+      "name": "Puerto Rico",
+      "marginalTaxRate": 0.375,
+      "effectiveTaxRate": 0.375
+    },
+    {
+      "name": "Qatar",
+      "marginalTaxRate": 0.1,
+      "effectiveTaxRate": 0.1
+    },
+    {
+      "name": "Ras Al Khaimah (Emirate of)",
+      "marginalTaxRate": 0.1894,
+      "effectiveTaxRate": 0.1894
+    },
+    {
+      "name": "Republic of Korea",
+      "marginalTaxRate": 0.264,
+      "effectiveTaxRate": 0.264
+    },
+    {
+      "name": "Republic of Moldova",
+      "marginalTaxRate": 0.12,
+      "effectiveTaxRate": 0.12
+    },
+    {
+      "name": "Romania",
+      "marginalTaxRate": 0.16,
+      "effectiveTaxRate": 0.16
+    },
+    {
+      "name": "Russia",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Russian Federation",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Rwanda",
+      "marginalTaxRate": 0.28,
+      "effectiveTaxRate": 0.28
+    },
+    {
+      "name": "Saint Barthelemy",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Saint Helena",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Saint Kitts and Nevis",
+      "marginalTaxRate": 0.33,
+      "effectiveTaxRate": 0.33
+    },
+    {
+      "name": "Saint Lucia",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Saint Martin (French Part)",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Saint Vincent and the Grenadines",
+      "marginalTaxRate": 0.28,
+      "effectiveTaxRate": 0.28
+    },
+    {
+      "name": "Samoa",
+      "marginalTaxRate": 0.27,
+      "effectiveTaxRate": 0.27
+    },
+    {
+      "name": "San Marino",
+      "marginalTaxRate": 0.17,
+      "effectiveTaxRate": 0.17
+    },
+    {
+      "name": "Sao Tome and Principe",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Saudi Arabia",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Senegal",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Serbia",
+      "marginalTaxRate": 0.15,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Seychelles",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Sharjah",
+      "marginalTaxRate": 0.1894,
+      "effectiveTaxRate": 0.1894
+    },
+    {
+      "name": "Sierra Leone",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Singapore",
+      "marginalTaxRate": 0.17,
+      "effectiveTaxRate": 0.17
+    },
+    {
+      "name": "Sint Maarten (Dutch part)",
+      "marginalTaxRate": 0.345,
+      "effectiveTaxRate": 0.345
+    },
+    {
+      "name": "Slovakia",
+      "marginalTaxRate": 0.21,
+      "effectiveTaxRate": 0.21
+    },
+    {
+      "name": "Slovenia",
+      "marginalTaxRate": 0.22,
+      "effectiveTaxRate": 0.22
+    },
+    {
+      "name": "Solomon Islands",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "South Africa",
+      "marginalTaxRate": 0.27,
+      "effectiveTaxRate": 0.27
+    },
+    {
+      "name": "South Sudan",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Spain",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Sri Lanka",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "St. Maarten",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "St. Vincent & the Grenadines",
+      "marginalTaxRate": 0.28,
+      "effectiveTaxRate": 0.28
+    },
+    {
+      "name": "State of Palestine",
+      "marginalTaxRate": 0.15,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Sudan",
+      "marginalTaxRate": 0.35,
+      "effectiveTaxRate": 0.35
+    },
+    {
+      "name": "Suriname",
+      "marginalTaxRate": 0.36,
+      "effectiveTaxRate": 0.36
+    },
+    {
+      "name": "Swaziland",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Sweden",
+      "marginalTaxRate": 0.206,
+      "effectiveTaxRate": 0.206
+    },
+    {
+      "name": "Switzerland",
+      "marginalTaxRate": 0.1961,
+      "effectiveTaxRate": 0.1961
+    },
+    {
+      "name": "Syrian Arab Republic",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Taiwan",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Tajikistan",
+      "marginalTaxRate": 0.18,
+      "effectiveTaxRate": 0.18
+    },
+    {
+      "name": "Tanzania",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Thailand",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "The former Yugoslav Republic of Macedonia",
+      "marginalTaxRate": 0.1,
+      "effectiveTaxRate": 0.1
+    },
+    {
+      "name": "Timor-Leste",
+      "marginalTaxRate": 0.1,
+      "effectiveTaxRate": 0.1
+    },
+    {
+      "name": "Togo",
+      "marginalTaxRate": 0.27,
+      "effectiveTaxRate": 0.27
+    },
+    {
+      "name": "Tokelau",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Tonga",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Trinidad and Tobago",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Tunisia",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Turkey",
+      "marginalTaxRate": 0.22,
+      "effectiveTaxRate": 0.22
+    },
+    {
+      "name": "Turkmenistan",
+      "marginalTaxRate": 0.08,
+      "effectiveTaxRate": 0.08
+    },
+    {
+      "name": "Turks and Caicos Islands",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Uganda",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "Ukraine",
+      "marginalTaxRate": 0.18,
+      "effectiveTaxRate": 0.18
+    },
+    {
+      "name": "United Arab Emirates",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "United Kingdom",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "United Kingdom of Great Britain and Northern Ireland",
+      "marginalTaxRate": 0.19,
+      "effectiveTaxRate": 0.19
+    },
+    {
+      "name": "United Republic of Tanzania",
+      "marginalTaxRate": 0.3,
+      "effectiveTaxRate": 0.3
+    },
+    {
+      "name": "United States",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "United States of America",
+      "marginalTaxRate": 0.2589,
+      "effectiveTaxRate": 0.2577
+    },
+    {
+      "name": "United States Virgin Islands",
+      "marginalTaxRate": 0.231,
+      "effectiveTaxRate": 0.231
+    },
+    {
+      "name": "Uruguay",
+      "marginalTaxRate": 0.25,
+      "effectiveTaxRate": 0.25
+    },
+    {
+      "name": "Uzbekistan",
+      "marginalTaxRate": 0.12,
+      "effectiveTaxRate": 0.15
+    },
+    {
+      "name": "Vanuatu",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Venezuela",
+      "marginalTaxRate": 0.34,
+      "effectiveTaxRate": 0.34
+    },
+    {
+      "name": "Venezuela (Bolivarian Republic of)",
+      "marginalTaxRate": 0.34,
+      "effectiveTaxRate": 0.34
+    },
+    {
+      "name": "Viet Nam",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Vietnam",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Wallis and Futuna Islands",
+      "marginalTaxRate": 0,
+      "effectiveTaxRate": 0
+    },
+    {
+      "name": "Yemen",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
+      "name": "Zambia",
+      "marginalTaxRate": 0.35,
+      "effectiveTaxRate": 0.35
+    },
+    {
+      "name": "Zimbabwe",
+      "marginalTaxRate": 0.2575,
+      "effectiveTaxRate": 0.2472
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "wacc-calculator",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n client,server -c blue,magenta \"npm --workspace client run dev\" \"npm --workspace server run dev\"",
+    "dev:client": "npm --workspace client run dev",
+    "dev:server": "npm --workspace server run dev",
+    "build": "npm --workspace client run build",
+    "start": "npm --workspace server run start",
+    "start:prod": "cross-env NODE_ENV=production npm run build && npm run start",
+    "test": "npm --workspace client run test -- --run && npm --workspace server run test -- --run"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  }
+}

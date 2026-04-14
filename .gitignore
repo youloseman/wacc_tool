@@ -1,0 +1,15 @@
+node_modules
+dist
+.DS_Store
+*.log
+.env
+.env.local
+.env.*.local
+.vscode
+
+# Built client output served by Express in production
+server/src/public
+
+# Vite cache
+.vite
+client/.vite
