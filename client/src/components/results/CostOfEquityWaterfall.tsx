@@ -100,7 +100,7 @@ export function CostOfEquityWaterfall({ result }: Props) {
       </ResponsiveContainer>
       <p className="mt-1 font-mono text-[11px] text-stone">
         CoE: <span className="text-sage">{fmtPercent(coe?.min ?? 0)}</span> (MIN) /{' '}
-        <span className="text-gold">{fmtPercent(coe?.max ?? 0)}</span> (MAX)
+        <span className="text-goldDark">{fmtPercent(coe?.max ?? 0)}</span> (MAX)
       </p>
     </div>
   );

@@ -32,7 +32,7 @@ export function WACCRangeBar({ result }: Props) {
             <>
               <span className="font-mono text-ink">{fmtPercent(min)}</span> —{' '}
               <span className="font-mono text-ink">{fmtPercent(max)}</span> · spread{' '}
-              <span className="font-mono text-gold">{spreadBps}</span> bps
+              <span className="font-mono text-goldDark">{spreadBps}</span> bps
             </>
           )}
         </span>
@@ -47,7 +47,7 @@ export function WACCRangeBar({ result }: Props) {
           }}
         />
       </div>
-      <div className="mt-1 flex justify-between text-[10px] font-mono text-stonePale">
+      <div className="mt-1 flex justify-between text-[10px] font-mono text-stone">
         <span>0%</span>
         <span>5%</span>
         <span>10%</span>

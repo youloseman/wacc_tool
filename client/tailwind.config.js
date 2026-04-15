@@ -12,6 +12,10 @@ export default {
         cream: '#FAF7F2',
         creamDeep: '#F0EBE1',
         gold: '#C9A84C',
+        // Bronze-shifted gold for body text — gives WCAG AA contrast (5.8:1) on cream/white
+        // backgrounds, where the standard `gold` would only hit 2.3:1 and become unreadable.
+        // Use `gold` only for large display numbers (≥18px) and decorative accents.
+        goldDark: '#8F6E1F',
         goldLight: '#DEC070',
         goldPale: '#F5EDD5',
         stone: '#6B6459',

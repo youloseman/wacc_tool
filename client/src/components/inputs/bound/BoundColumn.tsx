@@ -71,7 +71,7 @@ export function BoundColumn({
   const borderColor = isMin ? 'border-l-sage' : 'border-l-gold';
   const accentPill = isMin
     ? 'bg-sage/10 text-sage'
-    : 'bg-goldPale text-gold';
+    : 'bg-goldPale text-goldDark';
   const title = isMin ? 'Lower Bound · MIN' : 'Upper Bound · MAX';
   const copyLabel = isMin ? 'Copy to MAX →' : '← Copy to MIN';
 

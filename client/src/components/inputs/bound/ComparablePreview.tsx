@@ -53,7 +53,7 @@ function deBadge(c: CompanyData): DeBadge | null {
     case 'market-cap':
       return {
         label: 'Mkt D/E',
-        cls: 'bg-goldPale text-gold',
+        cls: 'bg-goldPale text-goldDark',
         tooltip: `Book equity unavailable or negative — D/E = Total Debt / Market Cap${dateSuffix}.${c.notes ? ' ' + c.notes : ''}`,
       };
     case 'industry-proxy':
@@ -304,172 +304,217 @@ export function ComparablePreview({ tickers, onTickersChange, valuationDate, met
         </div>
       )}
 
-      {tickerList.length > 0 && (
-        <div className="flex flex-wrap gap-1">
-          {tickerList.map((t) => (
-            <span
-              key={t}
-              className="inline-flex items-center gap-1 rounded border border-slate-300 bg-white px-1.5 py-0.5 text-[11px] font-mono"
-            >
-              {t}
-              <button
-                type="button"
-                onClick={() => removeTicker(t)}
-                className="text-slate-400 hover:text-slate-700"
-                aria-label={`Remove ${t}`}
-              >
-                <X size={10} />
-              </button>
-            </span>
-          ))}
-        </div>
-      )}
-
       {warnings.map((w, i) => (
-        <div key={i} className="rounded border border-amber-300 bg-amber-50 px-2 py-1 text-[11px] text-amber-800">
+        <div
+          key={i}
+          className="rounded border border-amber-300 bg-amber-50 px-2 py-1 text-[11px] text-amber-800"
+        >
           {w}
         </div>
       ))}
 
       {rows.length > 0 && (
-        <div className="overflow-x-auto rounded border border-slate-200 bg-white text-[11px]">
-          <table className="w-full">
-            <thead className="bg-surface text-left">
-              <tr>
-                <th className="px-1 py-1 w-4"></th>
-                <th className="px-1.5 py-1">Ticker</th>
-                <th className="px-1.5 py-1">Name</th>
-                <th className="px-1.5 py-1">Mkt Cap</th>
-                <th className="px-1.5 py-1 text-right">β lev</th>
-                <th className="px-1.5 py-1 text-center">Method</th>
-                <th className="px-1.5 py-1 text-right">R²</th>
-                <th className="px-1.5 py-1 text-center">Signif</th>
-                <th className="px-1.5 py-1 text-center">Stab</th>
-                <th className="px-1.5 py-1 text-right">D/E</th>
-                <th className="px-1.5 py-1 text-right">βu</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r) => {
-                const m = methodBadge(r.data?.betaMethod);
-                const stab = stabilityDot(r.data?.stability);
-                const hasDetail = !!r.data?.betaAnalysis;
-                const isExpanded = expanded.has(r.ticker);
+        <div className="overflow-hidden rounded border border-forest/10 bg-white text-[11px]">
+          {/* Compact peer cards — vertical layout fits the 380px sidebar without horizontal scroll.
+              Click anywhere on the card to expand full diagnostics (β windows, D/E source, tax). */}
+          <ul className="divide-y divide-forest/8">
+            {rows.map((r) => {
+              const data = r.data;
+              const hasDetail = !!data?.betaAnalysis;
+              const isExpanded = expanded.has(r.ticker);
+              const m = methodBadge(data?.betaMethod);
+              const stab = stabilityDot(data?.stability);
+              const badge = data ? deBadge(data) : null;
+
+              if (!data) {
                 return (
-                  <>
-                    <tr key={r.ticker} className="border-t border-slate-100">
-                      <td className="px-1 py-1">
-                        {hasDetail && (
-                          <button
-                            type="button"
-                            onClick={() => toggleExpand(r.ticker)}
-                            className="text-slate-400 hover:text-slate-700"
-                            aria-label="expand"
-                          >
-                            {isExpanded ? <ChevronDown size={12} /> : <ChevronRight size={12} />}
-                          </button>
-                        )}
-                      </td>
-                      <td className="px-1.5 py-1 font-mono">{r.ticker}</td>
-                      {r.data ? (
-                        <>
-                          <td className="px-1.5 py-1">
-                            <div>{r.data.name}</div>
-                            <div className="text-[10px] text-slate-400">
-                              {r.data.exchange}
-                              {(() => {
-                                const b = deBadge(r.data!);
-                                if (!b) return null;
-                                return (
-                                  <span
-                                    title={b.tooltip}
-                                    className={`ml-1 rounded px-1 py-px ${b.cls}`}
-                                  >
-                                    {b.label}
-                                  </span>
-                                );
-                              })()}
-                            </div>
-                          </td>
-                          <td className="px-1.5 py-1 font-mono">{fmtMarketCap(r.data.marketCap)}</td>
-                          <td className="px-1.5 py-1 text-right font-mono">{fmtBeta(r.data.leveredBeta)}</td>
-                          <td className="px-1.5 py-1 text-center">
-                            <span className={`rounded px-1 py-px text-[10px] ${m.cls}`}>{m.label}</span>
-                          </td>
-                          <td className={`px-1.5 py-1 text-right font-mono ${r2Class(r.data.averageRSquared)}`}>
-                            {r.data.averageRSquared != null ? r.data.averageRSquared.toFixed(2) : '—'}
-                          </td>
-                          <td className={`px-1.5 py-1 text-center font-mono ${signifClass(r.data.significantWindows, r.data.totalWindows)}`}>
-                            {r.data.totalWindows ? `${r.data.significantWindows}/${r.data.totalWindows}` : '—'}
-                          </td>
-                          <td className="px-1.5 py-1 text-center">
-                            <span className={stab.cls} title={stab.label}>{stab.dot}</span>
-                          </td>
-                          <td className="px-1.5 py-1 text-right font-mono">{fmtPercent(r.data.deRatio)}</td>
-                          <td className="px-1.5 py-1 text-right font-mono">{fmtBeta(r.data.unleveredBeta)}</td>
-                        </>
-                      ) : r.loading ? (
-                        <td colSpan={9} className="px-1.5 py-1 text-slate-400">Loading…</td>
-                      ) : (
-                        <td colSpan={9} className="px-1.5 py-1 text-red-600">not found</td>
-                      )}
-                    </tr>
-                    {hasDetail && isExpanded && r.data?.betaAnalysis && (
-                      <tr className="bg-slate-50">
-                        <td></td>
-                        <td colSpan={10} className="px-2 py-1">
-                          <div className="text-[10px] text-slate-600 mb-1">
-                            {r.data.betaAnalysis.period} Monthly vs {r.data.betaAnalysis.benchmark} — {r.data.betaAnalysis.stabilityNote}
-                          </div>
-                          <div className="mb-1 text-[10px] text-slate-500">
-                            D/E: {fmtPercent(r.data.deRatio)} ({r.data.deSource ?? 'firm'}
-                            {r.data.statementDate ? `, ${r.data.statementPeriod ?? 'FY'} ${r.data.statementDate}` : ''}) · {taxLabel(r.data)}
-                          </div>
-                          <table className="w-full text-[10px] font-mono">
-                            <thead className="text-slate-500">
-                              <tr>
-                                <th className="text-left pr-2">Window</th>
-                                <th className="text-left pr-2">Period</th>
-                                <th className="text-right pr-2">β</th>
-                                <th className="text-right pr-2">R²</th>
-                                <th className="text-right pr-2">t-stat</th>
-                                <th className="text-right pr-2">n</th>
-                                <th className="text-center">Sig</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {r.data.betaAnalysis.windows.map((w) => (
-                                <tr key={w.label}>
-                                  <td className="pr-2">{w.label}</td>
-                                  <td className="pr-2 text-slate-500">{fmtMonth(w.startDate)} — {fmtMonth(w.endDate)}</td>
-                                  <td className="text-right pr-2">{w.beta.toFixed(2)}</td>
-                                  <td className="text-right pr-2">{w.rSquared.toFixed(2)}</td>
-                                  <td className="text-right pr-2">{w.tStatistic.toFixed(2)}</td>
-                                  <td className="text-right pr-2">{w.observations}</td>
-                                  <td className="text-center">{w.isSignificant ? '✓' : '✗'}</td>
-                                </tr>
-                              ))}
-                              <tr className="border-t border-slate-200 font-semibold">
-                                <td className="pr-2">Avg</td>
-                                <td></td>
-                                <td className="text-right pr-2">{r.data.betaAnalysis.averageBeta.toFixed(2)}</td>
-                                <td className="text-right pr-2">{r.data.betaAnalysis.averageRSquared.toFixed(2)}</td>
-                                <td></td>
-                                <td></td>
-                                <td className="text-center">{r.data.betaAnalysis.significantCount}/{r.data.betaAnalysis.totalWindows}</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </td>
-                      </tr>
+                  <li key={r.ticker} className="flex items-center justify-between px-2 py-1.5">
+                    <span className="font-mono font-medium text-forest">{r.ticker}</span>
+                    {r.loading ? (
+                      <span className="text-stonePale">Loading…</span>
+                    ) : (
+                      <span className="text-red-700">not found</span>
                     )}
-                  </>
+                  </li>
                 );
-              })}
-            </tbody>
-          </table>
+              }
+
+              return (
+                <li key={r.ticker}>
+                  {/* Use a div with click handler — nesting <button> inside <button> for the
+                      remove ✕ would be invalid HTML and break accessibility. */}
+                  <div
+                    role={hasDetail ? 'button' : undefined}
+                    tabIndex={hasDetail ? 0 : undefined}
+                    onClick={() => hasDetail && toggleExpand(r.ticker)}
+                    onKeyDown={(e) => {
+                      if (hasDetail && (e.key === 'Enter' || e.key === ' ')) {
+                        e.preventDefault();
+                        toggleExpand(r.ticker);
+                      }
+                    }}
+                    className={`flex w-full items-start gap-2 px-2 py-1.5 text-left transition-colors ${
+                      hasDetail ? 'cursor-pointer hover:bg-cream' : ''
+                    }`}
+                  >
+                    {/* Caret column: aligned, occupies space even when no detail to keep layout stable. */}
+                    <span className="mt-0.5 text-goldDark">
+                      {hasDetail ? (
+                        isExpanded ? (
+                          <ChevronDown size={12} />
+                        ) : (
+                          <ChevronRight size={12} />
+                        )
+                      ) : (
+                        <span className="inline-block w-3" />
+                      )}
+                    </span>
+
+                    <div className="min-w-0 flex-1">
+                      {/* Top row: ticker + name (truncated) */}
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-mono font-semibold text-forest">{r.ticker}</span>
+                        <span className="truncate text-stone">{data.name}</span>
+                      </div>
+
+                      {/* Metric row: βu / D/E / inline badges */}
+                      <div className="mt-0.5 flex flex-wrap items-center gap-x-2.5 gap-y-0.5 text-[10.5px]">
+                        <span>
+                          <span className="text-stonePale">βu </span>
+                          <span className="font-mono font-semibold text-forest">
+                            {fmtBeta(data.unleveredBeta)}
+                          </span>
+                        </span>
+                        <span>
+                          <span className="text-stonePale">D/E </span>
+                          <span className="font-mono text-forest">{fmtPercent(data.deRatio)}</span>
+                        </span>
+                        {badge && (
+                          <span title={badge.tooltip} className={`rounded px-1 py-px ${badge.cls}`}>
+                            {badge.label}
+                          </span>
+                        )}
+                        <span className={`rounded px-1 py-px ${m.cls}`} title="Beta method">
+                          {m.label}
+                        </span>
+                        <span className={stab.cls} title={`${stab.label} stability`}>
+                          {stab.dot}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Right: remove button — stops click propagation so we don't expand on remove. */}
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        removeTicker(r.ticker);
+                      }}
+                      className="mt-0.5 shrink-0 text-stonePale hover:text-red-700"
+                      aria-label={`Remove ${r.ticker}`}
+                    >
+                      <X size={12} />
+                    </button>
+                  </div>
+
+                  {hasDetail && isExpanded && data.betaAnalysis && (
+                    <div className="border-t border-forest/8 bg-cream px-3 py-2 text-[10px] text-stone">
+                      {/* Header line: method + benchmark + stability */}
+                      <div className="mb-1">
+                        <span className="font-semibold text-forest">
+                          {data.betaAnalysis.period} Monthly
+                        </span>{' '}
+                        vs {data.betaAnalysis.benchmark} —{' '}
+                        <span className="italic">{data.betaAnalysis.stabilityNote}</span>
+                      </div>
+
+                      {/* Mkt Cap + R² + Signif row */}
+                      <div className="mb-1.5 flex flex-wrap gap-x-3 gap-y-0.5 font-mono">
+                        <span>
+                          <span className="text-stonePale">Mkt cap </span>
+                          {fmtMarketCap(data.marketCap)}
+                        </span>
+                        <span>
+                          <span className="text-stonePale">β lev </span>
+                          {fmtBeta(data.leveredBeta)}
+                        </span>
+                        <span>
+                          <span className="text-stonePale">R² </span>
+                          <span className={r2Class(data.averageRSquared)}>
+                            {data.averageRSquared != null ? data.averageRSquared.toFixed(2) : '—'}
+                          </span>
+                        </span>
+                        <span>
+                          <span className="text-stonePale">Signif </span>
+                          <span className={signifClass(data.significantWindows, data.totalWindows)}>
+                            {data.totalWindows
+                              ? `${data.significantWindows}/${data.totalWindows}`
+                              : '—'}
+                          </span>
+                        </span>
+                      </div>
+
+                      {/* Provenance: D/E source + tax source */}
+                      <div className="mb-1.5 text-stonePale">
+                        D/E: {fmtPercent(data.deRatio)} ({data.deSource ?? 'firm'}
+                        {data.statementDate
+                          ? `, ${data.statementPeriod ?? 'FY'} ${data.statementDate}`
+                          : ''}
+                        ) · {taxLabel(data)}
+                      </div>
+
+                      {/* Rolling-window regression table */}
+                      <table className="w-full font-mono">
+                        <thead className="text-stonePale">
+                          <tr>
+                            <th className="pr-2 text-left">Window</th>
+                            <th className="pr-2 text-left">Period</th>
+                            <th className="pr-2 text-right">β</th>
+                            <th className="pr-2 text-right">R²</th>
+                            <th className="pr-2 text-right">t-stat</th>
+                            <th className="pr-2 text-right">n</th>
+                            <th className="text-center">Sig</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {data.betaAnalysis.windows.map((w) => (
+                            <tr key={w.label}>
+                              <td className="pr-2">{w.label}</td>
+                              <td className="pr-2 text-stonePale">
+                                {fmtMonth(w.startDate)} — {fmtMonth(w.endDate)}
+                              </td>
+                              <td className="pr-2 text-right">{w.beta.toFixed(2)}</td>
+                              <td className="pr-2 text-right">{w.rSquared.toFixed(2)}</td>
+                              <td className="pr-2 text-right">{w.tStatistic.toFixed(2)}</td>
+                              <td className="pr-2 text-right">{w.observations}</td>
+                              <td className="text-center">{w.isSignificant ? '✓' : '✗'}</td>
+                            </tr>
+                          ))}
+                          <tr className="border-t border-forest/15 font-semibold text-forest">
+                            <td className="pr-2">Avg</td>
+                            <td></td>
+                            <td className="pr-2 text-right">
+                              {data.betaAnalysis.averageBeta.toFixed(2)}
+                            </td>
+                            <td className="pr-2 text-right">
+                              {data.betaAnalysis.averageRSquared.toFixed(2)}
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td className="text-center">
+                              {data.betaAnalysis.significantCount}/{data.betaAnalysis.totalWindows}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
           {(medianBeta != null || medianDE != null) && (
-            <div className="border-t border-slate-200 bg-surface px-1.5 py-1 text-[11px]">
+            <div className="border-t border-forest/10 bg-cream px-2 py-1.5 text-[11px]">
               <div className="font-mono">
                 {metric === 'de' ? (
                   <>
@@ -488,9 +533,10 @@ export function ComparablePreview({ tickers, onTickersChange, valuationDate, met
                 )}
               </div>
               {calculatedCount > 0 && (
-                <div className="mt-0.5 text-[10px] text-slate-500">
-                  Method: 5Y/3Y Monthly vs S&P 500 · Avg R²: {avgR2?.toFixed(2) ?? '—'} · Significant:{' '}
-                  {totalSig}/{totalWin} windows · Stability: {stabilityCounts.stable} stable
+                <div className="mt-0.5 text-[10px] text-stone">
+                  Method: 5Y/3Y Monthly vs S&P 500 · Avg R²:{' '}
+                  {avgR2?.toFixed(2) ?? '—'} · Significant: {totalSig}/{totalWin} windows ·
+                  Stability: {stabilityCounts.stable} stable
                   {stabilityCounts.moderate ? `, ${stabilityCounts.moderate} moderate` : ''}
                   {stabilityCounts.unstable ? `, ${stabilityCounts.unstable} unstable` : ''}
                   {valuationDate ? ` · as of ${valuationDate}` : ''}

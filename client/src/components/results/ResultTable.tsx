@@ -24,7 +24,7 @@ function renderSource(row: WACCResultRow) {
     <span>
       <span className="text-sage">{row.sourceMin}</span>
       <span className="text-stonePale"> / </span>
-      <span className="text-gold">{row.sourceMax}</span>
+      <span className="text-goldDark">{row.sourceMax}</span>
     </span>
   );
 }
@@ -176,7 +176,7 @@ export function ResultTable({ result }: Props) {
       </div>
 
       {/* Editorial footer — cream band with mono provenance line. */}
-      <div className="border-t border-forest/10 bg-cream px-5 py-2 text-[10px] font-mono text-stonePale">
+      <div className="border-t border-forest/10 bg-cream px-5 py-2 text-[10px] font-mono text-stone">
         Prepared via WACC Calculator · {new Date().toISOString().slice(0, 10)} · Data: FRED,
         Damodaran, Kroll, FMP
       </div>

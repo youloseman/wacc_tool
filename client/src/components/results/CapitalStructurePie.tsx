@@ -54,7 +54,7 @@ export function CapitalStructurePie({ result }: Props) {
             <div className="text-[9px] font-semibold uppercase tracking-[0.14em] text-stonePale">
               D/E
             </div>
-            <div className="font-mono text-[14px] font-medium text-gold">{fmtPercent(de)}</div>
+            <div className="font-mono text-[14px] font-medium text-goldDark">{fmtPercent(de)}</div>
           </div>
         </div>
       </div>

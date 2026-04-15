@@ -53,7 +53,7 @@ export class ErrorBoundary extends Component<Props, State> {
           </button>
           {isDev && error && (
             <details className="mt-4 text-[11px] text-stone">
-              <summary className="cursor-pointer font-mono text-gold">
+              <summary className="cursor-pointer font-mono text-goldDark">
                 Error details (dev only)
               </summary>
               <pre className="mt-1 max-h-60 overflow-auto whitespace-pre-wrap rounded bg-cream p-2 font-mono text-ink">

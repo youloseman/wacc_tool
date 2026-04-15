@@ -31,12 +31,12 @@ export function BoundSection({
         <span className="flex items-baseline gap-1.5">
           <span className="font-semibold text-forest">{title}</span>
           {summary && (
-            <span className="rounded-pill bg-goldPale px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.06em] text-gold">
+            <span className="rounded-pill bg-goldPale px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.06em] text-goldDark">
               {summary}
             </span>
           )}
         </span>
-        <span className="shrink-0 text-gold">
+        <span className="shrink-0 text-goldDark">
           {open ? <ChevronDown size={13} /> : <ChevronRight size={13} />}
         </span>
       </button>
