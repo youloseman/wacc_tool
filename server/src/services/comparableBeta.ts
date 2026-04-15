@@ -140,9 +140,70 @@ async function fmpSearch(query: string): Promise<FmpProfile[]> {
   }
 }
 
-// Infer country name from an FMP exchange / currency. Used to look up a Damodaran tax rate.
+// FMP profile.country is an ISO-3166 alpha-2 code (e.g. "GB", "FR"). Damodaran's tax/risk tables
+// use full English names ("United Kingdom", "France"). Map the codes we actually encounter.
+const ISO2_TO_NAME: Record<string, string> = {
+  US: 'United States',
+  GB: 'United Kingdom',
+  UK: 'United Kingdom',
+  FR: 'France',
+  DE: 'Germany',
+  NL: 'Netherlands',
+  CH: 'Switzerland',
+  IT: 'Italy',
+  ES: 'Spain',
+  SE: 'Sweden',
+  NO: 'Norway',
+  DK: 'Denmark',
+  FI: 'Finland',
+  AT: 'Austria',
+  BE: 'Belgium',
+  IE: 'Ireland',
+  LU: 'Luxembourg',
+  PT: 'Portugal',
+  PL: 'Poland',
+  CA: 'Canada',
+  AU: 'Australia',
+  NZ: 'New Zealand',
+  JP: 'Japan',
+  CN: 'China',
+  HK: 'Hong Kong',
+  TW: 'Taiwan',
+  KR: 'South Korea',
+  IN: 'India',
+  ID: 'Indonesia',
+  SG: 'Singapore',
+  TH: 'Thailand',
+  MY: 'Malaysia',
+  PH: 'Philippines',
+  VN: 'Vietnam',
+  RU: 'Russia',
+  KZ: 'Kazakhstan',
+  UA: 'Ukraine',
+  TR: 'Turkey',
+  SA: 'Saudi Arabia',
+  AE: 'United Arab Emirates',
+  IL: 'Israel',
+  EG: 'Egypt',
+  ZA: 'South Africa',
+  NG: 'Nigeria',
+  BR: 'Brazil',
+  MX: 'Mexico',
+  AR: 'Argentina',
+  CL: 'Chile',
+  CO: 'Colombia',
+  PE: 'Peru',
+};
+
+// Infer country name from an FMP profile. Prefers ISO-2 → full name mapping (FMP populates
+// `country` with codes like "GB"); falls back to exchange-name heuristics for older payloads.
 function inferCountry(profile: FmpProfile): string | null {
-  if (profile.country) return profile.country;
+  if (profile.country) {
+    const code = profile.country.toUpperCase();
+    if (ISO2_TO_NAME[code]) return ISO2_TO_NAME[code];
+    // FMP sometimes returns full name already (e.g. "United States") — pass it through.
+    if (profile.country.length > 2) return profile.country;
+  }
   const ex = (profile.exchangeFullName || profile.exchange || '').toLowerCase();
   if (ex.includes('london')) return 'United Kingdom';
   if (ex.includes('paris') || ex.includes('euronext paris')) return 'France';
