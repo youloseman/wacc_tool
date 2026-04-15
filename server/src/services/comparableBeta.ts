@@ -3,6 +3,7 @@ import { findCountryTax, findIndustry } from './damodaranData.ts';
 import { isIsin, resolveIsin } from './openFigi.ts';
 import { getMonthlyPrices, subtractYears, type MonthlyPrice } from './historicalPrices.ts';
 import { selectBeta, type BetaSelectionResult } from './betaCalculator.ts';
+import { getFinancialData, type DeSource, type TaxSource } from './financialStatements.ts';
 import type { BetaAnalysis, BetaMethod, BetaStability } from '../../../shared/types.ts';
 
 export interface ComparableCompany {
@@ -16,7 +17,13 @@ export interface ComparableCompany {
   exchange?: string;
   country?: string;
   currency?: string;
+  // Legacy roll-up of the data quality. Derived from deSource for backward compat.
   source?: 'fmp-firm' | 'fmp-industry-proxy' | 'yahoo';
+  // Provenance — explicit per-field source so the UI can show the right badge.
+  deSource?: DeSource;
+  taxSource?: TaxSource;
+  statementDate?: string;
+  statementPeriod?: string;
   notes?: string;
   // Calculated-beta fields (populated only via calculateComparableBeta with valuationDate + market series).
   betaMethod?: BetaMethod;
@@ -179,33 +186,62 @@ async function buildComparableFromProfile(
   if (!profile.symbol || profile.beta == null || profile.marketCap == null) return null;
   const leveredBeta = profile.beta;
 
-  // ratios-ttm is gated on paid tier for international (.L, .PA, .HK, .SR, …) — don't waste
-  // the daily quota trying. For bare US-style tickers, attempt it for firm-level D/E + tax.
+  // Resolution cascade (stops at first hit):
+  //   1. ratios-ttm for bare US tickers (firm-specific D/E + effective tax). Free tier.
+  //   2. balance-sheet + income-statement (firm-specific via raw statements). Free tier US-only;
+  //      international 402s gracefully and falls through.
+  //   3. Damodaran industry D/E + country marginal tax (proxy).
   const isInternational = /[.\-]/.test(profile.symbol);
   const ratios = isInternational ? null : await fmpFetch<FmpRatiosTTM>('ratios-ttm', profile.symbol);
   const firmDE = ratios?.[0]?.debtToEquityRatioTTM ?? null;
   const firmTax = ratios?.[0]?.effectiveTaxRateTTM ?? null;
 
+  // Inputs needed for the proxy fallback regardless of which branch we end up in.
+  const ind = industryName ? findIndustry(industryName) : null;
+  const industryDeRatio = ind?.deRatio ?? 0.35;
+  const country = inferCountry(profile);
+  const countryTax = (country ? findCountryTax(country)?.marginalTaxRate : null) ?? 0.25;
+
   let deRatio: number;
   let taxRate: number;
-  let source: ComparableCompany['source'];
-  let notes: string | undefined;
+  let deSource: DeSource;
+  let taxSource: TaxSource;
+  const notes: string[] = [];
+  let statementDate: string | undefined;
+  let statementPeriod: string | undefined;
 
   if (firmDE != null && firmDE >= 0) {
+    // Tier 1: firm-level via TTM ratios.
     deRatio = firmDE;
-    taxRate = firmTax != null ? Math.max(0, Math.min(0.5, firmTax)) : 0.25;
-    source = 'fmp-firm';
+    deSource = 'firm';
+    taxRate = firmTax != null ? Math.max(0, Math.min(0.5, firmTax)) : countryTax;
+    taxSource = firmTax != null ? 'firm' : 'country-default';
   } else {
-    // International ticker — FMP gates ratios-ttm behind paid tier, so fall back to
-    // Damodaran industry D/E + country marginal tax. This is a standard bottom-up proxy
-    // when firm-level data isn't free.
-    const ind = industryName ? findIndustry(industryName) : null;
-    deRatio = ind?.deRatio ?? 0.35;
-    const country = inferCountry(profile);
-    taxRate = (country ? findCountryTax(country)?.marginalTaxRate : null) ?? 0.25;
-    source = 'fmp-industry-proxy';
-    notes = `D/E proxied from Damodaran industry (${ind?.name ?? 'default'}); tax from ${country ?? 'default US'}.`;
+    // Tier 2: try raw balance sheet + income statement.
+    const fin = await getFinancialData(
+      profile.symbol,
+      profile.marketCap,
+      countryTax,
+      industryDeRatio,
+    );
+    deRatio = fin.deRatio;
+    deSource = fin.deSource;
+    taxRate = fin.effectiveTaxRate;
+    taxSource = fin.taxSource;
+    statementDate = fin.statementDate;
+    statementPeriod = fin.statementPeriod;
+    notes.push(...fin.notes);
+    // Augment the proxy note with industry context for the UI tooltip.
+    if (deSource === 'industry-proxy') {
+      notes.push(
+        `Industry: ${ind?.name ?? 'default'} (D/E ${(industryDeRatio * 100).toFixed(1)}%). Country: ${country ?? 'default US'}.`,
+      );
+    }
   }
+
+  // Legacy `source` field — preserved so older code paths and Excel export keep working.
+  const legacySource: ComparableCompany['source'] =
+    deSource === 'firm' ? 'fmp-firm' : deSource === 'industry-proxy' ? 'fmp-industry-proxy' : 'fmp-firm';
 
   const unleveredBeta = leveredBeta / (1 + (1 - taxRate) * Math.max(0, deRatio));
 
@@ -220,8 +256,12 @@ async function buildComparableFromProfile(
     exchange: profile.exchangeFullName ?? profile.exchange,
     country: inferCountry(profile) ?? profile.country ?? '',
     currency: profile.currency ?? 'USD',
-    source,
-    notes,
+    source: legacySource,
+    deSource,
+    taxSource,
+    statementDate,
+    statementPeriod,
+    notes: notes.length > 0 ? notes.join(' ') : undefined,
   };
 }
 

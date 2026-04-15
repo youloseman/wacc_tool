@@ -3,6 +3,9 @@ import { ChevronDown, ChevronRight, Search, X } from 'lucide-react';
 import type { BetaAnalysis, BetaMethod, BetaStability } from '@shared/types';
 import { fmtBeta, fmtPercent } from '../../../utils/format';
 
+type DeSource = 'firm' | 'balance-sheet' | 'market-cap' | 'industry-proxy';
+type TaxSource = 'firm' | 'income-statement' | 'country-default';
+
 interface CompanyData {
   ticker: string;
   name: string;
@@ -15,6 +18,10 @@ interface CompanyData {
   country?: string;
   currency?: string;
   source?: 'fmp-firm' | 'fmp-industry-proxy' | 'yahoo';
+  deSource?: DeSource;
+  taxSource?: TaxSource;
+  statementDate?: string;
+  statementPeriod?: string;
   notes?: string;
   betaMethod?: BetaMethod;
   betaAnalysis?: BetaAnalysis;
@@ -23,6 +30,47 @@ interface CompanyData {
   totalWindows?: number;
   stability?: BetaStability;
   fmpProviderBeta?: number;
+}
+
+interface DeBadge {
+  label: string;
+  cls: string;
+  tooltip: string;
+}
+
+function deBadge(c: CompanyData): DeBadge | null {
+  const src = c.deSource ?? (c.source === 'fmp-industry-proxy' ? 'industry-proxy' : 'firm');
+  const dateSuffix = c.statementDate ? ` (${c.statementPeriod ?? 'FY'} ${c.statementDate})` : '';
+  switch (src) {
+    case 'firm':
+      return null;
+    case 'balance-sheet':
+      return {
+        label: 'BS D/E',
+        cls: 'bg-sage/15 text-sage',
+        tooltip: `D/E from balance sheet (Total Debt / Total Equity)${dateSuffix}.${c.notes ? ' ' + c.notes : ''}`,
+      };
+    case 'market-cap':
+      return {
+        label: 'Mkt D/E',
+        cls: 'bg-goldPale text-gold',
+        tooltip: `Book equity unavailable or negative — D/E = Total Debt / Market Cap${dateSuffix}.${c.notes ? ' ' + c.notes : ''}`,
+      };
+    case 'industry-proxy':
+      return {
+        label: 'proxy D/E',
+        cls: 'bg-red-100 text-red-700',
+        tooltip: c.notes ?? 'D/E proxied from Damodaran industry average.',
+      };
+  }
+}
+
+function taxLabel(c: CompanyData): string {
+  const src = c.taxSource;
+  if (src === 'firm') return `Tax: ${(c.taxRate * 100).toFixed(1)}% (firm-level, FMP TTM)`;
+  if (src === 'income-statement')
+    return `Tax: ${(c.taxRate * 100).toFixed(1)}% (income statement${c.statementDate ? `, ${c.statementPeriod ?? 'FY'} ${c.statementDate}` : ''})`;
+  return `Tax: ${(c.taxRate * 100).toFixed(1)}% (country marginal rate — no statement data)`;
 }
 
 interface SearchCandidate {
@@ -329,14 +377,18 @@ export function ComparablePreview({ tickers, onTickersChange, valuationDate, met
                             <div>{r.data.name}</div>
                             <div className="text-[10px] text-slate-400">
                               {r.data.exchange}
-                              {r.data.source === 'fmp-industry-proxy' && (
-                                <span
-                                  title={r.data.notes ?? 'D/E proxied from Damodaran industry'}
-                                  className="ml-1 rounded bg-amber-100 px-1 py-px text-amber-700"
-                                >
-                                  proxy D/E
-                                </span>
-                              )}
+                              {(() => {
+                                const b = deBadge(r.data!);
+                                if (!b) return null;
+                                return (
+                                  <span
+                                    title={b.tooltip}
+                                    className={`ml-1 rounded px-1 py-px ${b.cls}`}
+                                  >
+                                    {b.label}
+                                  </span>
+                                );
+                              })()}
                             </div>
                           </td>
                           <td className="px-1.5 py-1 font-mono">{fmtMarketCap(r.data.marketCap)}</td>
@@ -368,6 +420,10 @@ export function ComparablePreview({ tickers, onTickersChange, valuationDate, met
                         <td colSpan={10} className="px-2 py-1">
                           <div className="text-[10px] text-slate-600 mb-1">
                             {r.data.betaAnalysis.period} Monthly vs {r.data.betaAnalysis.benchmark} — {r.data.betaAnalysis.stabilityNote}
+                          </div>
+                          <div className="mb-1 text-[10px] text-slate-500">
+                            D/E: {fmtPercent(r.data.deRatio)} ({r.data.deSource ?? 'firm'}
+                            {r.data.statementDate ? `, ${r.data.statementPeriod ?? 'FY'} ${r.data.statementDate}` : ''}) · {taxLabel(r.data)}
                           </div>
                           <table className="w-full text-[10px] font-mono">
                             <thead className="text-slate-500">

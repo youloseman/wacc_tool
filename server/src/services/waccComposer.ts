@@ -60,7 +60,23 @@ function describeOneSideBeta(r: ResolvedBound): string {
   const c = r.comparable;
   if (!c || c.companies.length === 0) return 'Industry unlevered beta.';
   const anyCalc = c.companies.some((x) => x.betaMethod?.startsWith('calculated'));
-  if (!anyCalc) return `Median unlevered beta from ${c.companies.length} comparable(s).`;
+  // D/E source breakdown — counts per provenance category for transparency.
+  const deCounts = {
+    firm: c.companies.filter((x) => x.deSource === 'firm').length,
+    bs: c.companies.filter((x) => x.deSource === 'balance-sheet').length,
+    mkt: c.companies.filter((x) => x.deSource === 'market-cap').length,
+    proxy: c.companies.filter((x) => x.deSource === 'industry-proxy').length,
+  };
+  const deBreakdownParts: string[] = [];
+  if (deCounts.firm) deBreakdownParts.push(`${deCounts.firm} firm`);
+  if (deCounts.bs) deBreakdownParts.push(`${deCounts.bs} from balance sheet`);
+  if (deCounts.mkt) deBreakdownParts.push(`${deCounts.mkt} market-cap`);
+  if (deCounts.proxy) deBreakdownParts.push(`${deCounts.proxy} industry proxy`);
+  const deBreakdown =
+    deBreakdownParts.length > 0 ? ` D/E sources: ${deBreakdownParts.join(', ')}.` : '';
+  if (!anyCalc) {
+    return `Median unlevered beta from ${c.companies.length} comparable(s).${deBreakdown}`;
+  }
   const avgR2 =
     c.companies.reduce((a, x) => a + (x.averageRSquared ?? 0), 0) / c.companies.length;
   const stabilityCounts = {
@@ -70,7 +86,7 @@ function describeOneSideBeta(r: ResolvedBound): string {
   };
   return (
     `Median unlevered β from ${c.companies.length} comparable(s). 5Y monthly returns vs ${c.benchmark ?? 'S&P 500'}, ` +
-    `3 rolling windows. Avg R²: ${avgR2.toFixed(2)}. Peer stability: ${stabilityCounts.stable} stable, ${stabilityCounts.moderate} moderate, ${stabilityCounts.unstable} unstable.`
+    `3 rolling windows. Avg R²: ${avgR2.toFixed(2)}. Peer stability: ${stabilityCounts.stable} stable, ${stabilityCounts.moderate} moderate, ${stabilityCounts.unstable} unstable.${deBreakdown}`
   );
 }
 
