@@ -3,11 +3,17 @@ providers = ["node"]
 [phases.setup]
 nixPkgs = ["nodejs_20"]
 
+# Install with devDependencies forced on — Vite (client), tsx (server), typescript
+# must be present during the build phase. Without this override, Railway sets
+# NODE_ENV=production globally and npm skips devDeps, Vite never runs, and the
+# old server/src/public/ stays in the image.
 [phases.install]
-cmds = ["npm ci --include=dev"]
+cmds = ["NODE_ENV=development npm ci --include=dev"]
 
+# Run the monorepo build: client Vite → server/src/public/. Must run with devDeps
+# still available (Vite lives there).
 [phases.build]
-cmds = ["npm run build"]
+cmds = ["NODE_ENV=development npm run build"]
 
 [start]
 cmd = "npm run start"
