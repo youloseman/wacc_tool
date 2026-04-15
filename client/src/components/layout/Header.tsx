@@ -5,18 +5,33 @@ interface HeaderProps {
 
 export function Header({ companyName, valuationDate }: HeaderProps) {
   return (
-    <header className="flex h-14 items-center justify-between bg-navy px-6 text-white">
-      <h1 className="text-lg font-semibold tracking-tight">WACC Calculator</h1>
-      <div className="flex items-center gap-6 text-sm">
-        <div>
-          <span className="text-white/60">Valuation date: </span>
-          <span className="font-mono">{valuationDate || '—'}</span>
+    <>
+      <header className="flex h-16 items-center justify-between border-b border-forest/10 bg-cream px-6">
+        <div className="flex flex-col">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-sage">
+            Confidential · Cost of Capital · 2026
+          </span>
+          <h1 className="font-display text-[22px] italic leading-none text-forest">
+            WACC Calculator
+          </h1>
         </div>
-        <div>
-          <span className="text-white/60">Company: </span>
-          <span className="font-medium">{companyName || '—'}</span>
+        <div className="flex items-center gap-8 text-[11px]">
+          <div className="flex flex-col items-end">
+            <span className="text-[9px] uppercase tracking-[0.14em] text-stonePale">
+              Valuation date
+            </span>
+            <span className="font-mono text-stone">{valuationDate || '—'}</span>
+          </div>
+          <div className="flex flex-col items-end">
+            <span className="text-[9px] uppercase tracking-[0.14em] text-stonePale">
+              Company
+            </span>
+            <span className="font-sans font-medium text-forest">{companyName || '—'}</span>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      {/* Editorial gold accent divider under the header. */}
+      <div className="h-px bg-gradient-to-r from-gold/40 via-gold/10 to-transparent" />
+    </>
   );
 }

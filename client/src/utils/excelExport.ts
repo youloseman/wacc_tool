@@ -2,10 +2,11 @@ import ExcelJS from 'exceljs';
 import { saveAs } from 'file-saver';
 import type { WACCInputs, WACCResult, WACCResultRow } from '@shared/types';
 
-const NAVY = 'FF00338D';
-const PURPLE_LIGHT = 'FFE7E4FC';
-const PURPLE = 'FFCAC5F9';
-const BLUE_FONT = 'FF0000FF';
+// Clariva palette, ExcelJS ARGB form (FF prefix = fully opaque)
+const NAVY = 'FF1C3A2F'; // forest — replaces former navy bands
+const PURPLE_LIGHT = 'FFF5EDD5'; // goldPale — primary highlight row
+const PURPLE = 'FFF0EBE1'; // creamDeep — secondary highlight
+const BLUE_FONT = 'FFC9A84C'; // gold — formula/input font colour
 
 interface ComparableCompany {
   ticker: string;
@@ -36,7 +37,14 @@ function buildSummarySheet(wb: ExcelJS.Workbook, result: WACCResult, inputs: WAC
   sheet.mergeCells('A1:E1');
   const titleCell = sheet.getCell('A1');
   titleCell.value = title;
-  titleCell.font = { bold: true, color: { argb: 'FFFFFFFF' }, size: 12, name: 'Arial' };
+  // Prefer Cormorant Garamond italic for the title — falls back to Georgia italic then Arial
+  // on machines without the display face. Italic serif matches the on-screen report band.
+  titleCell.font = {
+    italic: true,
+    color: { argb: 'FFFAF7F2' },
+    size: 14,
+    name: 'Cormorant Garamond',
+  };
   titleCell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: NAVY } };
   titleCell.alignment = { horizontal: 'left', vertical: 'middle' };
   sheet.getRow(1).height = 30;

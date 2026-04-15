@@ -17,34 +17,37 @@ export function WACCRangeBar({ result }: Props) {
   const width = Math.max(0.5, (Math.abs(max - min) / SCALE_MAX) * 100);
 
   return (
-    <div className="rounded border border-slate-200 bg-white p-3">
+    <div className="rounded-card border border-forest/10 bg-white p-3">
       <div className="mb-1 flex items-baseline justify-between text-[12px]">
-        <span className="font-semibold text-slate-800">WACC range</span>
-        <span className="text-slate-500">
+        <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-sage">
+          WACC range
+        </span>
+        <span className="text-stone">
           {min === max ? (
             <>
-              Single point estimate: <span className="font-mono">{fmtPercent(min)}</span>
+              Single point estimate:{' '}
+              <span className="font-mono text-ink">{fmtPercent(min)}</span>
             </>
           ) : (
             <>
-              <span className="font-mono">{fmtPercent(min)}</span> —{' '}
-              <span className="font-mono">{fmtPercent(max)}</span> · spread{' '}
-              <span className="font-mono">{spreadBps}</span> bps
+              <span className="font-mono text-ink">{fmtPercent(min)}</span> —{' '}
+              <span className="font-mono text-ink">{fmtPercent(max)}</span> · spread{' '}
+              <span className="font-mono text-gold">{spreadBps}</span> bps
             </>
           )}
         </span>
       </div>
-      <div className="relative h-4 w-full overflow-hidden rounded bg-slate-100">
+      <div className="relative h-4 w-full overflow-hidden rounded bg-creamDeep">
         <div
           className="absolute top-0 h-full rounded"
           style={{
             left: `${left}%`,
             width: `${width}%`,
-            background: 'linear-gradient(90deg, #10B981 0%, #3B82F6 100%)',
+            background: 'linear-gradient(90deg, #2D6A4F 0%, #C9A84C 100%)',
           }}
         />
       </div>
-      <div className="mt-1 flex justify-between text-[10px] text-slate-400">
+      <div className="mt-1 flex justify-between text-[10px] font-mono text-stonePale">
         <span>0%</span>
         <span>5%</span>
         <span>10%</span>

@@ -62,7 +62,7 @@ export function InputForm({
       <button
         type="submit"
         disabled={!isValid || loading}
-        className="w-full rounded bg-navy px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#002770] disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full rounded bg-gold px-4 py-2.5 text-[13px] font-semibold uppercase tracking-[0.12em] text-forest shadow-gold transition-colors hover:bg-goldLight disabled:cursor-not-allowed disabled:bg-creamDeep disabled:text-stone disabled:shadow-none"
       >
         {loading ? 'Calculating…' : 'Calculate WACC'}
       </button>

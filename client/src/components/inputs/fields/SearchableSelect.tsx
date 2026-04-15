@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 
 interface SearchableSelectProps {
   label: string;
@@ -19,34 +20,34 @@ export function SearchableSelect({ label, value, onChange, options }: Searchable
 
   return (
     <div className="relative text-sm">
-      <span className="mb-1 block font-medium text-slate-700">{label}</span>
+      <span className="mb-1 block text-[12px] font-medium text-forest">{label}</span>
       <button
         type="button"
-        className="flex w-full items-center justify-between rounded border border-slate-300 bg-white px-2 py-1.5 text-left text-sm focus:border-navy focus:outline-none focus:ring-1 focus:ring-navy"
+        className="flex w-full items-center justify-between rounded border-[1.5px] border-forest/10 bg-white px-2 py-1.5 text-left text-sm text-ink focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/15"
         onClick={() => setOpen((o) => !o)}
       >
         <span>{value || 'Select…'}</span>
-        <span className="text-slate-400">▾</span>
+        <ChevronDown size={13} className="text-gold" />
       </button>
       {open && (
-        <div className="absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded border border-slate-300 bg-white shadow-lg">
+        <div className="absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded border border-forest/15 bg-white shadow-lg">
           <input
             autoFocus
             type="text"
-            className="w-full border-b border-slate-200 px-2 py-1.5 text-sm focus:outline-none"
+            className="w-full border-b border-forest/10 px-2 py-1.5 text-sm text-ink placeholder:text-stonePale focus:outline-none"
             placeholder="Search…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
           {filtered.length === 0 && (
-            <div className="px-2 py-2 text-xs text-slate-500">No matches</div>
+            <div className="px-2 py-2 text-xs text-stone">No matches</div>
           )}
           {filtered.map((opt) => (
             <button
               key={opt}
               type="button"
-              className={`block w-full px-2 py-1.5 text-left text-sm hover:bg-surface ${
-                opt === value ? 'bg-surface font-medium' : ''
+              className={`block w-full px-2 py-1.5 text-left text-sm text-ink hover:bg-cream ${
+                opt === value ? 'bg-goldPale/60 font-medium text-forest' : ''
               }`}
               onClick={() => {
                 onChange(opt);

@@ -14,13 +14,15 @@ export function CapitalStructurePie({ result }: Props) {
   const de = equity > 0 ? (1 - equity) / equity : 0;
 
   const data = [
-    { name: 'Equity', value: equity * 100, color: '#00338D' },
-    { name: 'Debt', value: debt * 100, color: '#93C5FD' },
+    { name: 'Equity', value: equity * 100, color: '#1C3A2F' }, // forest
+    { name: 'Debt', value: debt * 100, color: '#C9A84C' }, // gold
   ];
 
   return (
-    <div className="flex flex-col rounded border border-slate-200 bg-white p-3">
-      <h4 className="mb-2 text-[13px] font-semibold text-slate-800">Capital structure</h4>
+    <div className="flex flex-col rounded-card border border-forest/10 bg-white p-3">
+      <h4 className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-sage">
+        Capital structure
+      </h4>
       <div className="relative">
         <ResponsiveContainer width="100%" height={220}>
           <PieChart>
@@ -49,10 +51,10 @@ export function CapitalStructurePie({ result }: Props) {
         </ResponsiveContainer>
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <div className="text-[10px] text-slate-500">D/E</div>
-            <div className="font-mono text-[14px] font-semibold text-slate-800">
-              {fmtPercent(de)}
+            <div className="text-[9px] font-semibold uppercase tracking-[0.14em] text-stonePale">
+              D/E
             </div>
+            <div className="font-mono text-[14px] font-medium text-gold">{fmtPercent(de)}</div>
           </div>
         </div>
       </div>

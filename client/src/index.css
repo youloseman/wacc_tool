@@ -9,7 +9,13 @@ body,
 }
 
 body {
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
-  color: #1a1a1a;
-  background: #ffffff;
+  font-family: 'Outfit', system-ui, sans-serif;
+  color: #1c1915;
+  background: #faf7f2;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #f5edd5;
+  color: #1c3a2f;
 }

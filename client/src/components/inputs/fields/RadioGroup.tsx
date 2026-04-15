@@ -20,13 +20,13 @@ export function RadioGroup<T extends string>({
 }: RadioGroupProps<T>) {
   return (
     <div className="text-sm">
-      {label && <span className="mb-1 block font-medium text-slate-700">{label}</span>}
+      {label && <span className="mb-1 block text-[12px] font-medium text-forest">{label}</span>}
       <div className={inline ? 'flex flex-wrap gap-3' : 'flex flex-col gap-1.5'}>
         {options.map((o) => (
-          <label key={o.value} className="flex items-center gap-2 text-sm">
+          <label key={o.value} className="flex items-center gap-2 text-sm text-ink">
             <input
               type="radio"
-              className="accent-navy"
+              className="accent-gold"
               checked={value === o.value}
               onChange={() => onChange(o.value)}
             />

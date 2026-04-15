@@ -6,19 +6,29 @@ export function WACCSummaryLine({ result }: { result: WACCResult }) {
   if (!wacc || wacc.min == null || wacc.max == null) return null;
   const spreadBps = Math.round((wacc.max - wacc.min) * 10000);
   return (
-    <div className="rounded border border-slate-200 bg-purple-light px-3 py-2 text-sm">
-      {wacc.min === wacc.max ? (
-        <>
-          WACC: <span className="font-mono font-semibold">{fmtPercent(wacc.min)}</span>{' '}
-          <span className="text-slate-500">(single point estimate)</span>
-        </>
-      ) : (
-        <>
-          WACC range:{' '}
-          <span className="font-mono font-semibold">{fmtPercent(wacc.min)} — {fmtPercent(wacc.max)}</span>{' '}
-          <span className="text-slate-500">(spread: {spreadBps} bps)</span>
-        </>
-      )}
+    <div className="rounded border-y border-gold/30 bg-goldPale px-4 py-2.5">
+      <div className="flex items-baseline gap-2">
+        <span className="font-display text-[13px] italic text-forest">WACC</span>
+        {wacc.min === wacc.max ? (
+          <>
+            <span className="font-mono text-[18px] font-medium text-gold">
+              {fmtPercent(wacc.min)}
+            </span>
+            <span className="text-[11px] uppercase tracking-[0.12em] text-stonePale">
+              Single point estimate
+            </span>
+          </>
+        ) : (
+          <>
+            <span className="font-mono text-[18px] font-medium text-gold">
+              {fmtPercent(wacc.min)} — {fmtPercent(wacc.max)}
+            </span>
+            <span className="text-[11px] uppercase tracking-[0.12em] text-stonePale">
+              Spread {spreadBps} bps
+            </span>
+          </>
+        )}
+      </div>
     </div>
   );
 }

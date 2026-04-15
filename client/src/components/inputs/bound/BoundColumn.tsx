@@ -68,20 +68,27 @@ export function BoundColumn({
   errors,
 }: Props) {
   const isMin = kind === 'min';
-  const borderColor = isMin ? 'border-l-[#10B981]' : 'border-l-[#3B82F6]';
-  const title = isMin ? 'Lower Bound (MIN)' : 'Upper Bound (MAX)';
+  const borderColor = isMin ? 'border-l-sage' : 'border-l-gold';
+  const accentPill = isMin
+    ? 'bg-sage/10 text-sage'
+    : 'bg-goldPale text-gold';
+  const title = isMin ? 'Lower Bound · MIN' : 'Upper Bound · MAX';
   const copyLabel = isMin ? 'Copy to MAX →' : '← Copy to MIN';
 
   return (
     <div
-      className={`flex min-w-0 flex-1 flex-col gap-2 rounded border-l-4 ${borderColor} bg-surface p-2`}
+      className={`flex min-w-0 flex-1 flex-col gap-2 rounded border border-forest/10 border-l-4 ${borderColor} bg-cream p-2`}
     >
       <div className="flex items-center justify-between px-1 pb-1">
-        <h3 className="text-[13px] font-semibold text-slate-800">{title}</h3>
+        <span
+          className={`rounded-pill px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.1em] ${accentPill}`}
+        >
+          {title}
+        </span>
         <button
           type="button"
           onClick={onCopyToOther}
-          className="rounded border border-slate-300 bg-white px-2 py-0.5 text-[11px] text-slate-600 hover:bg-white"
+          className="rounded border border-forest/25 bg-white px-2 py-0.5 text-[11px] text-forest transition-colors hover:border-gold hover:text-gold"
         >
           {copyLabel}
         </button>

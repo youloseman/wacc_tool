@@ -13,9 +13,9 @@ import {
 import type { WACCResult } from '@shared/types';
 import { fmtPercent } from '../../utils/format';
 
-const MIN_COLOR = '#10B981';
-const MAX_COLOR = '#3B82F6';
-const TOTAL_COLOR = '#00338D';
+const MIN_COLOR = '#2D6A4F'; // sage
+const MAX_COLOR = '#C9A84C'; // gold
+const TOTAL_COLOR = '#1C3A2F'; // forest
 
 interface Props {
   result: WACCResult;
@@ -50,8 +50,8 @@ export function CostOfEquityWaterfall({ result }: Props) {
   ];
 
   return (
-    <div className="rounded border border-slate-200 bg-white p-3">
-      <h4 className="mb-2 text-[13px] font-semibold text-slate-800">
+    <div className="rounded-card border border-forest/10 bg-white p-3">
+      <h4 className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-sage">
         Cost of Equity decomposition
       </h4>
       <ResponsiveContainer width="100%" height={300}>
@@ -61,14 +61,14 @@ export function CostOfEquityWaterfall({ result }: Props) {
           margin={{ top: 10, right: 50, left: 10, bottom: 10 }}
           barGap={4}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" horizontal={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#F0EBE1" horizontal={false} />
           <XAxis
             type="number"
             tickFormatter={(v) => `${v.toFixed(1)}%`}
-            stroke="#64748B"
+            stroke="#6B6459"
             fontSize={11}
           />
-          <YAxis dataKey="name" type="category" stroke="#64748B" fontSize={11} width={110} />
+          <YAxis dataKey="name" type="category" stroke="#6B6459" fontSize={11} width={110} />
           <Tooltip
             formatter={(value: number) => `${value.toFixed(2)}%`}
             cursor={{ fill: 'rgba(0,0,0,0.04)' }}
@@ -98,8 +98,9 @@ export function CostOfEquityWaterfall({ result }: Props) {
           </Bar>
         </BarChart>
       </ResponsiveContainer>
-      <p className="mt-1 text-[11px] text-slate-500">
-        CoE: {fmtPercent(coe?.min ?? 0)} (MIN) / {fmtPercent(coe?.max ?? 0)} (MAX)
+      <p className="mt-1 font-mono text-[11px] text-stone">
+        CoE: <span className="text-sage">{fmtPercent(coe?.min ?? 0)}</span> (MIN) /{' '}
+        <span className="text-gold">{fmtPercent(coe?.max ?? 0)}</span> (MAX)
       </p>
     </div>
   );

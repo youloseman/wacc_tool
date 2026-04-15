@@ -21,11 +21,11 @@ export function NumberField({
 }: NumberFieldProps) {
   return (
     <label className="block text-sm">
-      <span className="mb-1 block font-medium text-slate-700">{label}</span>
+      <span className="mb-1 block text-[12px] font-medium text-forest">{label}</span>
       <div className="flex items-center gap-2">
         <input
           type="number"
-          className="w-full rounded border border-slate-300 px-2 py-1.5 font-mono text-sm focus:border-navy focus:outline-none focus:ring-1 focus:ring-navy"
+          className="w-full rounded border-[1.5px] border-forest/10 bg-white px-2 py-1.5 font-mono text-sm text-ink placeholder:text-stonePale focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/15"
           value={value ?? ''}
           step={step}
           min={min}
@@ -35,9 +35,9 @@ export function NumberField({
             onChange(raw === '' ? null : Number(raw));
           }}
         />
-        {suffix && <span className="text-xs text-slate-500">{suffix}</span>}
+        {suffix && <span className="font-mono text-xs text-stone">{suffix}</span>}
       </div>
-      {error && <span className="mt-1 block text-xs text-red-600">{error}</span>}
+      {error && <span className="mt-1 block text-xs text-red-700">{error}</span>}
     </label>
   );
 }

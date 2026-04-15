@@ -10,6 +10,11 @@
     display: none !important;
   }
 
+  body {
+    background: #faf7f2 !important;
+    color: #1c1915 !important;
+  }
+
   .result-panel {
     width: 100% !important;
     max-width: 100% !important;
@@ -20,6 +25,25 @@
   .result-table {
     font-size: 11px !important;
     page-break-inside: avoid;
+  }
+
+  /* Preserve brand background colours when printing — most browsers drop them by default. */
+  .result-band,
+  .result-table thead tr {
+    background: #1c3a2f !important;
+    color: #faf7f2 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .gold-divider {
+    background: linear-gradient(
+      90deg,
+      rgba(201, 168, 76, 0.4),
+      transparent
+    ) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .charts-section {

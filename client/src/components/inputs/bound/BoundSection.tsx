@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from 'react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 
 interface BoundSectionProps {
   title: string;
@@ -18,24 +19,28 @@ export function BoundSection({
   const [open, setOpen] = useState(defaultOpen);
   return (
     <section
-      className={`rounded border text-[13px] ${
-        diff ? 'border-amber-300 bg-[#FFF9DB]' : 'border-slate-200 bg-white'
+      className={`rounded border text-[13px] transition-colors ${
+        diff ? 'border-gold/50 bg-goldPale/60' : 'border-forest/10 bg-white'
       }`}
     >
       <button
         type="button"
-        className="flex w-full items-center justify-between px-2.5 py-1.5 text-left font-semibold text-slate-800 hover:bg-surface"
+        className="flex w-full items-center justify-between px-2.5 py-1.5 text-left hover:bg-cream"
         onClick={() => setOpen((o) => !o)}
       >
-        <span>
-          {title}
+        <span className="flex items-baseline gap-1.5">
+          <span className="font-semibold text-forest">{title}</span>
           {summary && (
-            <span className="ml-1.5 font-normal text-slate-500">({summary})</span>
+            <span className="rounded-pill bg-goldPale px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.06em] text-gold">
+              {summary}
+            </span>
           )}
         </span>
-        <span className="text-slate-400">{open ? '▾' : '▸'}</span>
+        <span className="shrink-0 text-gold">
+          {open ? <ChevronDown size={13} /> : <ChevronRight size={13} />}
+        </span>
       </button>
-      {open && <div className="space-y-2 border-t border-slate-200 p-2.5">{children}</div>}
+      {open && <div className="space-y-2 border-t border-forest/8 p-2.5">{children}</div>}
     </section>
   );
 }
