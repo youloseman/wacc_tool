@@ -4,6 +4,7 @@ import type { WACCInputs, WACCResult } from '@shared/types';
 import { exportWACCToExcel, type ComparableCompany } from '../../utils/excelExport';
 import { exportWACCToPDF } from '../../utils/pdfExport';
 import { clearLocalStorage, encodeStateToHash } from '../../utils/sessionState';
+import { ShareModal } from '../ShareModal';
 
 interface Props {
   result: WACCResult | null;
@@ -41,6 +42,7 @@ async function fetchComparables(inputs: WACCInputs): Promise<ComparableCompany[]
 
 export function ExportBar({ result, inputs, onReset, onShareNotice }: Props) {
   const [excelBusy, setExcelBusy] = useState(false);
+  const [shareModalUrl, setShareModalUrl] = useState<string | null>(null);
   const exportDisabled = !result;
 
   const onExcel = async () => {
@@ -57,14 +59,18 @@ export function ExportBar({ result, inputs, onReset, onShareNotice }: Props) {
   const onShare = async () => {
     const hash = encodeStateToHash(inputs);
     const url = `${window.location.origin}${window.location.pathname}${hash}`;
+    // Try the one-click clipboard path. If clipboard API is missing (iframe, old browsers,
+    // insecure origin) or throws, fall back to a modal with the URL pre-selected so the user
+    // can copy manually. Covers every environment without dead-ending on any of them.
     try {
+      if (!navigator.clipboard?.writeText) throw new Error('clipboard-unsupported');
       await navigator.clipboard.writeText(url);
       const extra = url.length > 4000 ? ' (link is long; may not fit some clients)' : '';
       onShareNotice(`Link copied.${extra}`, url.length > 4000 ? 'warning' : 'success');
-    } catch {
-      // Older browsers: fall back to prompt.
-      window.prompt('Copy this link:', url);
-      onShareNotice('Link ready in prompt — copy manually.', 'success');
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.warn('clipboard.writeText failed, opening share modal', err);
+      setShareModalUrl(url);
     }
   };
 
@@ -115,6 +121,9 @@ export function ExportBar({ result, inputs, onReset, onShareNotice }: Props) {
         <RotateCcw size={12} />
         Reset
       </button>
+      {shareModalUrl && (
+        <ShareModal url={shareModalUrl} onClose={() => setShareModalUrl(null)} />
+      )}
     </div>
   );
 }

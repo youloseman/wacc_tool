@@ -1,66 +1,156 @@
+/*
+ * Print styles.
+ *
+ * Design decisions:
+ * 1. We don't use `display: none` on body-> hierarchy because that hides the React root
+ *    entirely. Instead we selectively hide the input panel, header bar, buttons, and the
+ *    chart toggle.
+ * 2. All scroll containers (Layout, sidebar, main pane) are expanded to `overflow: visible`
+ *    and `height: auto` so the full result panel pages naturally.
+ * 3. Background colours on the forest header band, table header, and gold dividers need
+ *    `-webkit-print-color-adjust: exact` (and the standard alias) to survive print — browsers
+ *    strip them by default to save ink.
+ * 4. `page-break-inside: avoid` on table rows keeps a row together; `display: table-header-group`
+ *    on thead repeats the header on every page.
+ */
 @media print {
+  /* Force colour fidelity on everything so the brand palette survives print. */
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Expand every ancestor so the result panel pages in full. */
+  html,
+  body,
+  #root,
+  .app-root {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  /* The Layout component: aside + main with h-[calc(100vh-...)]. Neutralise the viewport
+     lock; stack them (but we hide aside below, so main fills the page). */
   .input-panel,
+  .input-panel * {
+    display: none !important;
+  }
+  /* Also hide everything chrome-related. */
   .header-bar,
   .export-buttons,
   .chart-toggle,
-  footer,
-  button,
-  input,
-  select {
+  .share-button,
+  .reset-button {
     display: none !important;
   }
 
-  body {
-    background: #faf7f2 !important;
-    color: #1c1915 !important;
+  /* Layout shell — drop the two-column flex and release height constraints. */
+  body > #root,
+  body > #root > div,
+  body > #root > div > div {
+    display: block !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
   }
 
+  main,
+  aside,
   .result-panel {
     width: 100% !important;
-    max-width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+    overflow: visible !important;
+    position: static !important;
     padding: 0 !important;
     margin: 0 !important;
+    border: 0 !important;
+    background: #ffffff !important;
   }
 
-  .result-table {
-    font-size: 11px !important;
-    page-break-inside: avoid;
+  /* Hide the sidebar (input panel) entirely. */
+  aside {
+    display: none !important;
   }
 
-  /* Preserve brand background colours when printing — most browsers drop them by default. */
-  .result-band,
+  /* Preserve the editorial header band on the result table. */
+  .result-band {
+    background: #1c3a2f !important;
+    color: #faf7f2 !important;
+  }
+  .result-band * {
+    color: inherit !important;
+  }
+
+  /* Table header row — forest with cream text. */
   .result-table thead tr {
     background: #1c3a2f !important;
     color: #faf7f2 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  }
+  .result-table thead th {
+    color: #faf7f2 !important;
+  }
+  .result-table thead tr:nth-child(2) {
+    background: #142b22 !important;
   }
 
+  /* Gold gradient dividers between sections of the table. */
   .gold-divider {
     background: linear-gradient(
       90deg,
       rgba(201, 168, 76, 0.4),
       transparent
     ) !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
   }
 
+  /* Subtotal / emphasis rows — goldPale highlight. */
+  .result-table tbody tr[class*='bg-goldPale'] {
+    background: #f5edd5 !important;
+  }
+
+  /* Keep each table row together on a page break. */
+  .result-table {
+    width: 100% !important;
+    page-break-inside: auto;
+  }
+  .result-table thead {
+    display: table-header-group;
+  }
+  .result-table tr {
+    page-break-inside: avoid;
+  }
+
+  /* Push charts to a new page so the table fits on one. */
   .charts-section {
     page-break-before: always;
   }
-
   .charts-section > div {
     display: grid !important;
   }
 
+  /* Print header (only visible while printing) — simple on-page title. */
   .print-header {
     display: block !important;
+    padding: 0 0 1cm !important;
   }
 
+  /* Don't print hover states / link underlines under buttons. */
+  button {
+    border: none !important;
+    background: transparent !important;
+    color: inherit !important;
+  }
+
+  /* Page setup. */
   @page {
-    margin: 1.5cm;
     size: A4 landscape;
+    margin: 1cm;
   }
 }
 
