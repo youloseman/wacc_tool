@@ -1,5 +1,6 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { WACCBoundInputs, WACCInputs } from '@shared/types';
+import { loadInitialState, saveToLocalStorage } from '../utils/sessionState';
 
 const today = (): string => new Date().toISOString().slice(0, 10);
 
@@ -71,8 +72,35 @@ function validateBound(b: WACCBoundInputs): Partial<Record<keyof WACCBoundInputs
   return e;
 }
 
-export function useWaccForm() {
-  const [inputs, setInputs] = useState<WACCInputs>(INITIAL_INPUTS);
+export interface UseWaccFormApi {
+  inputs: WACCInputs;
+  updateShared: <K extends keyof WACCInputs>(key: K, value: WACCInputs[K]) => void;
+  updateBound: <K extends keyof WACCBoundInputs>(
+    bound: BoundKey,
+    key: K,
+    value: WACCBoundInputs[K],
+  ) => void;
+  copyBound: (from: BoundKey, to: BoundKey) => void;
+  reset: () => void;
+  replaceAll: (next: WACCInputs) => void;
+  errors: FormErrors;
+  isValid: boolean;
+  initialSource: 'hash' | 'storage' | 'default';
+}
+
+export function useWaccForm(): UseWaccFormApi {
+  // On mount, priority: URL hash → localStorage → defaults. See sessionState.loadInitialState.
+  const [{ state: initial, source: initialSource }] = useState(() => {
+    const { state, source } = loadInitialState();
+    return { state: state ?? INITIAL_INPUTS, source };
+  });
+  const [inputs, setInputs] = useState<WACCInputs>(initial);
+
+  // Auto-save on every input change (debounced by 300ms). Private-browsing safe.
+  useEffect(() => {
+    const t = setTimeout(() => saveToLocalStorage(inputs), 300);
+    return () => clearTimeout(t);
+  }, [inputs]);
 
   const updateShared = useCallback(
     <K extends keyof WACCInputs>(key: K, value: WACCInputs[K]) => {
@@ -99,6 +127,14 @@ export function useWaccForm() {
     setInputs((prev) => ({ ...prev, [to]: { ...prev[from] } }));
   }, []);
 
+  const reset = useCallback(() => {
+    setInputs({ ...INITIAL_INPUTS, valuationDate: today() });
+  }, []);
+
+  const replaceAll = useCallback((next: WACCInputs) => {
+    setInputs(next);
+  }, []);
+
   const errors = useMemo<FormErrors>(() => {
     const minErrs = validateBound(inputs.minBound);
     const maxErrs = validateBound(inputs.maxBound);
@@ -110,5 +146,5 @@ export function useWaccForm() {
 
   const isValid = !errors.minBound && !errors.maxBound;
 
-  return { inputs, updateShared, updateBound, copyBound, errors, isValid };
+  return { inputs, updateShared, updateBound, copyBound, reset, replaceAll, errors, isValid, initialSource };
 }

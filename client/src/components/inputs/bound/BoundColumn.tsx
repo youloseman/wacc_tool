@@ -100,12 +100,14 @@ export function BoundColumn({
         onUpdate={onUpdate}
         diff={capitalStructureDiff(bound, other)}
         error={errors?.customDeRatio}
+        persistPrefix={kind}
       />
       <BoundBeta
         shared={shared}
         bound={bound}
         onUpdate={onUpdate}
         diff={betaDiff(bound, other)}
+        persistPrefix={kind}
       />
       <BoundErp
         shared={shared}
@@ -113,6 +115,7 @@ export function BoundColumn({
         onUpdate={onUpdate}
         diff={erpDiff(bound, other)}
         error={errors?.customErp}
+        persistPrefix={kind}
       />
       <BoundCostOfDebt
         shared={shared}
@@ -120,6 +123,7 @@ export function BoundColumn({
         onUpdate={onUpdate}
         diff={codDiff(bound, other)}
         errors={errors}
+        persistPrefix={kind}
       />
       <BoundTaxRate
         shared={shared}
@@ -127,12 +131,14 @@ export function BoundColumn({
         onUpdate={onUpdate}
         diff={taxDiff(bound, other)}
         error={errors?.customTaxRate}
+        persistPrefix={kind}
       />
       <BoundPremiums
         shared={shared}
         bound={bound}
         onUpdate={onUpdate}
         diff={premiumsDiff(bound, other)}
+        persistPrefix={kind}
       />
     </div>
   );

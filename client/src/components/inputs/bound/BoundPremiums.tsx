@@ -9,9 +9,10 @@ interface Props {
   bound: WACCBoundInputs;
   onUpdate: <K extends keyof WACCBoundInputs>(k: K, v: WACCBoundInputs[K]) => void;
   diff: boolean;
+  persistPrefix: string;
 }
 
-export function BoundPremiums({ shared, bound, onUpdate, diff }: Props) {
+export function BoundPremiums({ shared, bound, onUpdate, diff, persistPrefix }: Props) {
   const meta = useMetadata();
   const sizeDefault = meta.krollSizePremiums[shared.companySize]?.premium ?? 0;
   const country = meta.findCountry(shared.countryOperations);
@@ -21,8 +22,15 @@ export function BoundPremiums({ shared, bound, onUpdate, diff }: Props) {
   const size = bound.sizePremiumOverride ?? sizeDefault;
   const crp = isLocal ? 0 : (bound.countryRiskPremiumOverride ?? countryDefault);
   const summary = `Size: ${fmtPercent(size)} · CRP: ${fmtPercent(crp)}`;
+  const badge = isLocal ? 'Kroll · CRP embedded' : 'Kroll · Damodaran';
   return (
-    <BoundSection title="Additional Premiums" summary={summary} diff={diff} defaultOpen={false}>
+    <BoundSection
+      title="Additional Premiums"
+      summary={summary}
+      badge={badge}
+      diff={diff}
+      persistId={`${persistPrefix}.premiums`}
+    >
       <PercentField
         label={`Size premium (Kroll default: ${fmtPercent(sizeDefault)})`}
         value={bound.sizePremiumOverride}

@@ -12,6 +12,7 @@ interface Props {
   bound: WACCBoundInputs;
   onUpdate: <K extends keyof WACCBoundInputs>(k: K, v: WACCBoundInputs[K]) => void;
   diff: boolean;
+  persistPrefix: string;
 }
 
 const SOURCES: ReadonlyArray<{ value: BetaSourceSingle; label: string }> = [
@@ -20,7 +21,13 @@ const SOURCES: ReadonlyArray<{ value: BetaSourceSingle; label: string }> = [
   { value: 'comparables', label: 'Comparable companies' },
 ];
 
-export function BoundBeta({ shared, bound, onUpdate, diff }: Props) {
+const BADGES: Record<BetaSourceSingle, string> = {
+  damodaran: 'Damodaran',
+  kroll: 'Kroll',
+  comparables: 'Comparables',
+};
+
+export function BoundBeta({ shared, bound, onUpdate, diff, persistPrefix }: Props) {
   const meta = useMetadata();
   const resolved = resolveBoundForUI(shared, bound, meta);
   const industry = meta.findIndustry(shared.industry);
@@ -30,7 +37,9 @@ export function BoundBeta({ shared, bound, onUpdate, diff }: Props) {
     <BoundSection
       title="Beta"
       summary={summary}
+      badge={BADGES[bound.betaSource]}
       diff={diff}
+      persistId={`${persistPrefix}.beta`}
     >
       <RadioGroup
         value={bound.betaSource}

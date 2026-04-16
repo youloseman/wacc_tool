@@ -13,29 +13,13 @@ interface Props {
   ) => void;
   copyBound: (from: BoundKey, to: BoundKey) => void;
   errors: FormErrors;
-  isValid: boolean;
-  loading: boolean;
-  onCalculate: () => void;
 }
 
-export function InputForm({
-  inputs,
-  updateShared,
-  updateBound,
-  copyBound,
-  errors,
-  isValid,
-  loading,
-  onCalculate,
-}: Props) {
+// Live-recalc flow: every edit dispatches a debounced /api/calculate via useWaccResult.
+// The Calculate button is gone; the result panel on the right is always the current truth.
+export function InputForm({ inputs, updateShared, updateBound, copyBound, errors }: Props) {
   return (
-    <form
-      className="flex flex-col gap-4"
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (isValid) onCalculate();
-      }}
-    >
+    <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
       <GeneralParametersSection inputs={inputs} update={updateShared} />
 
       <div className="flex flex-col gap-3 lg:flex-row">
@@ -58,14 +42,6 @@ export function InputForm({
           errors={errors.maxBound}
         />
       </div>
-
-      <button
-        type="submit"
-        disabled={!isValid || loading}
-        className="w-full rounded bg-gold px-4 py-2.5 text-[13px] font-semibold uppercase tracking-[0.12em] text-forest shadow-gold transition-colors hover:bg-goldLight disabled:cursor-not-allowed disabled:bg-creamDeep disabled:text-stone disabled:shadow-none"
-      >
-        {loading ? 'Calculating…' : 'Calculate WACC'}
-      </button>
     </form>
   );
 }

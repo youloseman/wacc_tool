@@ -20,6 +20,7 @@ interface Props {
   onUpdate: <K extends keyof WACCBoundInputs>(k: K, v: WACCBoundInputs[K]) => void;
   diff: boolean;
   errors?: Partial<Record<keyof WACCBoundInputs, string>>;
+  persistPrefix: string;
 }
 
 const TABS: ReadonlyArray<{ value: CostOfDebtMethod; label: string }> = [
@@ -28,7 +29,13 @@ const TABS: ReadonlyArray<{ value: CostOfDebtMethod; label: string }> = [
   { value: 'direct', label: 'Direct' },
 ];
 
-export function BoundCostOfDebt({ shared, bound, onUpdate, diff, errors }: Props) {
+const BADGES: Record<CostOfDebtMethod, string> = {
+  icr: 'ICR coverage',
+  rating: 'Credit rating',
+  direct: 'Direct input',
+};
+
+export function BoundCostOfDebt({ shared, bound, onUpdate, diff, errors, persistPrefix }: Props) {
   const meta = useMetadata();
   const resolved = resolveBoundForUI(shared, bound, meta);
   const em = meta.getEMRate(shared.countryOperations);
@@ -56,11 +63,18 @@ export function BoundCostOfDebt({ shared, bound, onUpdate, diff, errors }: Props
   const showUsdRateWarning =
     isLocal && bound.costOfDebtMethod !== 'direct' && resolved.costOfDebtPreTax < 0.1;
 
+  const ratingBadge =
+    bound.costOfDebtMethod === 'rating' && bound.creditRating
+      ? `Rating ${bound.creditRating}`
+      : BADGES[bound.costOfDebtMethod];
+
   return (
     <BoundSection
       title="Cost of Debt"
       summary={`Kd: ${fmtPercent(resolved.costOfDebtPreTax)}`}
+      badge={ratingBadge}
       diff={diff}
+      persistId={`${persistPrefix}.cod`}
     >
       {showEmWarning && em && (
         <div className="rounded border border-amber-300 bg-amber-50 px-2 py-1 text-[11px] text-amber-800">

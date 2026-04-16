@@ -12,6 +12,7 @@ interface Props {
   onUpdate: <K extends keyof WACCBoundInputs>(k: K, v: WACCBoundInputs[K]) => void;
   diff: boolean;
   error?: string;
+  persistPrefix: string;
 }
 
 const SOURCES: ReadonlyArray<{ value: TaxRateSource; label: string }> = [
@@ -19,11 +20,22 @@ const SOURCES: ReadonlyArray<{ value: TaxRateSource; label: string }> = [
   { value: 'custom', label: 'Custom' },
 ];
 
-export function BoundTaxRate({ shared, bound, onUpdate, diff, error }: Props) {
+const BADGES: Record<TaxRateSource, string> = {
+  damodaran: 'Damodaran',
+  custom: 'Custom',
+};
+
+export function BoundTaxRate({ shared, bound, onUpdate, diff, error, persistPrefix }: Props) {
   const meta = useMetadata();
   const resolved = resolveBoundForUI(shared, bound, meta);
   return (
-    <BoundSection title="Tax Rate" summary={`Tax: ${fmtPercent(resolved.taxRate)}`} diff={diff}>
+    <BoundSection
+      title="Tax Rate"
+      summary={`Tax: ${fmtPercent(resolved.taxRate)}`}
+      badge={BADGES[bound.taxRateSource]}
+      diff={diff}
+      persistId={`${persistPrefix}.tax`}
+    >
       <RadioGroup
         value={bound.taxRateSource}
         onChange={(v) => onUpdate('taxRateSource', v)}

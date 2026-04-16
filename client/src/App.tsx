@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Header } from './components/layout/Header';
 import { Layout } from './components/layout/Layout';
 import { InputForm } from './components/inputs/InputForm';
@@ -7,12 +8,32 @@ import { ExportBar } from './components/export/ExportBar';
 import { WACCSummaryLine } from './components/results/WACCSummaryLine';
 import { WACCRangeBar } from './components/results/WACCRangeBar';
 import { AnalysisSection } from './components/results/AnalysisSection';
+import { ToastStack, useToasts } from './components/Toast';
 import { useWaccForm } from './hooks/useWaccForm';
 import { useWaccResult } from './hooks/useWaccResult';
 
 export function App() {
-  const { inputs, updateShared, updateBound, copyBound, errors, isValid } = useWaccForm();
-  const { result, loading, error, calculate } = useWaccResult();
+  const {
+    inputs,
+    updateShared,
+    updateBound,
+    copyBound,
+    reset,
+    errors,
+    isValid,
+    initialSource,
+  } = useWaccForm();
+  const { result, loading, error } = useWaccResult(inputs, isValid);
+  const toasts = useToasts();
+  const welcomedRef = useRef(false);
+
+  // Inform the user once at mount if we restored from a shared URL. Fires after first render
+  // so the toast doesn't compete with initial paint.
+  useEffect(() => {
+    if (welcomedRef.current) return;
+    welcomedRef.current = true;
+    if (initialSource === 'hash') toasts.push('Loaded shared calculation from URL.', 'success');
+  }, [initialSource]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="flex h-full flex-col">
@@ -36,9 +57,6 @@ export function App() {
               updateBound={updateBound}
               copyBound={copyBound}
               errors={errors}
-              isValid={isValid}
-              loading={loading}
-              onCalculate={() => calculate(inputs)}
             />
           </div>
         }
@@ -46,19 +64,26 @@ export function App() {
           <div className="result-panel flex flex-col gap-4">
             {error && (
               <div className="rounded border border-amber-300 bg-amber-50 px-3 py-2 text-xs text-amber-800">
-                {error}
+                Live data temporarily unavailable — showing last successful calculation.{' '}
+                <span className="text-stone">{error}</span>
               </div>
             )}
-            <div className="result-table">
+            <div className={`result-table transition-opacity ${loading && result ? 'opacity-70' : ''}`}>
               <ResultTable result={result} />
             </div>
             {result && <WACCSummaryLine result={result} />}
             {result && <WACCRangeBar result={result} />}
             {result ? <AnalysisSection result={result} /> : <ChartPlaceholder />}
-            <ExportBar result={result} inputs={inputs} />
+            <ExportBar
+              result={result}
+              inputs={inputs}
+              onReset={reset}
+              onShareNotice={(text, kind) => toasts.push(text, kind)}
+            />
           </div>
         }
       />
+      <ToastStack messages={toasts.messages} onDismiss={toasts.dismiss} />
     </div>
   );
 }

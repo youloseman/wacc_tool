@@ -12,6 +12,7 @@ interface Props {
   onUpdate: <K extends keyof WACCBoundInputs>(k: K, v: WACCBoundInputs[K]) => void;
   diff: boolean;
   error?: string;
+  persistPrefix: string;
 }
 
 const SOURCES: ReadonlyArray<{ value: ErpSource; label: string }> = [
@@ -20,14 +21,22 @@ const SOURCES: ReadonlyArray<{ value: ErpSource; label: string }> = [
   { value: 'custom', label: 'Custom' },
 ];
 
-export function BoundErp({ shared, bound, onUpdate, diff, error }: Props) {
+const BADGES: Record<ErpSource, string> = {
+  damodaran: 'Damodaran',
+  kroll: 'Kroll',
+  custom: 'Custom',
+};
+
+export function BoundErp({ shared, bound, onUpdate, diff, error, persistPrefix }: Props) {
   const meta = useMetadata();
   const resolved = resolveBoundForUI(shared, bound, meta);
   return (
     <BoundSection
       title="Equity Risk Premium"
       summary={`ERP: ${fmtPercent(resolved.equityRiskPremium)}`}
+      badge={BADGES[bound.erpSource]}
       diff={diff}
+      persistId={`${persistPrefix}.erp`}
     >
       <RadioGroup
         value={bound.erpSource}

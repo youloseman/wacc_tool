@@ -13,6 +13,7 @@ interface Props {
   onUpdate: <K extends keyof WACCBoundInputs>(k: K, v: WACCBoundInputs[K]) => void;
   diff: boolean;
   error?: string;
+  persistPrefix: string;
 }
 
 const SOURCES: ReadonlyArray<{ value: DebtEquitySource; label: string }> = [
@@ -21,14 +22,22 @@ const SOURCES: ReadonlyArray<{ value: DebtEquitySource; label: string }> = [
   { value: 'analogs', label: 'Company analogs' },
 ];
 
-export function BoundCapitalStructure({ shared, bound, onUpdate, diff, error }: Props) {
+const BADGES: Record<DebtEquitySource, string> = {
+  industry: 'Industry avg',
+  custom: 'Custom input',
+  analogs: 'Company analogs',
+};
+
+export function BoundCapitalStructure({ shared, bound, onUpdate, diff, error, persistPrefix }: Props) {
   const meta = useMetadata();
   const resolved = resolveBoundForUI(shared, bound, meta);
   return (
     <BoundSection
       title="Capital Structure"
       summary={`D/E: ${fmtPercent(resolved.debtToEquity)}`}
+      badge={BADGES[bound.deRatioSource]}
       diff={diff}
+      persistId={`${persistPrefix}.capital`}
     >
       <RadioGroup
         value={bound.deRatioSource}
