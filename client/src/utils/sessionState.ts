@@ -1,8 +1,9 @@
 import type { WACCInputs } from '@shared/types';
 
 // Versioned storage key — bump when the WACCInputs schema changes in a breaking way so old
-// localStorage blobs don't hydrate into a stale shape.
-export const STATE_STORAGE_KEY = 'wacc-calculator-state-v1';
+// localStorage blobs don't hydrate into a stale shape. v2 = industry moved from shared to
+// per-bound (bound.damodaranIndustry).
+export const STATE_STORAGE_KEY = 'wacc-calculator-state-v2';
 export const EXPANDED_SECTIONS_KEY = 'wacc-calculator-expanded-sections-v1';
 
 function isObj(v: unknown): v is Record<string, unknown> {
@@ -14,13 +15,19 @@ function isObj(v: unknown): v is Record<string, unknown> {
 // corrupted blob doesn't crash the app.
 export function isValidInputs(v: unknown): v is WACCInputs {
   if (!isObj(v)) return false;
-  return (
-    typeof v.companyName === 'string' &&
-    typeof v.valuationDate === 'string' &&
-    typeof v.currency === 'string' &&
-    isObj(v.minBound) &&
-    isObj(v.maxBound)
-  );
+  if (
+    typeof v.companyName !== 'string' ||
+    typeof v.valuationDate !== 'string' ||
+    typeof v.currency !== 'string' ||
+    !isObj(v.minBound) ||
+    !isObj(v.maxBound)
+  ) {
+    return false;
+  }
+  // v2 requires damodaranIndustry at the bound level. Reject v1 blobs so defaults reload.
+  const min = v.minBound as Record<string, unknown>;
+  const max = v.maxBound as Record<string, unknown>;
+  return typeof min.damodaranIndustry === 'string' && typeof max.damodaranIndustry === 'string';
 }
 
 export function loadFromLocalStorage(): WACCInputs | null {

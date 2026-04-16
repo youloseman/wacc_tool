@@ -214,8 +214,9 @@ function buildInputsSheet(wb: ExcelJS.Workbook, inputs: WACCInputs) {
   kv(6, 'Currency', inputs.currency);
   kv(7, 'Country (HQ)', inputs.countryHQ);
   kv(8, 'Country (operations)', inputs.countryOperations);
-  kv(9, 'Industry', inputs.industry);
-  kv(10, 'Company size', inputs.companySize);
+  kv(9, 'Company size', inputs.companySize);
+  kv(10, 'Industry (MIN)', inputs.minBound.damodaranIndustry);
+  kv(11, 'Industry (MAX)', inputs.maxBound.damodaranIndustry);
 
   const writeBound = (
     startRow: number,

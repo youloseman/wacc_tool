@@ -16,13 +16,13 @@ const HEAVY_KEYS: ReadonlyArray<keyof WACCInputs> = [
   'waccMethodology',
   'countryOperations',
   'countryHQ',
-  'industry',
   'companySize',
 ];
 
 function heavyFingerprint(i: WACCInputs): string {
   return (
     HEAVY_KEYS.map((k) => JSON.stringify(i[k])).join('|') +
+    '|' + i.minBound.damodaranIndustry + '|' + i.maxBound.damodaranIndustry +
     '|' + i.minBound.comparableTickers + '|' + i.maxBound.comparableTickers +
     '|' + i.minBound.analogTickers + '|' + i.maxBound.analogTickers
   );

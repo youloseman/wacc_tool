@@ -17,11 +17,11 @@ export interface ResolvedBoundUI {
 }
 
 export function resolveBoundForUI(
-  shared: Pick<WACCInputs, 'currency' | 'countryOperations' | 'industry' | 'companySize' | 'waccMethodology'>,
+  shared: Pick<WACCInputs, 'currency' | 'countryOperations' | 'companySize' | 'waccMethodology'>,
   b: WACCBoundInputs,
   meta: MetadataBundle,
 ): ResolvedBoundUI {
-  const industry = meta.findIndustry(shared.industry);
+  const industry = meta.findIndustry(b.damodaranIndustry);
   const country = meta.findCountry(shared.countryOperations);
   const local = isLocalMode(shared, meta);
   const emRate = meta.getEMRate(shared.countryOperations);

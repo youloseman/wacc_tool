@@ -174,7 +174,7 @@ async function resolveUnleveredBeta(
 }
 
 async function resolveBound(
-  shared: Pick<WACCInputs, 'currency' | 'countryOperations' | 'industry' | 'companySize' | 'waccMethodology' | 'valuationDate'>,
+  shared: Pick<WACCInputs, 'currency' | 'countryOperations' | 'companySize' | 'waccMethodology' | 'valuationDate'>,
   b: WACCBoundInputs,
 ): Promise<ResolvedBound> {
   const rf = await getRiskFreeRate(
@@ -185,8 +185,9 @@ async function resolveBound(
   );
   const isLocal = shared.waccMethodology === 'local_currency' && rf.isStatic === true;
 
-  // D/E
-  const ind = findIndustry(shared.industry);
+  // D/E — the Damodaran industry is per-bound now, so MIN and MAX can target different
+  // industry classifications independently.
+  const ind = findIndustry(b.damodaranIndustry);
   let debtToEquity = ind?.deRatio ?? 0.35;
   let deSource = `Damodaran (${getIndustriesLastUpdated()})`;
   if (b.deRatioSource === 'custom' && b.customDeRatio != null) {
@@ -196,7 +197,7 @@ async function resolveBound(
     // Median D/E across analog companies.
     const analogList = b.analogTickers.split(',').map((t) => t.trim()).filter(Boolean);
     const results = await Promise.all(
-      analogList.map((t) => lookupCompany(t, shared.industry, shared.valuationDate)),
+      analogList.map((t) => lookupCompany(t, b.damodaranIndustry, shared.valuationDate)),
     );
     const hits = results.filter((r): r is NonNullable<typeof r> => r != null);
     if (hits.length > 0) {
@@ -220,7 +221,7 @@ async function resolveBound(
 
   // Unlevered beta
   const betaRes = await resolveUnleveredBeta(
-    shared.industry,
+    b.damodaranIndustry,
     b.betaSource,
     b.comparableTickers,
     debtToEquity,

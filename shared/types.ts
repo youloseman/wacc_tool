@@ -36,6 +36,14 @@ export type CreditRating =
   | 'D';
 
 export interface WACCBoundInputs {
+  /**
+   * Damodaran industry name (e.g. "Oil/Gas (Production and Exploration)"). Per-bound so MIN and
+   * MAX can target different industry classifications. Drives the Damodaran β, the
+   * industry-average D/E, the proxy D/E fallback for international comparables, and the
+   * industry hint for comparable-company lookup.
+   */
+  damodaranIndustry: string;
+
   deRatioSource: DebtEquitySource;
   customDeRatio: number | null;
   analogTickers: string;
@@ -75,7 +83,6 @@ export interface WACCInputs {
   waccMethodology: WACCMethodology;
   countryHQ: string;
   countryOperations: string;
-  industry: string;
   companySize: CompanySize;
 
   minBound: WACCBoundInputs;

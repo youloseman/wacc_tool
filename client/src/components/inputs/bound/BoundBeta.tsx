@@ -7,6 +7,7 @@ import { resolveBoundForUI } from '../../../utils/resolveBoundForUI';
 import { useMetadata } from '../../../context/MetadataContext';
 import { ComparablePreview } from './ComparablePreview';
 import { KrollSectorPicker } from './KrollSectorPicker';
+import { DamodaranIndustryPicker } from './DamodaranIndustryPicker';
 
 interface Props {
   shared: WACCInputs;
@@ -31,7 +32,7 @@ const BADGES: Record<BetaSourceSingle, string> = {
 export function BoundBeta({ shared, bound, onUpdate, diff, persistPrefix }: Props) {
   const meta = useMetadata();
   const resolved = resolveBoundForUI(shared, bound, meta);
-  const industry = meta.findIndustry(shared.industry);
+  const industry = meta.findIndustry(bound.damodaranIndustry);
   const krollMissing = bound.betaSource === 'kroll' && (industry?.krollBeta ?? null) == null;
   const summary = `βu: ${fmtBeta(resolved.unleveredBeta)}${krollMissing ? ' (Kroll n/a)' : ''}`;
   return (
@@ -47,6 +48,12 @@ export function BoundBeta({ shared, bound, onUpdate, diff, persistPrefix }: Prop
         onChange={(v) => onUpdate('betaSource', v)}
         options={SOURCES}
       />
+      {bound.betaSource === 'damodaran' && (
+        <DamodaranIndustryPicker
+          value={bound.damodaranIndustry}
+          onChange={(v) => onUpdate('damodaranIndustry', v)}
+        />
+      )}
       {bound.betaSource === 'kroll' && (
         <KrollSectorPicker
           value={bound.krollSectorGics ?? null}

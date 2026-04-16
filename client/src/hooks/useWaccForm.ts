@@ -5,6 +5,7 @@ import { loadInitialState, saveToLocalStorage } from '../utils/sessionState';
 const today = (): string => new Date().toISOString().slice(0, 10);
 
 export const DEFAULT_BOUND: WACCBoundInputs = {
+  damodaranIndustry: 'Oil/Gas (Production and Exploration)',
   deRatioSource: 'industry',
   customDeRatio: null,
   analogTickers: '',
@@ -33,7 +34,6 @@ export const INITIAL_INPUTS: WACCInputs = {
   waccMethodology: 'hard_currency',
   countryHQ: 'United States',
   countryOperations: 'United States',
-  industry: 'Oil/Gas (Production and Exploration)',
   companySize: 'large',
   minBound: { ...DEFAULT_BOUND },
   // Default MAX diverges on beta source to illustrate a real range.

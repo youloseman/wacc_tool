@@ -6,7 +6,7 @@ import { SearchableSelect } from './fields/SearchableSelect';
 import { RadioGroup } from './fields/RadioGroup';
 import { useMetadata } from '../../context/MetadataContext';
 import { useRiskFreeRate } from '../../hooks/useRiskFreeRate';
-import { fmtBeta, fmtPercent } from '../../utils/format';
+import { fmtPercent } from '../../utils/format';
 
 interface Props {
   inputs: WACCInputs;
@@ -35,9 +35,7 @@ const SIZES: ReadonlyArray<{ value: CompanySize; label: string }> = [
 export function GeneralParametersSection({ inputs, update }: Props) {
   const meta = useMetadata();
   const rf = useRiskFreeRate(inputs.currency, inputs.countryOperations, inputs.waccMethodology);
-  const industryNames = useMemo(() => meta.industries.map((i) => i.name), [meta.industries]);
   const countryNames = useMemo(() => meta.countries.map((c) => c.name), [meta.countries]);
-  const industry = meta.findIndustry(inputs.industry);
   const country = meta.findCountry(inputs.countryOperations);
   const em = meta.getEMRate(inputs.countryOperations);
 
@@ -135,24 +133,6 @@ export function GeneralParametersSection({ inputs, update }: Props) {
         </div>
       )}
 
-      <SearchableSelect
-        label="Industry"
-        value={inputs.industry}
-        onChange={(v) => update('industry', v)}
-        options={industryNames}
-      />
-      {industry && (
-        <div className="rounded bg-surface px-2 py-1 text-[11px] text-slate-600">
-          Damodaran βu: <span className="font-mono">{fmtBeta(industry.unleveredBeta)}</span> · D/E:{' '}
-          <span className="font-mono">{fmtPercent(industry.deRatio)}</span> · firms:{' '}
-          <span className="font-mono">{industry.numberOfFirms}</span>
-          {industry.krollBeta != null && (
-            <>
-              {' · '}Kroll βu: <span className="font-mono">{fmtBeta(industry.krollBeta)}</span>
-            </>
-          )}
-        </div>
-      )}
       <RadioGroup
         label="Company size"
         value={inputs.companySize}
