@@ -42,6 +42,13 @@ export interface WACCBoundInputs {
 
   betaSource: BetaSourceSingle;
   comparableTickers: string;
+  /**
+   * Optional Kroll GICS code (e.g. "10102020" for Oil & Gas Exploration & Production).
+   * When set and betaSource='kroll', this overrides the Damodaran-name-based lookup and
+   * gives the user explicit control over which Kroll sector to use. The time-series lookup
+   * then picks the nearest quarter ≤ valuationDate.
+   */
+  krollSectorGics: string | null;
 
   erpSource: ErpSource;
   customErp: number | null;

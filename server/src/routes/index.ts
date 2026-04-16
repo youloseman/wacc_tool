@@ -18,8 +18,10 @@ import {
 import {
   findKrollIndustryBeta,
   getKrollERP,
+  getKrollIndustries,
   getKrollIndustryBetas,
   getKrollLastUpdated,
+  getKrollPeriods,
   getKrollSizePremiumMap,
 } from '../services/krollData.ts';
 
@@ -174,6 +176,8 @@ apiRouter.get('/company-search', async (req, res) => {
 
 apiRouter.get('/metadata', (_req, res) => {
   const em = getEMData();
+  // Strip quarters array from industries to keep /api/metadata light — full time-series is
+  // queried separately by /api/kroll-sectors when the Kroll picker is opened.
   res.json({
     matureMarketERP: getMatureMarketERP(),
     krollERP: getKrollERP(),
@@ -184,5 +188,29 @@ apiRouter.get('/metadata', (_req, res) => {
     emRates: em.rates,
     emLastUpdated: em.lastUpdated,
     developedCountries: Array.from(DEVELOPED_COUNTRIES),
+  });
+});
+
+// Kroll sector picker data — full GICS tree with time-series stripped to keep payload small.
+apiRouter.get('/kroll-sectors', (_req, res) => {
+  const industries = getKrollIndustries().map((i) => {
+    const latest = i.quarters
+      .filter((q) => q.unleveredBeta != null)
+      .slice(-1)[0];
+    return {
+      gicsCode: i.gicsCode,
+      gicsLevel: i.gicsLevel,
+      parentCode: i.parentCode,
+      name: i.name,
+      path: i.path,
+      latestBeta: latest?.unleveredBeta ?? null,
+      latestDebtToEquity: latest?.debtToEquity ?? null,
+      latestQuarter: latest?.label ?? null,
+      quarterCount: i.quarters.filter((q) => q.unleveredBeta != null).length,
+    };
+  });
+  res.json({
+    periods: getKrollPeriods(),
+    industries,
   });
 });

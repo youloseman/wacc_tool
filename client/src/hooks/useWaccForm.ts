@@ -10,6 +10,7 @@ export const DEFAULT_BOUND: WACCBoundInputs = {
   analogTickers: '',
   betaSource: 'damodaran',
   comparableTickers: '',
+  krollSectorGics: null,
   erpSource: 'damodaran',
   customErp: null,
   costOfDebtMethod: 'rating',

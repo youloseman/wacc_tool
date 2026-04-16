@@ -26,7 +26,12 @@ import {
   getCountryRiskLastUpdated,
   mapIcrToRatingFromFile,
 } from './damodaranData.ts';
-import { findKrollIndustryBeta, getKrollERP, getKrollLastUpdated, getKrollSizePremium } from './krollData.ts';
+import {
+  getKrollERP,
+  getKrollLastUpdated,
+  getKrollSizePremium,
+  lookupKrollBeta,
+} from './krollData.ts';
 import { calculateComparableBeta, lookupCompany, type ComparableBetaResult } from './comparableBeta.ts';
 
 interface ResolvedBound {
@@ -117,6 +122,7 @@ async function resolveUnleveredBeta(
   targetDE: number,
   targetTax: number,
   valuationDate: string,
+  krollSectorGics: string | null,
 ): Promise<{ beta: number; label: string; comparable?: ComparableBetaResult }> {
   if (source === 'damodaran') {
     const ind = findIndustry(industry);
@@ -126,11 +132,20 @@ async function resolveUnleveredBeta(
     };
   }
   if (source === 'kroll') {
-    // Resolve alias to Damodaran canonical name first, since Kroll JSON is keyed by canonical names.
+    // Resolve alias to the canonical Damodaran industry name for name-based fallback lookup.
     const canonical = findIndustry(industry)?.name ?? industry;
-    const beta = findKrollIndustryBeta(canonical);
-    if (beta != null) {
-      return { beta, label: betaLabel('kroll', getKrollLastUpdated()) };
+    // Time-series-aware lookup: uses the user-selected Kroll GICS sector if provided, falls
+    // back to Damodaran-name matching if not. Returns the nearest quarter ≤ valuationDate.
+    const lookup = lookupKrollBeta({
+      krollSector: krollSectorGics,
+      damodaranIndustry: canonical,
+      valuationDate,
+    });
+    if (lookup) {
+      return {
+        beta: lookup.beta,
+        label: `Kroll ${lookup.industryName} (${lookup.quarterLabel})`,
+      };
     }
     const ind = findIndustry(industry);
     return {
@@ -211,6 +226,7 @@ async function resolveBound(
     debtToEquity,
     taxRate,
     shared.valuationDate,
+    b.krollSectorGics ?? null,
   );
 
   // ERP

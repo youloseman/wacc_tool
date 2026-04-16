@@ -6,6 +6,7 @@ import { fmtBeta } from '../../../utils/format';
 import { resolveBoundForUI } from '../../../utils/resolveBoundForUI';
 import { useMetadata } from '../../../context/MetadataContext';
 import { ComparablePreview } from './ComparablePreview';
+import { KrollSectorPicker } from './KrollSectorPicker';
 
 interface Props {
   shared: WACCInputs;
@@ -46,6 +47,12 @@ export function BoundBeta({ shared, bound, onUpdate, diff, persistPrefix }: Prop
         onChange={(v) => onUpdate('betaSource', v)}
         options={SOURCES}
       />
+      {bound.betaSource === 'kroll' && (
+        <KrollSectorPicker
+          value={bound.krollSectorGics ?? null}
+          onChange={(v) => onUpdate('krollSectorGics', v)}
+        />
+      )}
       {bound.betaSource === 'comparables' && (
         <>
           <TextField
