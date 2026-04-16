@@ -1,6 +1,11 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
-import { EXPANDED_SECTIONS_KEY, loadExpandedSections, saveExpandedSections } from '../../../utils/sessionState';
+import {
+  EXPANDED_SECTIONS_KEY,
+  RESET_EVENT,
+  loadExpandedSections,
+  saveExpandedSections,
+} from '../../../utils/sessionState';
 
 interface BoundSectionProps {
   title: string;
@@ -64,6 +69,17 @@ export function BoundSection({
   useEffect(() => {
     if (persistId) writePersisted(persistId, open);
   }, [open, persistId]);
+
+  // Reset broadcast — wipes the shared in-memory map once, then collapses every section back
+  // to its defaultOpen. Listener added on every BoundSection; they all see the same event.
+  useEffect(() => {
+    const handler = () => {
+      Object.keys(expandedStore).forEach((k) => delete expandedStore[k]);
+      setOpen(defaultOpen);
+    };
+    window.addEventListener(RESET_EVENT, handler);
+    return () => window.removeEventListener(RESET_EVENT, handler);
+  }, [defaultOpen]);
 
   return (
     <section

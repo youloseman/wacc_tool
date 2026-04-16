@@ -6,6 +6,7 @@ import { ComparablePreview } from './ComparablePreview';
 import { fmtPercent } from '../../../utils/format';
 import { resolveBoundForUI } from '../../../utils/resolveBoundForUI';
 import { useMetadata } from '../../../context/MetadataContext';
+import { RESET_EVENT } from '../../../utils/sessionState';
 
 interface Props {
   shared: WACCInputs;
@@ -68,6 +69,14 @@ export function BoundCapitalStructure({
   const meta = useMetadata();
   const resolved = resolveBoundForUI(shared, bound, meta);
   const [mode, setMode] = useState<CapInputMode>('de');
+
+  // Global Reset: return the dual-input toggle to its default (D/E ratio) so the user sees
+  // a clean initial state, not whichever view they had mid-edit.
+  useEffect(() => {
+    const handler = () => setMode('de');
+    window.addEventListener(RESET_EVENT, handler);
+    return () => window.removeEventListener(RESET_EVENT, handler);
+  }, []);
 
   // Local input string decoupled from the stored D/E. Without this the "raw → decimal →
   // convert → decimal → raw" round-trip would replace what the user is typing with

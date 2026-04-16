@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ChevronDown, ChevronRight, Search, X } from 'lucide-react';
 import type { BetaAnalysis, BetaMethod, BetaStability } from '@shared/types';
 import { fmtBeta, fmtPercent } from '../../../utils/format';
+import { RESET_EVENT } from '../../../utils/sessionState';
 
 type DeSource = 'firm' | 'balance-sheet' | 'market-cap' | 'industry-proxy';
 type TaxSource = 'firm' | 'income-statement' | 'country-default';
@@ -142,6 +143,17 @@ export function ComparablePreview({ tickers, onTickersChange, valuationDate, met
   const [candidates, setCandidates] = useState<SearchCandidate[] | null>(null);
   const [searching, setSearching] = useState(false);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
+
+  // Collapse any expanded peer detail rows when the user clicks the global Reset button.
+  useEffect(() => {
+    const handler = () => {
+      setExpanded(new Set());
+      setQuery('');
+      setCandidates(null);
+    };
+    window.addEventListener(RESET_EVENT, handler);
+    return () => window.removeEventListener(RESET_EVENT, handler);
+  }, []);
 
   const tickerList = useMemo(
     () => tickers.split(',').map((t) => t.trim().toUpperCase()).filter(Boolean),

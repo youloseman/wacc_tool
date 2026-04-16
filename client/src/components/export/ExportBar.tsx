@@ -3,7 +3,7 @@ import { FileSpreadsheet, FileText, RotateCcw, Share2 } from 'lucide-react';
 import type { WACCInputs, WACCResult } from '@shared/types';
 import { exportWACCToExcel, type ComparableCompany } from '../../utils/excelExport';
 import { exportWACCToPDF } from '../../utils/pdfExport';
-import { clearLocalStorage, encodeStateToHash } from '../../utils/sessionState';
+import { broadcastReset, clearLocalStorage, encodeStateToHash } from '../../utils/sessionState';
 import { ShareModal } from '../ShareModal';
 
 interface Props {
@@ -76,9 +76,15 @@ export function ExportBar({ result, inputs, onReset, onShareNotice }: Props) {
 
   const onResetClick = () => {
     if (!window.confirm('Reset all inputs? Your current calculation will be lost.')) return;
+    // 1. Wipe persisted blobs so nothing re-hydrates on next mount.
     clearLocalStorage();
+    // 2. Drop the shared URL hash so a forward-nav or reload won't restore it either.
     history.replaceState(null, '', window.location.pathname);
+    // 3. Reset the form model back to INITIAL_INPUTS (done in App via useWaccForm.reset).
     onReset();
+    // 4. Broadcast so every BoundSection / ComparablePreview resets its local UI state
+    //    (collapsed sections, expanded peer cards, dual-input draft).
+    broadcastReset();
     onShareNotice('Inputs reset to defaults.', 'success');
   };
 

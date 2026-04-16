@@ -51,6 +51,15 @@ export function clearLocalStorage(): void {
   }
 }
 
+// Broadcast a reset event so stateful components (BoundSection, ComparablePreview) can
+// collapse their local UI state. Avoids a context refactor just for one action.
+export const RESET_EVENT = 'wacc-calculator-reset';
+
+export function broadcastReset(): void {
+  if (typeof window === 'undefined') return;
+  window.dispatchEvent(new CustomEvent(RESET_EVENT));
+}
+
 // URL hash encoding — base64url so the URL is safe in emails / chats without percent-encoding.
 export function encodeStateToHash(state: WACCInputs): string {
   const json = JSON.stringify(state);
