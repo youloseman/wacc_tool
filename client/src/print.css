@@ -126,18 +126,76 @@
     page-break-inside: avoid;
   }
 
-  /* Push charts to a new page so the table fits on one. */
-  .charts-section {
-    page-break-before: always;
-  }
-  .charts-section > div {
-    display: grid !important;
+  /* Hide charts, range bar, and summary line in print — everything that's not the core
+     result table. Goal: the whole report fits on a single A4 landscape page. */
+  .charts-section,
+  .wacc-range-bar,
+  .wacc-summary-line {
+    display: none !important;
   }
 
   /* Print header (only visible while printing) — simple on-page title. */
   .print-header {
     display: block !important;
-    padding: 0 0 1cm !important;
+    padding: 0 0 0.3cm !important;
+    font-size: 9pt !important;
+  }
+  .print-header h1 {
+    font-size: 11pt !important;
+    margin: 0 0 0.1cm !important;
+  }
+  .print-header p {
+    font-size: 8pt !important;
+    margin: 0 !important;
+  }
+
+  /* Shrink everything in the result panel so 15 rows + band + KPI strip fit on one page.
+     Dimensions tuned for A4 landscape (≈19 cm usable height with 0.6 cm margins). */
+  .result-panel {
+    font-size: 8.5pt !important;
+    gap: 0.2cm !important;
+  }
+  .result-band {
+    padding: 0.25cm 0.4cm !important;
+  }
+  .result-band h2 {
+    font-size: 11pt !important;
+    line-height: 1.1 !important;
+  }
+  .result-band .text-\[9px\] {
+    font-size: 6.5pt !important;
+  }
+
+  /* KPI strip: tighter cells. */
+  .result-panel .font-mono {
+    font-size: inherit !important;
+  }
+  .result-panel .text-\[18px\] {
+    font-size: 11pt !important;
+  }
+  .result-panel .text-\[9px\],
+  .result-panel .text-\[10px\] {
+    font-size: 6.5pt !important;
+  }
+
+  /* Result table rows — tighter vertical rhythm. */
+  .result-table table {
+    font-size: 7.8pt !important;
+  }
+  .result-table th,
+  .result-table td {
+    padding: 0.08cm 0.2cm !important;
+    line-height: 1.25 !important;
+  }
+  .result-table thead th {
+    padding: 0.12cm 0.2cm !important;
+  }
+
+  /* Description and Source columns get a narrower effective width — they tend to be the
+     longest. Let them wrap tight rather than pushing rows off-page. */
+  .result-table td:nth-child(4),
+  .result-table td:nth-child(5) {
+    font-size: 7pt !important;
   }
 
   /* Don't print hover states / link underlines under buttons. */
@@ -147,10 +205,10 @@
     color: inherit !important;
   }
 
-  /* Page setup. */
+  /* Page setup — slim margins give us more room for the table. */
   @page {
     size: A4 landscape;
-    margin: 1cm;
+    margin: 0.6cm;
   }
 }
 

@@ -71,8 +71,16 @@ export function App() {
             <div className={`result-table transition-opacity ${loading && result ? 'opacity-70' : ''}`}>
               <ResultTable result={result} />
             </div>
-            {result && <WACCSummaryLine result={result} />}
-            {result && <WACCRangeBar result={result} />}
+            {result && (
+              <div className="wacc-summary-line">
+                <WACCSummaryLine result={result} />
+              </div>
+            )}
+            {result && (
+              <div className="wacc-range-bar">
+                <WACCRangeBar result={result} />
+              </div>
+            )}
             {result ? <AnalysisSection result={result} /> : <ChartPlaceholder />}
             <ExportBar
               result={result}
