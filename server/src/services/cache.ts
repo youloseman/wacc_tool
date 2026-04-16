@@ -31,4 +31,7 @@ export const cache = new DataCache();
 export const TTL = {
   DAY: 86_400,
   WEEK: 604_800,
+  // Financial statements update quarterly at most; historical market index prices don't
+  // change retroactively — safe to cache for 30 days.
+  MONTH: 2_592_000,
 } as const;
