@@ -197,6 +197,7 @@ apiRouter.get('/kroll-sectors', (_req, res) => {
     const latest = i.quarters
       .filter((q) => q.unleveredBeta != null)
       .slice(-1)[0];
+    const withBeta = i.quarters.filter((q) => q.unleveredBeta != null);
     return {
       gicsCode: i.gicsCode,
       gicsLevel: i.gicsLevel,
@@ -206,7 +207,8 @@ apiRouter.get('/kroll-sectors', (_req, res) => {
       latestBeta: latest?.unleveredBeta ?? null,
       latestDebtToEquity: latest?.debtToEquity ?? null,
       latestQuarter: latest?.label ?? null,
-      quarterCount: i.quarters.filter((q) => q.unleveredBeta != null).length,
+      quarterCount: withBeta.length,
+      betaTrend: withBeta.map((q) => q.unleveredBeta as number),
     };
   });
   res.json({

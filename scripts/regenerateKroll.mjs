@@ -15,6 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as X from 'xlsx';
+import { validateKrollSectors } from './validateKrollData.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SRC = path.join(__dirname, 'Kroll.xlsx');
@@ -128,6 +129,19 @@ for (const ind of industries) {
   }
   ind.path = chain.join(' › ');
 }
+
+// Validate before writing — errors abort, warnings log but don't block.
+const validation = validateKrollSectors(industries);
+if (!validation.ok) {
+  console.error('Kroll validation FAILED:');
+  validation.errors.forEach((e) => console.error('  ❌', e));
+  process.exit(1);
+}
+if (validation.warnings.length > 0) {
+  validation.warnings.forEach((w) => console.warn('  ⚠️', w));
+}
+const totalQuarters = industries.reduce((a, i) => a + i.quarters.length, 0);
+console.log(`✅ Validation passed: ${industries.length} sectors, ${totalQuarters} quarter-entries`);
 
 const out = {
   lastUpdated: new Date().toISOString().slice(0, 10),

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Search } from 'lucide-react';
 import { fmtBeta, fmtPercent } from '../../../utils/format';
+import { BetaSparkline } from './BetaSparkline';
 
 export interface KrollSectorRow {
   gicsCode: string;
@@ -12,6 +13,7 @@ export interface KrollSectorRow {
   latestDebtToEquity: number | null;
   latestQuarter: string | null;
   quarterCount: number;
+  betaTrend: number[];
 }
 
 interface Props {
@@ -83,11 +85,14 @@ export function KrollSectorPicker({ value, onChange }: Props) {
         className="flex w-full items-center justify-between rounded border-[1.5px] border-forest/10 bg-white px-2 py-1.5 text-left text-[12px] text-ink focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/15"
       >
         {selected ? (
-          <span className="truncate">
-            <span className="font-mono text-[10px] text-stonePale">{selected.gicsCode}</span>{' '}
-            {selected.path}
+          <span className="flex items-center gap-2 truncate">
+            <span className="font-mono text-[10px] text-stonePale">{selected.gicsCode}</span>
+            <span className="truncate">{selected.path}</span>
+            {selected.betaTrend.length > 0 && (
+              <BetaSparkline values={selected.betaTrend} className="shrink-0" />
+            )}
             {selected.latestBeta != null && (
-              <span className="ml-2 font-mono text-goldDark">
+              <span className="shrink-0 font-mono text-goldDark">
                 βu {fmtBeta(selected.latestBeta)}
               </span>
             )}
@@ -147,6 +152,9 @@ export function KrollSectorPicker({ value, onChange }: Props) {
                       {r.gicsCode}
                     </span>
                     <span className="min-w-0 flex-1 truncate">{r.name}</span>
+                    {r.betaTrend.length > 1 && (
+                      <BetaSparkline values={r.betaTrend} className="shrink-0" />
+                    )}
                     {r.latestBeta != null && (
                       <span className="shrink-0 font-mono text-[10px] text-goldDark">
                         βu {fmtBeta(r.latestBeta)}
