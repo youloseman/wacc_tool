@@ -56,7 +56,7 @@ apiRouter.get('/health', async (_req, res) => {
         lastUpdated: getCountryRiskLastUpdated(),
       },
       kroll: { loaded: true, lastUpdated: getKrollLastUpdated() },
-      emRates: { loaded: true, count: Object.keys(getEMData().rates).length },
+      emRates: { loaded: true, count: Object.keys(getEMData().countries).length },
     },
   });
 });
@@ -81,13 +81,49 @@ apiRouter.get('/risk-free-rate', async (req, res) => {
   const horizon = (req.query.horizon as Horizon) || '10Y';
   const country = (req.query.country as string) || undefined;
   const methodology = (req.query.methodology as Methodology) || 'hard_currency';
-  const r = await getRiskFreeRate(currency, horizon, country, methodology);
+  const valuationDate = (req.query.valuationDate as string) || undefined;
+  const r = await getRiskFreeRate(currency, horizon, country, methodology, valuationDate);
   res.json(r);
 });
 
 apiRouter.get('/em-rates', (_req, res) => {
+  const data = getEMData();
+  // Slim summary for the client: no time-series, just availability + latest + CB rate.
+  const summary: Record<string, unknown> = {};
+  for (const [country, entry] of Object.entries(data.countries)) {
+    const latest = entry.quarters.at(-1);
+    summary[country] = {
+      currency: entry.currency,
+      instrument: entry.instrument,
+      hasTimeSeries: entry.quarters.length > 0,
+      quarterCount: entry.quarters.length,
+      latestRate: latest?.rate ?? null,
+      latestDate: latest?.date ?? null,
+      centralBankRate: entry.centralBankRate,
+    };
+  }
   res.json({
-    ...getEMData(),
+    lastUpdated: data.lastUpdated,
+    source: data.source,
+    countries: summary,
+    // Back-compat: legacy clients expected `rates` keyed by country. Expose the same shape so
+    // the metadata hydration path in MetadataContext keeps working while we migrate it.
+    rates: Object.fromEntries(
+      Object.entries(data.countries).map(([country, entry]) => {
+        const latest = entry.quarters.at(-1);
+        return [
+          country,
+          {
+            currency: entry.currency,
+            rate10Y: latest?.rate ?? null,
+            rateSource: entry.instrument,
+            sourceUrl: entry.source ?? '',
+            asOfDate: latest?.date ?? null,
+            centralBankRate: entry.centralBankRate ?? 0,
+          },
+        ];
+      }),
+    ),
     developedCountries: Array.from(DEVELOPED_COUNTRIES),
   });
 });
@@ -185,7 +221,23 @@ apiRouter.get('/metadata', (_req, res) => {
     industriesLastUpdated: getIndustriesLastUpdated(),
     countriesLastUpdated: getCountryRiskLastUpdated(),
     krollLastUpdated: getKrollLastUpdated(),
-    emRates: em.rates,
+    // Legacy shape expected by MetadataContext: country → flat rate snapshot with asOfDate.
+    emRates: Object.fromEntries(
+      Object.entries(em.countries).map(([country, entry]) => {
+        const latest = entry.quarters.at(-1);
+        return [
+          country,
+          {
+            currency: entry.currency,
+            rate10Y: latest?.rate ?? 0,
+            rateSource: entry.instrument,
+            sourceUrl: entry.source ?? '',
+            asOfDate: latest?.date ?? '',
+            centralBankRate: entry.centralBankRate ?? 0,
+          },
+        ];
+      }),
+    ),
     emLastUpdated: em.lastUpdated,
     developedCountries: Array.from(DEVELOPED_COUNTRIES),
   });

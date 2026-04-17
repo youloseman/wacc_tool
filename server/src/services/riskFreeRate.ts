@@ -1,5 +1,5 @@
 import { cache, TTL } from './cache.js';
-import { getEMRate } from './emRates.ts';
+import { getEMRate, getEMRiskFreeRate } from './emRates.ts';
 
 export type Currency = 'USD' | 'EUR' | 'GBP' | 'CHF';
 export type Horizon = '5Y' | '10Y' | '20Y' | '30Y';
@@ -55,8 +55,25 @@ export async function getRiskFreeRate(
   horizon: Horizon = '10Y',
   country?: string,
   methodology: Methodology = 'hard_currency',
+  valuationDate?: string,
 ): Promise<RiskFreeRateResult> {
   if (methodology === 'local_currency' && country) {
+    // Time-dependent lookup: snap to the nearest quarter ≤ valuationDate so historical
+    // valuations use the Rf that was actually in effect at that time.
+    const dateForLookup = valuationDate ?? new Date().toISOString().slice(0, 10);
+    const emTs = getEMRiskFreeRate(country, dateForLookup);
+    if (emTs) {
+      return {
+        rate: emTs.rate,
+        date: emTs.date,
+        series: `${country} ${emTs.instrument}`,
+        source: `EM local rate: ${country} ${emTs.instrument} (${emTs.quarter})`,
+        description: `${country} 10Y govt bond yield in ${emTs.currency} — ${emTs.quarter} (${emTs.date})`,
+        effectiveCurrency: emTs.currency,
+        isStatic: true,
+      };
+    }
+    // Fallback to legacy flat snapshot if a country exists in old format but not in time-series.
     const em = getEMRate(country);
     if (em) {
       return {

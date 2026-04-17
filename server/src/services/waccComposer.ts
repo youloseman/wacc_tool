@@ -182,6 +182,7 @@ async function resolveBound(
     '10Y' as Horizon,
     shared.countryOperations,
     shared.waccMethodology as Methodology,
+    shared.valuationDate,
   );
   const isLocal = shared.waccMethodology === 'local_currency' && rf.isStatic === true;
 
@@ -339,6 +340,7 @@ export async function composeWACC(inputs: WACCInputs): Promise<WACCResult> {
     '10Y' as Horizon,
     inputs.countryOperations,
     inputs.waccMethodology as Methodology,
+    inputs.valuationDate,
   );
   const [minR, maxR] = await Promise.all([
     resolveBound(inputs, inputs.minBound),
