@@ -72,6 +72,9 @@ export function BoundCapitalStructure({
   const meta = useMetadata();
   const resolved = resolveBoundForUI(shared, bound, meta);
   const [mode, setMode] = useState<CapInputMode>('de');
+  // Kroll D/E preview — populated by KrollSectorPicker's onSectorInfo callback so the summary
+  // pill shows the real Kroll value, not the stale Damodaran fallback from resolveBoundForUI.
+  const [krollDe, setKrollDe] = useState<number | null>(null);
 
   // Global Reset: return the dual-input toggle to its default (D/E ratio) so the user sees
   // a clean initial state, not whichever view they had mid-edit.
@@ -134,7 +137,7 @@ export function BoundCapitalStructure({
   return (
     <BoundSection
       title="Capital Structure"
-      summary={`D/E: ${fmtPercent(resolved.debtToEquity)}`}
+      summary={`D/E: ${fmtPercent(bound.deRatioSource === 'kroll' && krollDe != null ? krollDe : resolved.debtToEquity)}`}
       badge={BADGES[bound.deRatioSource]}
       diff={diff}
       persistId={`${persistPrefix}.capital`}
@@ -200,6 +203,7 @@ export function BoundCapitalStructure({
         <KrollSectorPicker
           value={bound.krollCapStructGics ?? bound.krollSectorGics ?? null}
           onChange={(v) => onUpdate('krollCapStructGics', v)}
+          onSectorInfo={(info) => setKrollDe(info.de)}
         />
       )}
       {bound.deRatioSource === 'analogs' && (

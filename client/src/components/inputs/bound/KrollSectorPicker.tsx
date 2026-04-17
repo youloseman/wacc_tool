@@ -20,6 +20,8 @@ interface Props {
   /** Currently selected GICS code, or null to fall back to Damodaran-name matching. */
   value: string | null;
   onChange: (gics: string | null) => void;
+  /** Fires with the selected sector's latest D/E and beta when selection or data changes. */
+  onSectorInfo?: (info: { de: number | null; beta: number | null }) => void;
 }
 
 // Indent visually by GICS hierarchy level. Sector (2-digit) stays flush left; subIndustry
@@ -40,7 +42,7 @@ const LEVEL_STYLES: Record<KrollSectorRow['gicsLevel'], string> = {
   other: 'text-stone',
 };
 
-export function KrollSectorPicker({ value, onChange }: Props) {
+export function KrollSectorPicker({ value, onChange, onSectorInfo }: Props) {
   const [rows, setRows] = useState<KrollSectorRow[] | null>(null);
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
@@ -75,6 +77,15 @@ export function KrollSectorPicker({ value, onChange }: Props) {
   }, [rows, query]);
 
   const selected = rows?.find((r) => r.gicsCode === value) ?? null;
+
+  // Notify parent of the selected sector's latest D/E + beta so it can update preview summaries
+  // without a separate API call.
+  useEffect(() => {
+    onSectorInfo?.({
+      de: selected?.latestDebtToEquity ?? null,
+      beta: selected?.latestBeta ?? null,
+    });
+  }, [selected?.gicsCode]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="space-y-1">
