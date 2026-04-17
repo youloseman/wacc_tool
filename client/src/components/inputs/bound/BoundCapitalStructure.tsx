@@ -4,6 +4,7 @@ import { BoundSection } from './BoundSection';
 import { RadioGroup } from '../fields/RadioGroup';
 import { ComparablePreview } from './ComparablePreview';
 import { KrollSectorPicker } from './KrollSectorPicker';
+import { DamodaranIndustryPicker } from './DamodaranIndustryPicker';
 import { fmtPercent } from '../../../utils/format';
 import { resolveBoundForUI } from '../../../utils/resolveBoundForUI';
 import { useMetadata } from '../../../context/MetadataContext';
@@ -198,6 +199,12 @@ export function BoundCapitalStructure({
             </div>
           )}
         </div>
+      )}
+      {bound.deRatioSource === 'industry' && (
+        <DamodaranIndustryPicker
+          value={bound.damodaranIndustry}
+          onChange={(v) => onUpdate('damodaranIndustry', v)}
+        />
       )}
       {bound.deRatioSource === 'kroll' && (
         <KrollSectorPicker
