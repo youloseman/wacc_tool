@@ -126,7 +126,7 @@ export type ResultSource =
   | 'Kroll'
   | 'Comparables'
   | 'Calculation'
-  | 'User input';
+  | 'Analyst input';
 
 export type RowHighlight = 'purple' | 'darkPurple';
 

@@ -35,21 +35,23 @@ export const INITIAL_INPUTS: WACCInputs = {
   countryHQ: 'United States',
   countryOperations: 'United States',
   companySize: 'large',
-  // MIN: Damodaran-based, Apple book D/E ~1.0 (heavy buybacks reduce book equity).
+  // MIN: Damodaran-based, Apple book D/E ~1.0, CRP=0 for US (standard practice).
   minBound: {
     ...DEFAULT_BOUND,
     deRatioSource: 'custom',
     customDeRatio: 1.0,
     betaSource: 'damodaran',
     erpSource: 'damodaran',
+    countryRiskPremiumOverride: 0,
   },
-  // MAX: Kroll-based with same Apple D/E (industry avg is 4.6% — misleadingly low for Apple).
+  // MAX: Kroll-based with same Apple D/E, CRP=0 for US.
   maxBound: {
     ...DEFAULT_BOUND,
     deRatioSource: 'custom',
     customDeRatio: 1.0,
     betaSource: 'kroll',
     erpSource: 'kroll',
+    countryRiskPremiumOverride: 0,
   },
 };
 

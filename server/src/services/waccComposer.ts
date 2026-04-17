@@ -192,7 +192,7 @@ async function resolveBound(
   let deSource = `Damodaran (${getIndustriesLastUpdated()})`;
   if (b.deRatioSource === 'custom' && b.customDeRatio != null) {
     debtToEquity = b.customDeRatio;
-    deSource = 'User input';
+    deSource = 'Analyst input';
   } else if (b.deRatioSource === 'analogs' && b.analogTickers.trim()) {
     // Median D/E across analog companies.
     const analogList = b.analogTickers.split(',').map((t) => t.trim()).filter(Boolean);
@@ -216,7 +216,7 @@ async function resolveBound(
   let taxSource = `Damodaran (${getIndustriesLastUpdated()})`;
   if (b.taxRateSource === 'custom' && b.customTaxRate != null) {
     taxRate = b.customTaxRate;
-    taxSource = 'User input';
+    taxSource = 'Analyst input';
   }
 
   // Unlevered beta
@@ -238,7 +238,7 @@ async function resolveBound(
     erpSourceLabel = `Kroll (${getKrollLastUpdated()})`;
   } else if (b.erpSource === 'custom' && b.customErp != null) {
     equityRiskPremium = b.customErp;
-    erpSourceLabel = 'User input';
+    erpSourceLabel = 'Analyst input';
   }
 
   // Cost of Debt pre-tax
@@ -247,7 +247,7 @@ async function resolveBound(
   let costOfDebtDescription: string;
   if (b.costOfDebtMethod === 'direct' && b.directCostOfDebt != null) {
     costOfDebtPreTax = b.directCostOfDebt;
-    costOfDebtSource = 'User input';
+    costOfDebtSource = 'Analyst input';
     costOfDebtDescription = 'User-provided pre-tax cost of debt.';
   } else if (b.costOfDebtMethod === 'rating' && b.creditRating) {
     const cs = await getCreditSpread(b.creditRating);
@@ -284,7 +284,7 @@ async function resolveBound(
     countrySource = `Damodaran (${getCountryRiskLastUpdated()})`;
     if (b.countryRiskPremiumOverride != null) {
       countryRiskPremium = b.countryRiskPremiumOverride;
-      countrySource = 'User input';
+      countrySource = 'Analyst input';
     }
   }
 
@@ -293,7 +293,7 @@ async function resolveBound(
   let sizeSource = `Kroll (${getKrollLastUpdated()})`;
   if (b.sizePremiumOverride != null) {
     sizePremium = b.sizePremiumOverride;
-    sizeSource = 'User input';
+    sizeSource = 'Analyst input';
   }
 
   return {
@@ -446,8 +446,8 @@ export async function composeWACC(inputs: WACCInputs): Promise<WACCResult> {
       max: hi.R.currencyRiskPremium,
       format: 'percent',
       description: 'Currency risk premium.',
-      sourceMin: 'User input',
-      sourceMax: 'User input',
+      sourceMin: 'Analyst input',
+      sourceMax: 'Analyst input',
     },
     {
       component: 'Specific risk premium',
@@ -455,8 +455,8 @@ export async function composeWACC(inputs: WACCInputs): Promise<WACCResult> {
       max: hi.R.specificRiskPremium,
       format: 'percent',
       description: 'Company-specific risk premium.',
-      sourceMin: 'User input',
-      sourceMax: 'User input',
+      sourceMin: 'Analyst input',
+      sourceMax: 'Analyst input',
     },
     {
       component: 'Cost of Equity',
