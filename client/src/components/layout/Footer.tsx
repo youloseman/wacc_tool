@@ -17,7 +17,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="font-medium text-cream underline decoration-cream/30 hover:text-gold hover:decoration-gold/50"
           >
-            Artur Podgoornyi
+            Artur Podgornyi
           </a>
         </span>
         <span className="flex flex-wrap gap-x-3 gap-y-0.5 font-mono text-[10px]">
