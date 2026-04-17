@@ -12,7 +12,7 @@ export function Footer() {
         <span>
           Made by{' '}
           <a
-            href="https://www.linkedin.com/in/artur-podgoornyi/"
+            href="https://www.linkedin.com/in/artur-podgornyi/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium text-cream underline decoration-cream/30 hover:text-gold hover:decoration-gold/50"
