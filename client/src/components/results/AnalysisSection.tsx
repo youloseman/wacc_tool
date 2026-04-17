@@ -25,7 +25,7 @@ export function AnalysisSection({ result }: Props) {
         )}
       </button>
       {open && (
-        <div className="grid gap-3 border-t border-slate-200 p-3 lg:grid-cols-[2fr_1fr]">
+        <div className="flex flex-col gap-3 border-t border-slate-200 p-3 lg:grid lg:grid-cols-[2fr_1fr]">
           <CostOfEquityWaterfall result={result} />
           <CapitalStructurePie result={result} />
         </div>

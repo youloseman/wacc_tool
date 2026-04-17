@@ -42,7 +42,7 @@ export function ShareModal({ url, onClose }: Props) {
       onClick={onClose}
     >
       <div
-        className="w-full max-w-lg rounded-card border border-forest/15 bg-white p-5 shadow-lg"
+        className="mx-4 w-full max-w-lg rounded-card border border-forest/15 bg-white p-4 shadow-lg lg:mx-auto lg:p-5"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-3 flex items-start justify-between">

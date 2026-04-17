@@ -30,7 +30,7 @@ export function SearchableSelect({ label, value, onChange, options }: Searchable
         <ChevronDown size={13} className="text-gold" />
       </button>
       {open && (
-        <div className="absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded border border-forest/15 bg-white shadow-lg">
+        <div className="absolute z-20 mt-1 max-h-[40vh] w-full overflow-auto rounded border border-forest/15 bg-white shadow-lg lg:max-h-60">
           <input
             autoFocus
             type="text"
@@ -46,7 +46,7 @@ export function SearchableSelect({ label, value, onChange, options }: Searchable
             <button
               key={opt}
               type="button"
-              className={`block w-full px-2 py-1.5 text-left text-sm text-ink hover:bg-cream ${
+              className={`block w-full min-h-[44px] px-2 py-1.5 text-left text-sm text-ink hover:bg-cream sm:min-h-0 ${
                 opt === value ? 'bg-goldPale/60 font-medium text-forest' : ''
               }`}
               onClick={() => {

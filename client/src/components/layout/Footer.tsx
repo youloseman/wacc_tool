@@ -7,8 +7,8 @@ export function Footer() {
   const krollDate = meta.krollLastUpdated || '4Q 2025';
 
   return (
-    <footer className="border-t border-forest/10 bg-forestDark px-6 py-2 text-[11px] text-cream/70">
-      <div className="mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between gap-y-1">
+    <footer className="border-t border-forest/10 bg-forestDark px-4 py-2 text-[10px] text-cream/70 lg:px-6 lg:text-[11px]">
+      <div className="mx-auto flex max-w-screen-2xl flex-col items-center gap-y-1 text-center lg:flex-row lg:justify-between lg:text-left">
         <span>
           Made by{' '}
           <a

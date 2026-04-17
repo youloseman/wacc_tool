@@ -38,11 +38,13 @@ interface KpiCellProps {
 }
 function KpiCell({ label, value }: KpiCellProps) {
   return (
-    <div className="flex flex-1 flex-col items-start gap-1 px-4 py-2.5">
-      <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-stonePale">
+    <div className="flex flex-col items-start gap-0.5 px-3 py-2 lg:gap-1 lg:px-4 lg:py-2.5">
+      <span className="text-[8px] font-semibold uppercase tracking-[0.14em] text-stonePale lg:text-[9px]">
         {label}
       </span>
-      <span className="font-mono text-[18px] font-medium leading-none text-gold">{value}</span>
+      <span className="font-mono text-[14px] font-medium leading-none text-gold lg:text-[18px]">
+        {value}
+      </span>
     </div>
   );
 }
@@ -75,18 +77,18 @@ export function ResultTable({ result }: Props) {
   return (
     <div className="result-table overflow-hidden rounded-card border border-forest/10 bg-white shadow-sm">
       {/* Report header band — forest with subtle diagonal gold pattern. */}
-      <div className="result-band relative overflow-hidden bg-forest px-5 py-4 text-cream">
+      <div className="result-band relative overflow-hidden bg-forest px-3 py-3 text-cream lg:px-5 lg:py-4">
         <DiagPattern color="#C9A84C" opacity={0.06} />
-        <div className="relative z-10 flex items-start justify-between gap-4">
+        <div className="relative z-10 flex flex-col gap-1 lg:flex-row lg:items-start lg:justify-between lg:gap-4">
           <div className="min-w-0">
-            <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-cream/50">
+            <div className="text-[8px] font-semibold uppercase tracking-[0.18em] text-cream/50 lg:text-[9px]">
               WACC Analysis · {result.valuationDate}
             </div>
-            <h2 className="mt-1 truncate font-display text-[22px] italic leading-tight">
+            <h2 className="mt-0.5 truncate font-display text-[18px] italic leading-tight lg:mt-1 lg:text-[22px]">
               {result.companyName || 'Untitled Valuation'}
             </h2>
           </div>
-          <div className="flex flex-col items-end gap-0.5 whitespace-nowrap text-right text-[10px]">
+          <div className="flex gap-2 text-[9px] lg:flex-col lg:items-end lg:gap-0.5 lg:text-right lg:text-[10px]">
             <span className="font-mono text-cream">
               Post-tax · {displayCurrency} · Nominal
             </span>
@@ -98,15 +100,15 @@ export function ResultTable({ result }: Props) {
       </div>
 
       {/* KPI strip — bold gold monospace numbers flanking WACC range. */}
-      <div className="flex border-b border-forest/10 bg-cream divide-x divide-forest/10">
+      <div className="grid grid-cols-2 divide-x divide-forest/10 border-b border-forest/10 bg-cream lg:grid-cols-4">
         <KpiCell label="WACC · MIN" value={minPct} />
         <KpiCell label="WACC · MAX" value={maxPct} />
         <KpiCell label="Spread" value={spreadBps} />
         <KpiCell label="Mid-point" value={midPct} />
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-sm">
+      <div className="-mx-px overflow-x-auto">
+        <table className="w-full min-w-[640px] border-collapse text-xs lg:text-sm">
           <thead>
             <tr className="bg-forest text-cream">
               <th className="px-3 py-2 text-left text-[10px] font-semibold uppercase tracking-[0.12em]">

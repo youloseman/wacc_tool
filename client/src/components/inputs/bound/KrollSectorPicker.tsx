@@ -130,7 +130,7 @@ export function KrollSectorPicker({ value, onChange }: Props) {
               </button>
             )}
           </div>
-          <div className="max-h-72 overflow-auto">
+          <div className="max-h-[50vh] overflow-auto lg:max-h-72">
             {rows == null ? (
               <div className="px-2 py-2 text-[11px] text-stonePale">Loading…</div>
             ) : filtered.length === 0 ? (
@@ -146,14 +146,14 @@ export function KrollSectorPicker({ value, onChange }: Props) {
                       onChange(r.gicsCode);
                       setOpen(false);
                     }}
-                    className={`flex w-full items-center gap-2 px-2 py-1 text-left text-[11.5px] ${INDENT_BY_LEVEL[r.gicsLevel]} ${LEVEL_STYLES[r.gicsLevel]} ${isSelected ? 'bg-goldPale' : 'hover:bg-cream'}`}
+                    className={`flex w-full min-h-[44px] items-center gap-2 px-2 py-1.5 text-left text-[11.5px] sm:min-h-0 sm:py-1 ${INDENT_BY_LEVEL[r.gicsLevel]} ${LEVEL_STYLES[r.gicsLevel]} ${isSelected ? 'bg-goldPale' : 'hover:bg-cream'}`}
                   >
-                    <span className="w-16 shrink-0 font-mono text-[9.5px] text-stonePale">
+                    <span className="hidden w-16 shrink-0 font-mono text-[9.5px] text-stonePale sm:inline">
                       {r.gicsCode}
                     </span>
                     <span className="min-w-0 flex-1 truncate">{r.name}</span>
                     {r.betaTrend.length > 1 && (
-                      <BetaSparkline values={r.betaTrend} className="shrink-0" />
+                      <BetaSparkline values={r.betaTrend} className="hidden shrink-0 sm:inline-block" />
                     )}
                     {r.latestBeta != null && (
                       <span className="shrink-0 font-mono text-[10px] text-goldDark">
