@@ -6,7 +6,7 @@ export type CompanySize = 'large' | 'mid' | 'small' | 'micro';
 
 export type BetaSourceSingle = 'damodaran' | 'kroll' | 'comparables';
 
-export type DebtEquitySource = 'industry' | 'custom' | 'analogs';
+export type DebtEquitySource = 'industry' | 'kroll' | 'custom' | 'analogs';
 
 export type ErpSource = 'damodaran' | 'kroll' | 'custom';
 
@@ -57,6 +57,8 @@ export interface WACCBoundInputs {
    * then picks the nearest quarter ≤ valuationDate.
    */
   krollSectorGics: string | null;
+  /** Kroll GICS code for Capital Structure D/E. If null, falls back to krollSectorGics. */
+  krollCapStructGics: string | null;
 
   erpSource: ErpSource;
   customErp: number | null;

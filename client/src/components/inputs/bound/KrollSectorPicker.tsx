@@ -86,7 +86,6 @@ export function KrollSectorPicker({ value, onChange }: Props) {
       >
         {selected ? (
           <span className="flex items-center gap-2 truncate">
-            <span className="font-mono text-[10px] text-stonePale">{selected.gicsCode}</span>
             <span className="truncate">{selected.path}</span>
             {selected.betaTrend.length > 0 && (
               <BetaSparkline values={selected.betaTrend} className="shrink-0" />
@@ -148,16 +147,13 @@ export function KrollSectorPicker({ value, onChange }: Props) {
                     }}
                     className={`flex w-full min-h-[44px] items-center gap-2 px-2 py-1.5 text-left text-[11.5px] sm:min-h-0 sm:py-1 ${INDENT_BY_LEVEL[r.gicsLevel]} ${LEVEL_STYLES[r.gicsLevel]} ${isSelected ? 'bg-goldPale' : 'hover:bg-cream'}`}
                   >
-                    <span className="hidden w-16 shrink-0 font-mono text-[9.5px] text-stonePale sm:inline">
-                      {r.gicsCode}
-                    </span>
                     <span className="min-w-0 flex-1 truncate">{r.name}</span>
                     {r.betaTrend.length > 1 && (
                       <BetaSparkline values={r.betaTrend} className="hidden shrink-0 sm:inline-block" />
                     )}
                     {r.latestBeta != null && (
                       <span className="shrink-0 font-mono text-[10px] text-goldDark">
-                        βu {fmtBeta(r.latestBeta)}
+                        β {fmtBeta(r.latestBeta)}
                       </span>
                     )}
                     {r.latestDebtToEquity != null && (
@@ -165,9 +161,6 @@ export function KrollSectorPicker({ value, onChange }: Props) {
                         D/E {fmtPercent(r.latestDebtToEquity)}
                       </span>
                     )}
-                    <span className="shrink-0 text-[9.5px] text-stonePale">
-                      {r.quarterCount}Q
-                    </span>
                   </button>
                 );
               })

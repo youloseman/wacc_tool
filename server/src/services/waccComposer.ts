@@ -190,7 +190,22 @@ async function resolveBound(
   const ind = findIndustry(b.damodaranIndustry);
   let debtToEquity = ind?.deRatio ?? 0.35;
   let deSource = `Damodaran (${getIndustriesLastUpdated()})`;
-  if (b.deRatioSource === 'custom' && b.customDeRatio != null) {
+  if (b.deRatioSource === 'kroll') {
+    // Kroll D/E from time-series, nearest quarter ≤ valuationDate.
+    const krollGics = b.krollCapStructGics ?? b.krollSectorGics;
+    const canonical = findIndustry(b.damodaranIndustry)?.name ?? b.damodaranIndustry;
+    const lookup = lookupKrollBeta({
+      krollSector: krollGics,
+      damodaranIndustry: canonical,
+      valuationDate: shared.valuationDate,
+    });
+    if (lookup?.debtToEquity != null) {
+      debtToEquity = lookup.debtToEquity;
+      deSource = `Kroll ${lookup.industryName} (${lookup.quarterLabel})`;
+    } else {
+      deSource = `Kroll n/a → Damodaran (${getIndustriesLastUpdated()})`;
+    }
+  } else if (b.deRatioSource === 'custom' && b.customDeRatio != null) {
     debtToEquity = b.customDeRatio;
     deSource = 'Analyst input';
   } else if (b.deRatioSource === 'analogs' && b.analogTickers.trim()) {

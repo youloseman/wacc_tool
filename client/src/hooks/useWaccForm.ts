@@ -12,6 +12,7 @@ export const DEFAULT_BOUND: WACCBoundInputs = {
   betaSource: 'damodaran',
   comparableTickers: '',
   krollSectorGics: null,
+  krollCapStructGics: null,
   erpSource: 'damodaran',
   customErp: null,
   costOfDebtMethod: 'rating',
@@ -29,28 +30,29 @@ export const DEFAULT_BOUND: WACCBoundInputs = {
 
 export const INITIAL_INPUTS: WACCInputs = {
   companyName: 'Apple',
-  valuationDate: today(),
+  valuationDate: '2025-12-31',
   currency: 'USD',
   waccMethodology: 'hard_currency',
   countryHQ: 'United States',
   countryOperations: 'United States',
   companySize: 'large',
-  // MIN: Damodaran-based, Apple book D/E ~1.0, CRP=0 for US (standard practice).
+  // MIN: fully Damodaran (industry D/E + industry beta + Damodaran ERP). CRP=0 for US.
   minBound: {
     ...DEFAULT_BOUND,
-    deRatioSource: 'custom',
-    customDeRatio: 1.0,
+    deRatioSource: 'industry',
     betaSource: 'damodaran',
     erpSource: 'damodaran',
+    krollSectorGics: '4520',
     countryRiskPremiumOverride: 0,
   },
-  // MAX: Kroll-based with same Apple D/E, CRP=0 for US.
+  // MAX: fully Kroll (Kroll D/E + Kroll beta + Kroll ERP). Clean provider comparison.
   maxBound: {
     ...DEFAULT_BOUND,
-    deRatioSource: 'custom',
-    customDeRatio: 1.0,
+    deRatioSource: 'kroll',
     betaSource: 'kroll',
     erpSource: 'kroll',
+    krollSectorGics: '4520',
+    krollCapStructGics: '4520',
     countryRiskPremiumOverride: 0,
   },
 };

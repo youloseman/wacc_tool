@@ -3,6 +3,7 @@ import type { DebtEquitySource, WACCBoundInputs, WACCInputs } from '@shared/type
 import { BoundSection } from './BoundSection';
 import { RadioGroup } from '../fields/RadioGroup';
 import { ComparablePreview } from './ComparablePreview';
+import { KrollSectorPicker } from './KrollSectorPicker';
 import { fmtPercent } from '../../../utils/format';
 import { resolveBoundForUI } from '../../../utils/resolveBoundForUI';
 import { useMetadata } from '../../../context/MetadataContext';
@@ -18,13 +19,15 @@ interface Props {
 }
 
 const SOURCES: ReadonlyArray<{ value: DebtEquitySource; label: string }> = [
-  { value: 'industry', label: 'Industry average' },
+  { value: 'industry', label: 'Industry average (Damodaran)' },
+  { value: 'kroll', label: 'Industry average (Kroll)' },
   { value: 'custom', label: 'Custom input' },
   { value: 'analogs', label: 'Company analogs' },
 ];
 
 const BADGES: Record<DebtEquitySource, string> = {
-  industry: 'Industry avg',
+  industry: 'Damodaran',
+  kroll: 'Kroll',
   custom: 'Custom input',
   analogs: 'Company analogs',
 };
@@ -192,6 +195,12 @@ export function BoundCapitalStructure({
             </div>
           )}
         </div>
+      )}
+      {bound.deRatioSource === 'kroll' && (
+        <KrollSectorPicker
+          value={bound.krollCapStructGics ?? bound.krollSectorGics ?? null}
+          onChange={(v) => onUpdate('krollCapStructGics', v)}
+        />
       )}
       {bound.deRatioSource === 'analogs' && (
         <ComparablePreview

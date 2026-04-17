@@ -209,6 +209,7 @@ apiRouter.get('/kroll-sectors', (_req, res) => {
       latestQuarter: latest?.label ?? null,
       quarterCount: withBeta.length,
       betaTrend: withBeta.map((q) => q.unleveredBeta as number),
+      deTrend: withBeta.map((q) => q.debtToEquity as number),
     };
   });
   res.json({
