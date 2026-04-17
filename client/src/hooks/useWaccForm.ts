@@ -5,7 +5,7 @@ import { loadInitialState, saveToLocalStorage } from '../utils/sessionState';
 const today = (): string => new Date().toISOString().slice(0, 10);
 
 export const DEFAULT_BOUND: WACCBoundInputs = {
-  damodaranIndustry: 'Oil/Gas (Production and Exploration)',
+  damodaranIndustry: 'Semiconductor',
   deRatioSource: 'industry',
   customDeRatio: null,
   analogTickers: '',
@@ -17,7 +17,7 @@ export const DEFAULT_BOUND: WACCBoundInputs = {
   costOfDebtMethod: 'rating',
   ebit: null,
   interestExpense: null,
-  creditRating: 'A',
+  creditRating: 'AA',
   directCostOfDebt: null,
   taxRateSource: 'damodaran',
   customTaxRate: null,
@@ -28,16 +28,28 @@ export const DEFAULT_BOUND: WACCBoundInputs = {
 };
 
 export const INITIAL_INPUTS: WACCInputs = {
-  companyName: '',
+  companyName: 'NVIDIA',
   valuationDate: today(),
   currency: 'USD',
   waccMethodology: 'hard_currency',
   countryHQ: 'United States',
   countryOperations: 'United States',
   companySize: 'large',
-  minBound: { ...DEFAULT_BOUND },
-  // Default MAX diverges on beta source to illustrate a real range.
-  maxBound: { ...DEFAULT_BOUND, betaSource: 'kroll', erpSource: 'kroll' },
+  // MIN: conservative Damodaran-based, near-zero leverage (NVIDIA is virtually debt-free).
+  minBound: {
+    ...DEFAULT_BOUND,
+    deRatioSource: 'custom',
+    customDeRatio: 0.05,
+    betaSource: 'damodaran',
+    erpSource: 'damodaran',
+  },
+  // MAX: Kroll-based with industry-average D/E.
+  maxBound: {
+    ...DEFAULT_BOUND,
+    deRatioSource: 'industry',
+    betaSource: 'kroll',
+    erpSource: 'kroll',
+  },
 };
 
 export type BoundKey = 'minBound' | 'maxBound';

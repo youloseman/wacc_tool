@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Header } from './components/layout/Header';
+import { Footer } from './components/layout/Footer';
 import { Layout } from './components/layout/Layout';
 import { InputForm } from './components/inputs/InputForm';
 import { ResultTable } from './components/results/ResultTable';
@@ -91,6 +92,7 @@ export function App() {
           </div>
         }
       />
+      <Footer />
       <ToastStack messages={toasts.messages} onDismiss={toasts.dismiss} />
     </div>
   );

@@ -49,19 +49,19 @@ function deBadge(c: CompanyData): DeBadge | null {
       return {
         label: 'BS D/E',
         cls: 'bg-sage/15 text-sage',
-        tooltip: `D/E from balance sheet (Total Debt / Total Equity)${dateSuffix}.${c.notes ? ' ' + c.notes : ''}`,
+        tooltip: `D/E calculated from balance sheet: Total Debt / Total Stockholders' Equity${dateSuffix}.${c.notes ? ' ' + c.notes : ''}`,
       };
     case 'market-cap':
       return {
         label: 'Mkt D/E',
         cls: 'bg-goldPale text-goldDark',
-        tooltip: `Book equity unavailable or negative — D/E = Total Debt / Market Cap${dateSuffix}.${c.notes ? ' ' + c.notes : ''}`,
+        tooltip: `Book equity is negative. Using market capitalization instead of book equity for D/E calculation${dateSuffix}.${c.notes ? ' ' + c.notes : ''}`,
       };
     case 'industry-proxy':
       return {
         label: 'proxy D/E',
         cls: 'bg-red-100 text-red-700',
-        tooltip: c.notes ?? 'D/E proxied from Damodaran industry average.',
+        tooltip: 'International fundamental data unavailable on free API tier. Using Damodaran industry average as proxy.',
       };
   }
 }

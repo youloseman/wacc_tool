@@ -34,7 +34,12 @@ export function BoundBeta({ shared, bound, onUpdate, diff, persistPrefix }: Prop
   const resolved = resolveBoundForUI(shared, bound, meta);
   const industry = meta.findIndustry(bound.damodaranIndustry);
   const krollMissing = bound.betaSource === 'kroll' && (industry?.krollBeta ?? null) == null;
-  const summary = `βu: ${fmtBeta(resolved.unleveredBeta)}${krollMissing ? ' (Kroll n/a)' : ''}`;
+  const krollFallbackTooltip =
+    'Kroll does not have a Full-Information Beta for this industry. Falling back to Damodaran unlevered beta.';
+  const summaryText = `βu: ${fmtBeta(resolved.unleveredBeta)}`;
+  const summary = krollMissing
+    ? `${summaryText} (Kroll n/a)`
+    : summaryText;
   return (
     <BoundSection
       title="Beta"
@@ -48,6 +53,14 @@ export function BoundBeta({ shared, bound, onUpdate, diff, persistPrefix }: Prop
         onChange={(v) => onUpdate('betaSource', v)}
         options={SOURCES}
       />
+      {krollMissing && (
+        <div
+          className="rounded bg-amber-50 px-2 py-1 text-[11px] text-amber-700"
+          title={krollFallbackTooltip}
+        >
+          ⚠ Kroll n/a for this industry — using Damodaran βu. ⓘ
+        </div>
+      )}
       {bound.betaSource === 'damodaran' && (
         <DamodaranIndustryPicker
           value={bound.damodaranIndustry}

@@ -104,7 +104,20 @@ export function GeneralParametersSection({ inputs, update }: Props) {
         {rf.loading
           ? 'Loading current rates…'
           : rf.data
-            ? `Rf (${effectiveCurrency}, 10Y): ${fmtPercent(rf.data.rate)} as of ${rf.data.date} · ${rf.data.source}${rf.data.isStatic ? ' · static snapshot' : ''}${rf.data.fallback ? ' (fallback)' : ''}`
+            ? (
+              <>
+                {`Rf (${effectiveCurrency}, 10Y): ${fmtPercent(rf.data.rate)} as of ${rf.data.date} · ${rf.data.source}`}
+                {rf.data.isStatic && (
+                  <span
+                    className="ml-1 cursor-help text-stonePale"
+                    title="Local 10Y government bond yield — manually updated snapshot. Rates may not reflect current market conditions."
+                  >
+                    · static snapshot ⓘ
+                  </span>
+                )}
+                {rf.data.fallback && ' (fallback)'}
+              </>
+            )
             : 'Rf unavailable'}
       </div>
 
