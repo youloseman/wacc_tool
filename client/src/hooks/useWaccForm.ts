@@ -5,7 +5,7 @@ import { loadInitialState, saveToLocalStorage } from '../utils/sessionState';
 const today = (): string => new Date().toISOString().slice(0, 10);
 
 export const DEFAULT_BOUND: WACCBoundInputs = {
-  damodaranIndustry: 'Semiconductor',
+  damodaranIndustry: 'Computers/Peripherals',
   deRatioSource: 'industry',
   customDeRatio: null,
   analogTickers: '',
@@ -28,25 +28,26 @@ export const DEFAULT_BOUND: WACCBoundInputs = {
 };
 
 export const INITIAL_INPUTS: WACCInputs = {
-  companyName: 'NVIDIA',
+  companyName: 'Apple',
   valuationDate: today(),
   currency: 'USD',
   waccMethodology: 'hard_currency',
   countryHQ: 'United States',
   countryOperations: 'United States',
   companySize: 'large',
-  // MIN: conservative Damodaran-based, near-zero leverage (NVIDIA is virtually debt-free).
+  // MIN: Damodaran-based, Apple book D/E ~1.0 (heavy buybacks reduce book equity).
   minBound: {
     ...DEFAULT_BOUND,
     deRatioSource: 'custom',
-    customDeRatio: 0.05,
+    customDeRatio: 1.0,
     betaSource: 'damodaran',
     erpSource: 'damodaran',
   },
-  // MAX: Kroll-based with industry-average D/E.
+  // MAX: Kroll-based with same Apple D/E (industry avg is 4.6% — misleadingly low for Apple).
   maxBound: {
     ...DEFAULT_BOUND,
-    deRatioSource: 'industry',
+    deRatioSource: 'custom',
+    customDeRatio: 1.0,
     betaSource: 'kroll',
     erpSource: 'kroll',
   },
