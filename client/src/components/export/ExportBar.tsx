@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FileSpreadsheet, FileText, RotateCcw, Share2 } from 'lucide-react';
+import { Check, FileSpreadsheet, FileText, RotateCcw, Share2 } from 'lucide-react';
 import type { WACCInputs, WACCResult } from '@shared/types';
 import { exportWACCToExcel, type ComparableCompany } from '../../utils/excelExport';
 import { exportWACCToPDF } from '../../utils/pdfExport';
@@ -43,6 +43,7 @@ async function fetchComparables(inputs: WACCInputs): Promise<ComparableCompany[]
 export function ExportBar({ result, inputs, onReset, onShareNotice }: Props) {
   const [excelBusy, setExcelBusy] = useState(false);
   const [shareModalUrl, setShareModalUrl] = useState<string | null>(null);
+  const [shareCopied, setShareCopied] = useState(false);
   const exportDisabled = !result;
 
   const onExcel = async () => {
@@ -65,8 +66,13 @@ export function ExportBar({ result, inputs, onReset, onShareNotice }: Props) {
     try {
       if (!navigator.clipboard?.writeText) throw new Error('clipboard-unsupported');
       await navigator.clipboard.writeText(url);
-      const extra = url.length > 4000 ? ' (link is long; may not fit some clients)' : '';
-      onShareNotice(`Link copied.${extra}`, url.length > 4000 ? 'warning' : 'success');
+      // Inline visual feedback: button briefly swaps to "COPIED!" + green. Simpler and more
+      // legible than a toast that competes with other UI. Reverts after 2s.
+      setShareCopied(true);
+      setTimeout(() => setShareCopied(false), 2000);
+      if (url.length > 4000) {
+        onShareNotice('Link is long — may not fit some email clients.', 'warning');
+      }
     } catch (err) {
       // eslint-disable-next-line no-console
       console.warn('clipboard.writeText failed, opening share modal', err);
@@ -94,10 +100,15 @@ export function ExportBar({ result, inputs, onReset, onShareNotice }: Props) {
         type="button"
         onClick={onShare}
         title="Copy shareable link with current inputs"
-        className="flex items-center gap-1.5 rounded border-[1.5px] border-forest/25 bg-white px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-forest transition-colors hover:border-gold hover:text-gold lg:gap-2 lg:px-3 lg:py-1.5 lg:text-[12px]"
+        className={`flex items-center gap-1.5 rounded border-[1.5px] px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] transition-colors lg:gap-2 lg:px-3 lg:py-1.5 lg:text-[12px] ${
+          shareCopied
+            ? 'border-emerald-500 bg-emerald-500 text-white'
+            : 'border-forest/25 bg-white text-forest hover:border-gold hover:text-gold'
+        }`}
       >
-        <Share2 size={14} />
-        <span className="hidden lg:inline">Share</span>
+        {shareCopied ? <Check size={14} /> : <Share2 size={14} />}
+        <span className="hidden lg:inline">{shareCopied ? 'Copied!' : 'Share'}</span>
+        {shareCopied && <span className="lg:hidden">✓</span>}
       </button>
       <button
         type="button"
