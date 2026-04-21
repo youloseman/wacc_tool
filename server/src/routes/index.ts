@@ -9,7 +9,9 @@ import {
   getDamodaranCountries,
   getDamodaranTaxRates,
   getIndustriesLastUpdated,
+  getIndustrySnapshots,
   getCountryRiskLastUpdated,
+  getCountryRiskSnapshots,
   getMatureMarketERP,
   findIndustry,
   findCountryRisk,
@@ -221,6 +223,10 @@ apiRouter.get('/metadata', (_req, res) => {
     industriesLastUpdated: getIndustriesLastUpdated(),
     countriesLastUpdated: getCountryRiskLastUpdated(),
     krollLastUpdated: getKrollLastUpdated(),
+    // Historical snapshot dates — used by UI tooltips to show which snapshot got picked
+    // for the current valuation date.
+    damodaranIndustrySnapshots: getIndustrySnapshots(),
+    damodaranCountrySnapshots: getCountryRiskSnapshots(),
     // Legacy shape expected by MetadataContext: country → flat rate snapshot with asOfDate.
     emRates: Object.fromEntries(
       Object.entries(em.countries).map(([country, entry]) => {

@@ -19,8 +19,11 @@ import { getEMRate } from './emRates.ts';
 import { getCreditSpread } from './creditSpread.ts';
 import {
   findCountryRisk,
+  findCountryRiskForDate,
   findCountryTax,
+  findCountryTaxForDate,
   findIndustry,
+  findIndustryForDate,
   getMatureMarketERP,
   getIndustriesLastUpdated,
   getCountryRiskLastUpdated,
@@ -125,6 +128,15 @@ async function resolveUnleveredBeta(
   krollSectorGics: string | null,
 ): Promise<{ beta: number; label: string; comparable?: ComparableBetaResult }> {
   if (source === 'damodaran') {
+    // Snapshot-aware: pick the Damodaran industry row from the snapshot on or before valuationDate.
+    const snap = findIndustryForDate(industry, valuationDate, 'US');
+    if (snap) {
+      return {
+        beta: snap.industry.unleveredBeta,
+        label: `Damodaran (${snap.asOf} snapshot)`,
+      };
+    }
+    // No historical match — fall back to latest list (covers Europe-only industry names etc).
     const ind = findIndustry(industry);
     return {
       beta: ind?.unleveredBeta ?? 0.9,
@@ -187,10 +199,13 @@ async function resolveBound(
   const isLocal = shared.waccMethodology === 'local_currency' && rf.isStatic === true;
 
   // D/E — the Damodaran industry is per-bound now, so MIN and MAX can target different
-  // industry classifications independently.
-  const ind = findIndustry(b.damodaranIndustry);
+  // industry classifications independently. Snapshot-aware: pick the D/E from the Damodaran
+  // snapshot on or before the valuation date.
+  const industrySnap = findIndustryForDate(b.damodaranIndustry, shared.valuationDate, 'US');
+  const ind = industrySnap?.industry ?? findIndustry(b.damodaranIndustry);
+  const industryAsOf = industrySnap?.asOf ?? getIndustriesLastUpdated();
   let debtToEquity = ind?.deRatio ?? 0.35;
-  let deSource = `Damodaran (${getIndustriesLastUpdated()})`;
+  let deSource = `Damodaran (${industryAsOf} snapshot)`;
   if (b.deRatioSource === 'kroll') {
     // Kroll D/E from time-series, nearest quarter ≤ valuationDate.
     const krollGics = b.krollCapStructGics ?? b.krollSectorGics;
@@ -227,9 +242,11 @@ async function resolveBound(
     }
   }
 
-  // Tax (needed before beta unlever in some cases, but we use it only for relever/cod)
-  let taxRate = findCountryTax(shared.countryOperations)?.marginalTaxRate ?? 0.25;
-  let taxSource = `Damodaran (${getIndustriesLastUpdated()})`;
+  // Tax (needed before beta unlever in some cases, but we use it only for relever/cod).
+  // Snapshot-aware: pick the Damodaran corporate-tax row from the snapshot ≤ valuationDate.
+  const taxSnap = findCountryTaxForDate(shared.countryOperations, shared.valuationDate);
+  let taxRate = taxSnap?.tax.marginalTaxRate ?? findCountryTax(shared.countryOperations)?.marginalTaxRate ?? 0.25;
+  let taxSource = taxSnap ? `Damodaran (${taxSnap.asOf} snapshot)` : `Damodaran (${getIndustriesLastUpdated()})`;
   if (b.taxRateSource === 'custom' && b.customTaxRate != null) {
     taxRate = b.customTaxRate;
     taxSource = 'Analyst input';
@@ -246,9 +263,13 @@ async function resolveBound(
     b.krollSectorGics ?? null,
   );
 
-  // ERP
-  let equityRiskPremium = getMatureMarketERP();
-  let erpSourceLabel = `Damodaran (${getCountryRiskLastUpdated()})`;
+  // ERP — snapshot-aware mature-market ERP pulled from the Damodaran country-risk snapshot
+  // on or before the valuation date.
+  const crpSnap = findCountryRiskForDate(shared.countryOperations, shared.valuationDate);
+  let equityRiskPremium = crpSnap?.matureMarketERP ?? getMatureMarketERP();
+  let erpSourceLabel = crpSnap
+    ? `Damodaran (${crpSnap.asOf} snapshot)`
+    : `Damodaran (${getCountryRiskLastUpdated()})`;
   if (b.erpSource === 'kroll') {
     equityRiskPremium = getKrollERP();
     erpSourceLabel = `Kroll (${getKrollLastUpdated()})`;
@@ -296,8 +317,13 @@ async function resolveBound(
     countryRiskPremium = 0;
     countrySource = 'N/A (embedded in Rf)';
   } else {
-    countryRiskPremium = findCountryRisk(shared.countryOperations)?.countryRiskPremium ?? 0;
-    countrySource = `Damodaran (${getCountryRiskLastUpdated()})`;
+    // Snapshot-aware CRP: pull from the country-risk snapshot ≤ valuationDate.
+    countryRiskPremium = crpSnap?.country.countryRiskPremium
+      ?? findCountryRisk(shared.countryOperations)?.countryRiskPremium
+      ?? 0;
+    countrySource = crpSnap
+      ? `Damodaran (${crpSnap.asOf} snapshot)`
+      : `Damodaran (${getCountryRiskLastUpdated()})`;
     if (b.countryRiskPremiumOverride != null) {
       countryRiskPremium = b.countryRiskPremiumOverride;
       countrySource = 'Analyst input';
