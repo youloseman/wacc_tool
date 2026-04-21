@@ -914,6 +914,11 @@
       "effectiveTaxRate": 0.25
     },
     {
+      "name": "Russia",
+      "marginalTaxRate": 0.2,
+      "effectiveTaxRate": 0.2
+    },
+    {
       "name": "Russian Federation",
       "marginalTaxRate": 0.2,
       "effectiveTaxRate": 0.2
@@ -1175,8 +1180,8 @@
     },
     {
       "name": "United Kingdom",
-      "marginalTaxRate": 0.25,
-      "effectiveTaxRate": 0.25
+      "marginalTaxRate": 0.19,
+      "effectiveTaxRate": 0.19
     },
     {
       "name": "United Kingdom of Great Britain and Northern Ireland",
@@ -1190,8 +1195,8 @@
     },
     {
       "name": "United States",
-      "marginalTaxRate": 0.25,
-      "effectiveTaxRate": 0.25
+      "marginalTaxRate": 0.2589,
+      "effectiveTaxRate": 0.2577
     },
     {
       "name": "United States of America",

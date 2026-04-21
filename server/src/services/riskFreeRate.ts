@@ -101,7 +101,11 @@ export async function getRiskFreeRate(
     };
   }
 
-  const cacheKey = `rf:${series.id}`;
+  // Time-dependent cache key: separate entry per (series, valuationDate) so historical
+  // valuations don't poison the "latest" cache and vice versa.
+  const today = new Date().toISOString().slice(0, 10);
+  const anchorDate = valuationDate && valuationDate < today ? valuationDate : 'latest';
+  const cacheKey = `rf:${series.id}:${anchorDate}`;
   const cached = cache.get<RiskFreeRateResult>(cacheKey);
   if (cached) return cached;
 
@@ -118,7 +122,11 @@ export async function getRiskFreeRate(
   }
 
   try {
-    const url = `https://api.stlouisfed.org/fred/series/observations?series_id=${series.id}&api_key=${apiKey}&file_type=json&sort_order=desc&limit=10`;
+    // When valuationDate is given and in the past, snap the FRED query window to end AT that
+    // date so we return the observation that was actually in effect at valuation time.
+    const endParam =
+      anchorDate === 'latest' ? '' : `&observation_end=${anchorDate}`;
+    const url = `https://api.stlouisfed.org/fred/series/observations?series_id=${series.id}&api_key=${apiKey}&file_type=json&sort_order=desc&limit=10${endParam}`;
     const res = await fetch(url);
     if (!res.ok) throw new Error(`FRED ${res.status}`);
     const json = (await res.json()) as FredResponse;

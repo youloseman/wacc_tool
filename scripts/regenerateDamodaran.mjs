@@ -255,6 +255,24 @@ if (russiaTaxKey) {
   taxMap.set('russia', { name: 'Russia', marginalTaxRate: 0.25, effectiveTaxRate: 0.25 });
 }
 
+// Canonical-name aliasing: Damodaran's two source files disagree on country naming
+// ("United States" in country-risk vs "United States of America" in tax file). The app's
+// country dropdown uses the short form. Overwrite the short-form entry with the precise
+// values from the long-form tax entry so lookups don't fall back to rounded numbers.
+const countryAliases = [
+  ['United States of America', 'United States'],
+  ['United Kingdom of Great Britain and Northern Ireland', 'United Kingdom'],
+  ['Russian Federation', 'Russia'],
+  ['Korea, Republic of', 'South Korea'],
+];
+for (const [long, short] of countryAliases) {
+  const longEntry = taxMap.get(long.toLowerCase());
+  if (longEntry) {
+    // Preserve the short name as the canonical one users see.
+    taxMap.set(short.toLowerCase(), { ...longEntry, name: short });
+  }
+}
+
 const taxes = Array.from(taxMap.values()).sort((a, b) => a.name.localeCompare(b.name));
 fs.writeFileSync(
   path.join(OUT, 'damodaran-tax-rates.json'),

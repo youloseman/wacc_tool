@@ -1037,6 +1037,7 @@
     {
       "name": "Oil/Gas (Integrated)",
       "aliases": [
+        "Oil/Gas",
         "Integrated Oil"
       ],
       "region": "US",
@@ -1058,7 +1059,6 @@
     {
       "name": "Oil/Gas (Production and Exploration)",
       "aliases": [
-        "Oil/Gas",
         "Oil/Gas E&P",
         "E&P"
       ],
