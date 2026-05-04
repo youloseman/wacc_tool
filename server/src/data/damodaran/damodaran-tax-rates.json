@@ -823,16 +823,6 @@
           "effectiveTaxRate": 0.25
         },
         {
-          "name": "Russia",
-          "marginalTaxRate": 0.2,
-          "effectiveTaxRate": 0.2
-        },
-        {
-          "name": "Russian Federation",
-          "marginalTaxRate": 0.2,
-          "effectiveTaxRate": 0.2
-        },
-        {
           "name": "Rwanda",
           "marginalTaxRate": 0.3,
           "effectiveTaxRate": 0.3
@@ -1972,16 +1962,6 @@
           "name": "Russia",
           "marginalTaxRate": 0.25,
           "effectiveTaxRate": 0.25
-        },
-        {
-          "name": "Russia",
-          "marginalTaxRate": 0.2,
-          "effectiveTaxRate": 0.2
-        },
-        {
-          "name": "Russian Federation",
-          "marginalTaxRate": 0.2,
-          "effectiveTaxRate": 0.2
         },
         {
           "name": "Rwanda",
